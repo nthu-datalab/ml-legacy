@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CS565600 Deep Learning</title>
+  <meta name="Description" content="Fundamentals of machine learning, deep learning, and AI.">
+  <meta name="author" content="Shan-Hung Wu">
+
+  <!-- Facebook Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CS565600 Deep Learning">
+  <meta property="og:title" content="CS565600 Deep Learning" />
+  <meta property="og:url" content="https://nthu-datalab.github.io/ml/index.html" />
+  <meta property="og:description" content="Fundamentals of machine learning, deep learning, and AI." />
+  <meta property="og:image" content="https://nthu-datalab.github.io/ml/images/og-image.jpg" />
+
+  <link rel="shortcut icon" href="images/nthu.png" />
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="./css/main.css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#lsml-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+        <a id="nav~~shwu" class="navbar-brand" href="http://www.cs.nthu.edu.tw/~shwu/">Shan-Hung Wu</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="lsml-navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a id="nav~~description" href="#description">Description</a>
+          </li>
+          <li>
+            <a id="nav~~announcement" href="#announcement">Announcement</a>
+          </li>
+          <li class="dropdown">
+            <a id="nav~~curriculum" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Curriculum <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a id="nav~~lecture01" href="#lecture01" alt="">01. Introduction</a></li>
+              <li><a id="nav~~lecture0204" href="#lecture02" alt="">02-04. Math Reviews</a></li>
+              <!-- <li><a id="nav~~lecture02" href="#lecture02" alt="">02. Linear Algebra</a></li>
+                            <li><a id="nav~~lecture03" href="#lecture03" alt="">03. Probability &amp; Information Theory</a></li>
+                            <li><a id="nav~~lecture04" href="#lecture04" alt="">04. Numerical Optimization</a></li> -->
+              <li class="disabled"><a id="nav~~lecture0508" href="#lecture05" alt="">05-08. Classic Machine Learning</a></li>
+              <!-- <li><a id="nav~~lecture05" href="#lecture05" alt="">05. Learning Theory &amp; Regularization</a></li>
+                            <li><a id="nav~~lecture06" href="#lecture06" alt="">06. Probabilistic Models</a></li>
+                            <li><a id="nav~~lecture07" href="#lecture07" alt="">07. Non-Parametric Methods &amp; SVMs</a></li>
+                            <li><a id="nav~~lecture08" href="#lecture08" alt="">08. Cross Validation &amp; Ensembling</a></li> -->
+              <li class="disabled"><a id="nav~~contest01" href="#contest01" alt="">Contest: What's Next to Say?</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="disabled"><a id="nav~~lecture09" href="#lecture09" alt="">09. Large-Scale Machine Learning</a></li>
+              <li class="disabled"><a id="nav~~lecture10" href="#lecture10" alt="">10. Neural Networks: Design</a></li>
+              <li class="disabled"><a id="nav~~lecture11" href="#lecture11" alt="">11. Neural Networks: Optimization &amp; Regularization</a></li>
+              <li class="disabled"><a id="nav~~lecture12" href="#lecture12" alt="">12. Convolutional Neural Networks</a></li>
+              <li class="disabled"><a id="nav~~contest02" href="#contest02" alt="">Contest: Image Object Detection &amp; Localization</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="disabled"><a id="nav~~lecture13" href="#lecture13" alt="">13. Recurrent Neural Networks</a></li>
+              <li class="disabled"><a id="nav~~contest03" href="#contest03" alt="">Contest: Image Captioning</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="disabled"><a id="nav~~lecture14" href="#lecture14" alt="">14. Unsupervised Learning &amp; GAN</a></li>
+              <li class="disabled"><a id="nav~~lecture15" href="#lecture15" alt="">15. Semisupervised &amp; Transfer Learning</a></li>
+              <li class="disabled"><a id="nav~~contest04" href="#contest04" alt="">Contest: Reversed Image Captioning</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="disabled"><a id="nav~~lecture16" href="#lecture16" alt="">16. Reinforcement Learning</a></li>
+              <li class="disabled"><a id="nav~~lecture17" href="#lecture17" alt="">17. Deep Reinforcement Learning</a></li>
+              <li class="disabled"><a id="nav~~contest05" href="#contest05" alt="">Contest: U Draw I Draw</a></li>
+            </ul>
+          </li>
+          <li>
+            <a id="nav~~resources" href="#resources">Resources</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
+
+  <!-- Full width image header with portrait -->
+  <header class="header image-bg-header">
+    <div class="header-content header-text">
+      <h2>CS565600 Deep Learning</h2>
+      <h4>Fundamentals of machine learning, deep learning, and AI.</h4>
+    </div>
+  </header>
+
+  <!-- Content Sections -->
+
+  <section id="description">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+          <h1 class="section-heading">Description</h1>
+          <p>This class introduces the concepts and practices of deep learning. The course consists of three parts. In the first part, we give a quick introduction of classical machine learning and review some key concepts required to understand deep learning.
+            In the second part, we discuss how deep learning differs from classical machine learning and explain why it is effective in dealing with complex problems such as the image and natural language processing. Various CNN and RNN models will be
+            covered. In the third part, we introduce the deep reinforcement learning and its applications.</p>
+          <p>This course also gives coding labs. We will use Python 3 as the main programming language throughout the course. Some popular machine learning libraries such as Scikit-learn and Tensorflow will be used and explained in detials.</p>
+          <p class="text-right">
+            <a id="lecture03~~video" target="_blank" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRf0EIuXt6lpGPw3AKppqiBTd_H5Ug0G-48COzxx_LU44j7sHz644q4KvlnaMHtTCgvYgl3csYR9YJy/pubhtml?gid=0&single=true&headers=false&chrome=false" class="btn btn-success"><span class="glyphicon glyphicon-calendar"></span> Syllabus (Tentative)</a>
+          </p>
+          <h4>Instructor</h4>
+          <div class="float-container">
+            <div class="float-item">
+              <img class="img-portrait" src="./images/portrait-2011-square.jpg" alt="">
+              <p class="text-center"><a id="description~~shwu" href="http://www.cs.nthu.edu.tw/~shwu/" target="_blank">Shan-Hung Wu<br/>吳尚鴻</a></p>
+            </div>
+            <br class="clearfloat">
+          </div>
+          <!-- float-container -->
+
+          <h4>Teaching Assistants</h4>
+          <div class="float-container">
+            <div class="float-item">
+              <img class="img-portrait" src="images/ta/rdolor.jpg" alt="">
+              <p class="text-center"><a id="description~~rdolor" href="mailto:rdolor@datalab.cs.nthu.edu.tw">Rosalie J. Dolor<br/>羅莎莉*</a>
+              </p>
+            </div>
+            <div class="float-item">
+              <img class="img-portrait" src="images/ta/zxweng.jpg" alt="">
+              <p class="text-center"><a id="description~~zxweng" href="mailto:zxweng@datalab.cs.nthu.edu.tw">Zheng-Xin Weng<br/>翁正欣</a>
+              </p>
+            </div>
+            <div class="float-item">
+              <img class="img-portrait" src="images/ta/yhwu.jpg" alt="">
+              <p class="text-center"><a id="description~~yhwu" href="mailto:yhwu@datalab.cs.nthu.edu.tww">Yi-Hsuan Wu<br/>吳奕萱</a>
+              </p>
+            </div>
+            <div class="float-item">
+              <img class="img-portrait" src="images/ta/wdchen.jpg" alt="">
+              <p class="text-center"><a id="description~~wdchen" href="mailto:wdchen@datalab.cs.nthu.edu.tw">Wei-Da Chen<br/>陳韋達</a>
+              </p>
+            </div>
+            <div class="float-item">
+              <img class="img-portrait" src="images/ta/hcchu.jpg" alt="">
+              <p class="text-center"><a id="teaching~~hcchu" href="mailto:hcchu@datalab.cs.nthu.edu.tw">Hsin-Chi Chu<br/>朱欣祈</a>
+              </p>
+            </div>
+            <br class="clearfloat">
+          </div>
+          <!-- float-container -->
+        </div>
+      </div>
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-sm-6 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
+          <h4>Time &amp; Location</h4>
+          <ul>
+            <li>Tue. 3:30-5:20pm at Delta B1</li>
+            <li>Thu. 3:30-4:20pm at EECS B1</li>
+            <li>Office hour: Wed. 3-5pm at Delta 723/724</li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-5 col-lg-4">
+          <h4>Grading Policy</h4>
+          <ul>
+            <li>Competitions (x5): 75%</li>
+            <li>Lab Quiz: 25%</li>
+          </ul>
+        </div>
+      </div>
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+          <h4>Prerequisits</h4>
+          <p>This course is intended for senior undergraduate and junior graduate students who understand
+            <ul>
+              <li>Computer Programming (Python),</li>
+              <li>Calculus,</li>
+              <li>Linear Algebra, and</li>
+              <li>Probability.</li>
+            </ul>
+            Although not required, background knowledge about scientific computing and classic machine learning will be helpful.
+          </p>
+        </div>
+      </div><!-- /.row -->
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div id="announcement" class="row anchor">
+        <div class="alert alert-success col-sm-offset-0 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+          <h1 class="section-heading">Announcement</h1>
+          <ul>
+            <!-- 5 most recent announcement -->
+            <!-- <li>
+              <p>2017/09/19 - <a id="announcement~~contest01" href="#contest01" alt="">Competition 01</a>: notebook announced</p>
+            </li> -->
+            <li>
+              <p>2017/09/19 - <a id="announcement~~lecture02" href="#lecture02" alt="">Lecture 02-04 Math Reviews</a>: videos &amp; slides announced</p>
+            </li>
+            <li>
+              <p>2017/09/14 - <a id="announcement~~lecture01" href="#lecture01" alt="">Lab 01 Python 101</a>: notebook announced</p>
+            </li>
+            <li>
+              <p>2017/09/12 - <a id="announcement~~lecture01" href="#lecture01" alt="">Lecture 01 Introduction</a>: slides and syllabus announced</p>
+            </li>
+          </ul>
+          <div id="announcement-more" class="collapse">
+            <ul>
+              <!-- Put the rest here -->
+            </ul>
+          </div>
+          <p class="text-right">
+            <button id="announcement~~more" class="btn btn-success" data-toggle="collapse" data-target="#announcement-more"><span class="glyphicon glyphicon-list"></span> More</button>
+          </p>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </section>
+
+  <section id="curriculum">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+          <h1 class="section-heading">Curriculum</h1>
+          <!-- <p>The class was offered in Fall 2016 and has ended. However, we will continue updating the materials.</p> -->
+          <p>If you have any feedback, feel free to contact: <span class="text-primary">shwu [AT] cs.nthu.edu.tw</span></p>
+
+          <h4 id="lecture01" class="anchor">Lecture 01</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Introduction</h4>
+            <blockquote>What's ML? | How DL Differs from Classic ML? | About This Courses | FAQ</blockquote>
+            <p class="text-right">
+              <a id="lecture01~~slides" href="slides/01_Introduction.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+              <a id="lecture01~~notation" href="slides/Notation.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Notation</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span> Scientific Python 101</h4>
+            <blockquote>This lab guides you through the setup of scientific Python environment and provides useful references for self-reading.</blockquote>
+            <p class="text-right">
+              <a id="lecture01~~lab" href="labs/01_Scientific-Python-101/01_Scientific-Python-101.html" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+          </div>
+
+          <h4 id="lecture02" class="anchor">Lecture 02</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Linear Algebra</h4>
+            <blockquote>Span &amp; Linear Dependence | Norms | Eigendecomposition | Singular Value Decomposition | Traces | Determinant</blockquote>
+            <p class="text-right">
+              <a id="lecture02~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDlNoXHK5qKtuNRVajJwt-Xy" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture02~~slides" href="slides/02_Linear-Algebra.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span> Data Exploration &amp; PCA</h4>
+            <blockquote>This lab guides you through the process of Exploratory Data Analysis (EDA) and discuss how you can leverage the Principle Component Analysis (PCA) to visualize and understand high-dimensional data.</blockquote>
+            <p class="text-right">
+              <a id="lecture02~~lab" href="labs/02_EDA_PCA/02_EDA_PCA.html" class="btn btn-primary disabled"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+          </div>
+
+          <h4 id="lecture03" class="anchor">Lecture 03</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span>  Probability &amp; Information Theory</h4>
+            <blockquote>Random Variables &amp; Probability Distributions | Multivariate &amp; Derived Random Variables | Bayes’ Rule &amp; Statistics | Principal Components Analysis | Information Theory | Decision Trees &amp; Random Forest</blockquote>
+            <p class="text-right">
+              <a id="lecture03~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDnh67UxNT3I3ROgvmL_XfIV" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture03~~slides" href="slides/03_Probability_Info-Theory.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span>  Decision Trees &amp; Random Forest</h4>
+            <blockquote>In this lab, we will apply the Decision Tree and Random Forest algorithms to the classification and dimension reduction problems using the Wine dataset.</blockquote>
+            <p class="text-right">
+              <a id="lecture02~~lab" href="labs/03_Decision-Trees_Random-Forest/03_Decision-Tree_Random-Forest.html" class="btn btn-primary disabled"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+          </div>
+
+          <h4 id="lecture04" class="anchor">Lecture 04</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Numerical Optimization</h4>
+            <blockquote>Numerical Computation | Optimization Problems | Unconstrained Optimization | Stochastic Gradient Descent | Perceptron | Adaline | Constrained Optimization | Linear &amp; Polynomial Regression | Duality</blockquote>
+            <p class="text-right">
+              <a id="lecture04~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDlk2DvizFMgIRRD-5N7Y4kx" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture04~~slides" href="slides/04_Numerical-Optimization.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span> Perceptron &amp; Adaline</h4>
+            <blockquote>In this lab, we will guide you through the implementation of Perceptron and Adaline, two of the first machine learning algorithms for the classification problem. We will also discuss how to train these models using the optimization techniques.</blockquote>
+            <p class="text-right">
+              <a id="lecture04~~lab1" href="labs/04-1_Perceptron_Adaline/04-1_Perceptron_Adaline.html" class="btn btn-primary disabled"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span> Regression</h4>
+            <blockquote>This lab guides you through the linear and polynomial regression using the Housing dataset. We will also extend the Decision Tree and Random Forest classifiers to solve the regression problem.</blockquote>
+            <p class="text-right">
+              <a id="lecture04~~lab2" href="labs/04-2_Regression/04-2_Regression.html" class="btn btn-primary disabled"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+          </div>
+
+          <!-- <h4 id="lecture05" class="anchor">Lecture 05</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Learning Theory &amp; Regularization</h4>
+            <blockquote>Point Estimation | Bias &amp; Variance | Consistency | Decomposing Generalization Error | Weight Decay | Validation</blockquote>
+            <p class="text-right">
+              <a id="lecture05~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDktQfCE0EV37QlBL6RcKE1k" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture05~~slides" href="slides/05_Learning-Theory_Regularization.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span> Regularization</h4>
+            <blockquote>In this lab, we will guide you through some common regularization techniques such as weight decay, sparse weight, and validation.</blockquote>
+            <p class="text-right">
+              <a id="lecture05~~lab" href="labs/05_Regularization/05_Regularization.html" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+          </div> -->
+
+          <!-- <h4 id="lecture06" class="anchor">Lecture 06</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Probabilistic Models</h4>
+            <blockquote>Maximum Likelihood Estimation | Maximum A Posteriori Estimation | Bayesian Estimation</blockquote>
+            <p class="text-right">
+              <a id="lecture06~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDl6GJCfrMh7icW_8jEGAP1b" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture06~~slides" href="slides/06_Probabilistic-Models.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span>  Logistic Regression &amp; Metrics</h4>
+            <blockquote>In this lab, we will guide you through the practice of Logistic Regression. We will also introduce some common evaluation metrics other than the "accuracy" that we have been used so far.</blockquote>
+            <p class="text-right">
+              <a id="lecture06~~lab" href="labs/06_Logistic-Regression_Metrics/06_Logistic-Regression_Metrics.html" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+          </div> -->
+
+          <!-- <h4 id="lecture07" class="anchor">Lecture 07</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Non-Parametric Methods &amp; SVMs</h4>
+            <blockquote>KNNs | Parzen Windows | Local Models | Support Vector Classification (SVC) | Nonlinear SVC | Kernel Trick</blockquote>
+            <p class="text-right">
+              <a id="lecture07~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDkaq0WYJ7gwvfzmA-BlOhqZ" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture07~~slides" href="slides/07_KNN_SVM.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span> SVMs &amp; Scikit-Learn Pipelines</h4>
+            <blockquote>In this lab, we will classify nonlinearly separable data using the KNN and SVM classifiers. We will show how to pack multiple data preprocessing steps into a single Pipeline in Scikit-learn to simplify the training workflow.</blockquote>
+            <p class="text-right">
+              <a id="lecture07~~lab" href="labs/07_SVM_Pipeline/07_SVM_Pipeline.html" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+          </div> -->
+
+          <!-- <h4 id="lecture08" class="anchor">Lecture 08</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Cross Validation &amp; Ensembling</h4>
+            <blockquote>CV | How Many Folds? | Voting | Bagging | Boosting | Why AdaBoost Works?</blockquote>
+            <p class="text-right">
+              <a id="lecture08~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDnGHwQCumd-gKDMt3NALHeY" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture08~~slides" href="slides/08_CV_Ensembling.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span>  CV &amp; Ensembling</h4>
+            <blockquote>In this lab, we will guide you through the cross validation technique for hyperparameter selection. We will also practice and compare some ensemble learning techniques.</blockquote>
+            <p class="text-right">
+              <a id="lecture08~~lab" href="labs/08_CV_Ensembling/08_CV_Ensembling.html" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+          </div> -->
+
+          <!-- <h4 id="midterm" class="anchor text-info">Midterm Competition</h4>
+          <div class="well well-info">
+            <h4><span class="glyphicon glyphicon-flag"></span> Predicting News Popularity</h4>
+            <blockquote>In this competition, you are provided with raw news articles and the goal is to use everything you have learned so far to predict whether a news article will be intensively shared in online social networking services. Good luck!</blockquote>
+            <p class="text-right">
+              <a id="lecture~~midterm" href="competitions/01_News-Popularity/01_News-Popularity.html" class="btn btn-primary"><span class="glyphicon glyphicon-flag"></span> Notebook</a>
+            </p>
+          </div> -->
+
+          <!-- <h4 id="lecture09" class="anchor">Lecture 09</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Large-Scale Machine Learning</h4>
+            <blockquote>When ML Meets Big Data... | Representation Learning | Curse of Dimensionality | Trade-Offs in Large-Scale Learning | SGD-Based Optimization</blockquote>
+            <p class="text-right">
+              <a id="lecture09~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDnwItPFo8EZxLeJYTPTdNZT" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture09~~slides" href="slides/09_Large-Scale-ML.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+          </div> -->
+
+          <!-- <h4 id="lecture10" class="anchor">Lecture 10</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Neural Networks: Design</h4>
+            <blockquote>NN Basics | Learning the XOR | Back Propagation | Cost Function &amp; Output Neurons | Hidden Neurons | Architecture Design</blockquote>
+            <p class="text-right">
+              <a id="lecture10~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDk3A0qFgFUDlyALzaF44NTL" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture10~~slides" href="slides/10_NN_Design.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span> Keras &amp; Word2Vec</h4>
+            <blockquote>In this lab, we will show how to train a neural network (NN) for text classification using the Keras library. Then we train another neural network, called the word2vec, that embeds words into a dense vector space where semantically similar
+              words are mapped to nearby points.</blockquote>
+            <p class="text-right">
+              <a id="lecture10~~lab" href="labs/10_Keras_Word2Vec/10_Keras_Word2Vec.html" class="btn btn-primary"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+          </div> -->
+
+          <!-- <h4 id="lecture11" class="anchor">Lecture 11</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Neural Networks: Optimization &amp; Regularization</h4>
+            <blockquote>Momentum &amp; Nesterov Momentum | AdaGrad &amp; RMSProp | Batch Normalization | Continuation Methods &amp; Curriculum Learning | Weight Decay | Data Augmentation | Dropout | Manifold Regularization | Domain-Specific Model Design</blockquote>
+            <p class="text-right">
+              <a id="lecture11~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDliXTnPecNuWxw9BAjlTwOU" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture11~~slides" href="slides/11_NN_Optimization_Regularization.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span> NN Regularization</h4>
+            <blockquote>In this lab, we will apply some regularization techniques to neural networks over the CIFAR-10 dataset and see how they improve the generalizability.</blockquote>
+            <p class="text-right">
+              <a id="lecture11~~lab" href="labs/11_NN_Regularization/11_NN_Regularization.html" class="btn btn-primary"><span class="glyphicon glyphicon-wrench disabled"></span> Notebook</a>
+            </p>
+          </div> -->
+
+          <!-- <h4 id="lecture12" class="anchor">Lecture 12</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Convolutional Neural Networks</h4>
+            <blockquote>ConvNet Architecture | Kernel/Filter &amp; Stride &amp; Padding | Pooling | Dilated Convolutions | LeNet | AlexNet | VGGNet | GoogLeNet &amp; Inception Modules | Residual Networks | DenseNets | Stacked Hourglass Networks | Deep Compression</blockquote>
+            <p class="text-right text-primary">Guest Lecture by Prof. Hwann-Tzong Chen</p>
+            <p class="text-right">
+              <a id="lecture12~~slides" href="slides/12_CNN.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span> Visualizing CNNs</h4>
+            <blockquote>TBA</blockquote>
+            <p class="text-right">
+              <a id="lecture12~~lab" href="" class="btn btn-primary  disabled"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+          </div> -->
+
+          <!-- <h4 id="lecture13" class="anchor">Lecture 13</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Recurrent Neural Networks</h4>
+            <blockquote>Vanilla RNNs | Design Alternatives | Backprop through Time (BPTT) | LSTM | Parallelism &amp; Teacher Forcing | Attention | Explicit Memory | Adaptive Computation Time (ACT) | Memory Networks | Google Neural Machine Translation</blockquote>
+            <p class="text-right">
+              <a id="lecture13~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDkVO0zHMqswX1jA9Xw7OSOK" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture13~~slides" href="slides/13_RNN.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span> Seq2Seq Learning for Machine Translation</h4>
+            <blockquote>TBA</blockquote>
+            <p class="text-right">
+              <a id="lecture13~~lab" href="" class="btn btn-primary disabled"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+          </div> -->
+
+          <!-- <h4 id="lecture14" class="anchor">Lecture 14</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Unsupervised Learning</h4>
+            <blockquote>Clustering | Recommendation &amp; Factorization | Dimension Reduction | Predictive Learning | Autoencoders | Manifold Learning | Synthesis &amp; Generation | Generative Adversarial Networks (GANs)</blockquote>
+            <p class="text-right">
+              <a id="lecture14~~video" href="" class="btn btn-success disabled"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture14~~slides" href="slides/14_Unsupervised-Learning.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+            <h4><span class="glyphicon glyphicon-wrench"></span> Autoencoders &amp; GANs</h4>
+            <blockquote>TBA</blockquote>
+            <p class="text-right">
+              <a id="lecture14~~lab" href="" class="btn btn-primary  disabled"><span class="glyphicon glyphicon-wrench"></span> Notebook</a>
+            </p>
+          </div> -->
+
+          <!-- <h4 id="lecture15" class="anchor">Lecture 15</h4>
+          <div class="well">
+            <h4><span class="glyphicon glyphicon-blackboard"></span> Semisupervised/Transfer Learning and the Future</h4>
+            <blockquote>Label Propagation | Semisupervised GANs | Semisupervised Clustering | Multitask Learning | Weight Initiation &amp; Fine-Tuning | Domain Adaptation | Zero Shot Learning | Unsupervised Transfer Learning | Future at a Glance</blockquote>
+            <p class="text-right">
+              <a id="lecture15~~video" href="" class="btn btn-success disabled"><span class="glyphicon glyphicon-play"></span> Video</a>
+              <a id="lecture15~~slides" href="slides/15_Semi_Transfer_Future.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+            </p>
+          </div> -->
+
+          <!-- <h4 id="final" class="anchor text-info">Final Competition</h4>
+          <div class="well well-info">
+            <h4><span class="glyphicon glyphicon-flag"></span> Image Captioning</h4>
+            <blockquote>
+              <p>Given the Microsoft COCO dataset, your task is to devise and train a model that generates a suitable sentence describing an image. Here is an example:</p>
+              <div class="thumbnail img-center" style="max-width:360px">
+                <img src="images/img-caption/baby.jpg" alt="">
+                <div class="caption">
+                  <p>A boy who just submitted his code and is waiting for the ranking in the final competition.</p>
+                </div>
+              </div>
+            </blockquote>
+            <p class="text-right">
+              <a id="lecture~~final" href="competitions/02_Image-Caption/02_Image-Caption.html" class="btn btn-primary"><span class="glyphicon glyphicon-flag"></span> Notebook</a>
+            </p>
+          </div> -->
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </section>
+
+  <section id="resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+          <h1 class="section-heading">Resources</h1>
+          <p>Following provides links to some useful online resources. If this course starts your ML journey, don't stop here. Enroll yourself in advanced courses (shown below) to learn more.</p>
+
+          <h4>Other Course Materials</h4>
+          <p>For more course materials (such as assignments, score sheets, etc.) and online forum please refer to the iLMS system.</p>
+          <p class="text-right">
+            <a id="resources~~ilms" href="http://lms.nthu.edu.tw/course.php?courseID=26736&f=doclist" target="_blank" class="btn btn-primary"><span class="glyphicon glyphicon-comment"></span> iLMS System</a>
+            <h4>Reference Books</h4>
+            <ul>
+              <li>
+                <p>Ian Goodfellow, Yoshua Bengio, Aaron Courville, <em>Deep Learning</em>, MIT Press, 2016, ISBN: 0387848576</p>
+              </li>
+              <li>
+                <p>Trevor Hastie, Robert Tibshirani, Jerome Friedman, <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>, Second Edition, Springer, 2009, ISBN: 0387848576</p>
+              </li>
+              <li>
+                <p>Christopher M. Bishop, <em>Pattern Recognition and Machine Learning</em>, Springer, 2006, ISBN: 0387310738</p>
+              </li>
+              <li>
+                <p>Sebastian Raschka, <em>Python Machine Learning</em>, Packt Publishing, 2015, ISBN: 1783555130</p>
+              </li>
+            </ul>
+            <h4>Online Courses</h4>
+            <ul>
+              <li>
+                <p><a id="resources~~cs231n-cnn" href="http://cs231n.stanford.edu/" alt="" target="_blank">CS231n: Convolutional Neural Networks for Visual Recognition</a>, Stanford</p>
+              </li>
+              <li>
+                <p><a id="resources~~cs224d-nlp" href="http://cs224d.stanford.edu/" alt="" target="_blank">CS224d: Deep Learning for Natural Language Processing</a>, Stanford</p>
+              </li>
+              <li>
+                <p><a id="resources~~cs294-rl" href="http://rll.berkeley.edu/deeprlcourse/" alt="" target="_blank">CS 294: Deep Reinforcement Learning</a>, Berkeley</p>
+              </li>
+              <li>
+                <p><a id="resources~~6.S094-drive" href="http://selfdrivingcars.mit.edu/" alt="" target="_blank">6.S094: Deep Learning for Self-Driving Cars</a>, MIT</p>
+              </li>
+            </ul>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="text-center">Copyright &copy; DataLab 2017</p>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="./js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+body {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.5
+}
+
+nav {
+    visibility: hidden;
+}
+
+/* Change if height of navigation changes. */
+.anchor {
+    padding-top: 20px;
+    margin-top: -20px;
+}
+
+blockquote {
+    font-size: 16px !important;
+    margin-bottom: 0;
+}
+
+.header {
+    width: 100%;
+    display: table;
+    /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    padding: 0 10px 0 10px;
+}
+
+.header-text {
+    color: white;
+    text-shadow: 0 0 12px #000000;
+}
+
+.header-content {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.image-bg-header {
+    text-align: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background: url('../images/banner-bg-2016-blurred.jpg') no-repeat center center scroll;
+    height: 300px;
+}
+
+.img-center {
+    display: block;
+    margin: 0 auto;
+}
+
+.img-portrait {
+    width: 120px;
+    height: 120px;
+    border: 0px solid white;
+    border-radius: 9999px;
+}
+
+.float-container {
+    position: relative;
+}
+
+.float-item {
+    float: left;
+    margin: 0 12px 0 0;
+    text-align: center;
+}
+
+.clearfloat {
+    clear: both;
+    height: 0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+.well-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+section {
+    padding: 40px 0 0 0;
+}
+
+aside {
+    margin-top: 40px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+@media(min-width:768px) {
+    nav {
+        visibility: visible;
+    }
+
+    /* Change if height of navigation changes. */
+    .anchor {
+        padding-top: 70px;
+        margin-top: -70px;
+    }
+
+    aside {
+        margin-top: 50px;
+    }
+}
