@@ -12696,13 +12696,9 @@ fieldset[disabled] .btn-default.focus {
  position: relative;
  font-size: inherit;
  white-space: nowrap;
- background: #eeeeee;
- background-color: #eeeeee;
  border: none;
 }
 .input-group-btn:hover {
- background: #e9e9e9;
- background-color: #e9e9e9;
  border: none;
 }
 .input-group-btn:first-child > .btn,
@@ -12710,7 +12706,7 @@ fieldset[disabled] .btn-default.focus {
  background: #eeeeee;
  background-color: #eeeeee;
  border: none;
- margin: 2px;
+ margin-right: 3px;
  font-size: inherit;
 }
 .input-group-btn:first-child > .btn:hover,
@@ -12718,7 +12714,6 @@ fieldset[disabled] .btn-default.focus {
  background: #e9e9e9;
  background-color: #e9e9e9;
  border: none;
- margin: 2px;
  font-size: inherit;
  transition: 200ms ease;
 }
@@ -12894,12 +12889,12 @@ div.output.output_scroll {
 ::-webkit-scrollbar {
  width: 11px;
  max-height: 9px;
- background-color: #e0e0e0;
+ background-color: #ebebeb;
  border-radius: 3px;
  border: none;
 }
 ::-webkit-scrollbar-track {
- background: #e0e0e0;
+ background: #ebebeb;
  border: none;
  width: 11px;
  max-height: 9px;
@@ -12907,7 +12902,7 @@ div.output.output_scroll {
 ::-webkit-scrollbar-thumb {
  border-radius: 2px;
  border: none;
- background: #ff7823;
+ background: #909090;
  background-clip: content-box;
  width: 11px;
 }
@@ -12948,33 +12943,36 @@ div.input_area {
  background: #ededed;
  padding-right: 1.2em;
  border: 0px;
- border-radius: 2px;
+ border-radius: 0px;
+ border-top-right-radius: 3px;
+ border-bottom-right-radius: 3px;
 }
 div.cell {
  padding: 0px;
- background: #ededed;
- background-color: #ededed;
+ background: #ffffff;
+ background-color: #ffffff;
  border: medium solid #ffffff;
- border-radius: 2px;
+ border-radius: 0px;
  top: 0;
- border-top-left-radius: 4px;
 }
 div.cell.selected {
- background: #ededed;
- background-color: #ededed;
+ background: #ffffff;
+ background-color: #ffffff;
  border: medium solid #ffffff;
  padding: 0px;
+ border-radius: 3px;
 }
 .edit_mode div.cell.selected {
  padding: 0px;
- background: #ededed;
- background-color: #ededed;
+ background: #ffffff;
+ background-color: #ffffff;
  border: medium solid #ffffff;
+ border-radius: 3px;
 }
 div.cell.edit_mode {
  padding: 0px;
- background: #ededed;
- background-color: #ededed;
+ background: #ffffff;
+ background-color: #ffffff;
 }
 div.CodeMirror-sizer {
  margin-left: 0px;
@@ -12986,39 +12984,56 @@ div.CodeMirror-sizer {
  margin-top: 0px;
 }
 div.cell.selected:before {
- background: #ff7823;
- border: 2px solid #ff7823;
- border-top-left-radius: 2px;
- border-bottom-left-radius: 4px;
+ background: #ededed;
+ border: none;
+ border-radius: 3px;
  position: absolute;
  display: block;
  top: 0px;
  left: 0px;
- width: 5px;
+ width: 0px;
  height: 100%;
 }
-div.cell.selected.jupyter-soft-selected:before,
 .edit_mode div.cell.selected:before {
- background: #ffd5bb;
- border: 2px solid #ffd5bb;
- border-top-left-radius: 2px;
- border-bottom-left-radius: 2px;
+ background: #ffffff;
+ border: none;
+ border-radius: 3px;
  position: absolute;
  display: block;
  top: 0px;
  left: 0px;
- width: 5px;
+ width: 0px;
  height: 100%;
 }
-div.cell.jupyter-soft-selected,
-div.cell.selected.jupyter-soft-selected {
- border-left-color: #ffd5bb;
- border-left-width: 0px;
- padding-left: 7px;
- border-right-color: #ffd5bb;
- border-right-width: 0px;
- background: #ffd5bb;
- border-radius: 6px;
+div.cell.code_cell .input {
+ border-left: 5px solid #ededed !important;
+ border-radius: 3px;
+ border-bottom-left-radius: 3px;
+ border-top-left-radius: 3px;
+}
+div.cell.code_cell.selected .input {
+ border-left: 5px solid #ff7823 !important;
+ border-radius: 3px;
+ border-bottom-left-radius: 3px;
+ border-top-left-radius: 3px;
+}
+.edit_mode div.cell.code_cell.selected .input {
+ border-left: 5px solid #ffd5bb !important;
+ border-radius: 3px;
+ border-bottom-left-radius: 3px;
+ border-top-left-radius: 3px;
+}
+div.cell.selected.jupyter-soft-selected:before .input,
+.edit_mode div.cell.selected:before .input {
+ border-left: 3px solid #ffd5bb !important;
+ border-bottom-left-radius: 3px;
+ border-top-left-radius: 3px;
+}
+div.cell.jupyter-soft-selected .input,
+div.cell.selected.jupyter-soft-selected .input {
+ border-left: 3px solid #ffd5bb !important;
+ border-bottom-left-radius: 3px;
+ border-top-left-radius: 3px;
 }
 div.cell.selected.jupyter-soft-selected {
  border-left-color: #ff7823;
@@ -13036,8 +13051,8 @@ div.cell.text_cell.selected.jupyter-soft-selected .input_prompt {
  border-left: none !important;
 }
 div.cell.text_cell.selected.jupyter-soft-selected:before {
- background: #87b0db !important;
- border: 2px solid #87b0db !important;
+ background: #f2f2f2 !important;
+ border: 2px solid #f2f2f2 !important;
  border-radius: 6px !important;
  position: absolute !important;
  display: block !important;
@@ -13048,12 +13063,12 @@ div.cell.text_cell.selected.jupyter-soft-selected:before {
 }
 div.cell.text_cell.jupyter-soft-selected,
 div.cell.text_cell.selected.jupyter-soft-selected {
- border-left-color: #87b0db !important;
+ border-left-color: #f2f2f2 !important;
  border-left-width: 0px !important;
  padding-left: 7px !important;
- border-right-color: #87b0db !important;
+ border-right-color: #f2f2f2 !important;
  border-right-width: 0px !important;
- background: #87b0db !important;
+ background: #f2f2f2 !important;
  border-radius: 6px !important;
 }
 div.prompt,
@@ -13087,18 +13102,12 @@ div.cell.code_cell .input_prompt {
 }
 div.cell.selected .prompt {
  top: 0;
- border-left: 5px solid #ff7823;
- border-radius: 2px;
 }
 .edit_mode div.cell.selected .prompt {
  top: 0;
- border-left: 5px solid #ffd5bb;
- border-radius: 2px;
 }
 .edit_mode div.cell.selected .prompt {
  top: 0;
- border-left: 5px solid #ffd5bb;
- border-radius: 2px;
 }
 div.output_wrapper {
  background-color: #ffffff;
@@ -13139,7 +13148,7 @@ div.output_html {
 }
 div.output_subarea {
  overflow-x: auto;
- padding: 0.3em;
+ padding: 0.8em !important;
  -webkit-box-flex: 1;
  -moz-box-flex: 1;
  box-flex: 1;
@@ -13157,7 +13166,8 @@ div.btn.btn-default.output_collapsed:hover {
 }
 div.prompt.output_prompt {
  font-family: monospace, monospace;
- font-size: 9pt !important;
+ font-size: 9.5pt !important;
+ font-weight: bold !important;
  background-color: #ffffff;
  color: transparent;
  border-bottom-left-radius: 4px;
@@ -13166,11 +13176,12 @@ div.prompt.output_prompt {
  border-bottom-right-radius: 0px;
  min-width: 12.5ex !important;
  width: 12.5ex !important;
- border-right: 2px solid rgba(240,147,43,.50) !important;
+ border-right: 2px solid transparent;
 }
 div.out_prompt_overlay.prompt {
  font-family: monospace, monospace;
- font-size: 9pt !important;
+ font-size: 9.5pt !important;
+ font-weight: bold !important;
  background-color: #ffffff;
  border-bottom-left-radius: 2px;
  border-top-right-radius: 0px;
@@ -13178,12 +13189,12 @@ div.out_prompt_overlay.prompt {
  border-bottom-right-radius: 0px;
  min-width: 12.5ex !important;
  width: 12.5ex !important;
- border-right: 2px solid rgba(240,147,43,.50) !important;
+ border-right: 2px solid transparent;
  color: transparent;
 }
 div.out_prompt_overlay.prompt:hover {
- background-color: #ffffff;
- box-shadow: #e8e8e8 2px 1px 1px 2px inset;
+ background-color: #f7f7f7;
+ box-shadow: none !important;
  border: none;
  border-bottom-left-radius: 2px;
  -webkit-border-: 2px;
@@ -13192,115 +13203,23 @@ div.out_prompt_overlay.prompt:hover {
  border-top-left-radius: 0px;
  min-width: 12.5ex !important;
  width: 12.5ex !important;
- border-right: 2px solid rgba(240,147,43,.50) !important;
+ border-right: 2px solid #f7f7f7 !important;
 }
 div.cell.code_cell .output_prompt {
- border-right: 2px solid 2px solid rgba(240,147,43,.50) !important;
+ border-right: 2px solid transparent;
  color: transparent;
 }
 div.cell.selected .output_prompt,
 div.cell.selected .out_prompt_overlay.prompt {
- border-left: 5px solid #ff7823;
+ border-left: 5px solid #f2f2f2;
+ border-right: 2px solid #ffffff;
  border-radius: 0px !important;
 }
 .edit_mode div.cell.selected .output_prompt,
 .edit_mode div.cell.selected .out_prompt_overlay.prompt {
- border-left: 5px solid #ffd5bb !important;
+ border-left: 5px solid #f2f2f2;
+ border-right: 2px solid #ffffff;
  border-radius: 0px !important;
-}
-div.text_cell,
-div.text_cell_render pre,
-div.text_cell_render {
- font-family: sans-serif;
- font-size: 13pt;
- line-height: 130% !important;
- color: #353535;
- background: #ffffff;
- background-color: #ffffff;
- border-radius: 0px;
-}
-div .text_cell_render {
- padding: 0.4em 0.4em 0em 0.4em;
-}
-div.cell.text_cell .CodeMirror-lines {
- padding-top: .7em !important;
- padding-bottom: .4em !important;
- padding-left: .5em !important;
- padding-right: .5em !important;
- margin-top: .4em;
- margin-bottom: .3em;
-}
-div.cell.text_cell.unrendered div.input_area,
-div.cell.text_cell.rendered div.input_area {
- background-color: #ffffff;
- background: #ffffff;
- border: 0px;
- border-radius: 2px;
-}
-div.cell.text_cell .CodeMirror,
-div.cell.text_cell .CodeMirror pre {
- line-height: 170% !important;
-}
-div.cell.text_cell.rendered.selected {
- font-family: sans-serif;
- line-height: 130% !important;
- background: #ffffff;
- background-color: #ffffff;
- border-radius: 0px;
-}
-div.cell.text_cell.unrendered.selected {
- font-family: sans-serif;
- line-height: 130% !important;
- background: #ffffff;
- background-color: #ffffff;
- border-radius: 0px;
-}
-div.cell.text_cell.selected {
- font-family: sans-serif;
- line-height: 130% !important;
- background: #ffffff;
- background-color: #ffffff;
- border-radius: 0px;
-}
-.edit_mode div.cell.text_cell.selected {
- font-family: sans-serif;
- line-height: 130% !important;
- background: #ffffff;
- background-color: #ffffff;
- border-radius: 0px;
-}
-div.text_cell.unrendered,
-div.text_cell.unrendered.selected,
-div.edit_mode div.text_cell.unrendered {
- font-family: sans-serif;
- line-height: 130% !important;
- background: #ffffff;
- background-color: #ffffff;
- border-radius: 0px;
-}
-div.cell.text_cell.selected:before {
- background: #126dce;
- border: 2px solid #126dce;
- border-top-left-radius: 2px;
- border-bottom-left-radius: 2px;
- position: absolute;
- display: block;
- top: 0px;
- left: 0px;
- width: 5px;
- height: 100%;
-}
-.edit_mode div.cell.text_cell.selected:before {
- background: #87b0db;
- border: 2px solid #87b0db;
- border-top-left-radius: 2px;
- border-bottom-left-radius: 2px;
- position: absolute;
- display: block;
- top: 0px;
- left: 0px;
- width: 5px;
- height: 100%;
 }
 div.cell.text_cell .input_prompt {
  border-right: 0;
@@ -13333,13 +13252,13 @@ div.cell.text_cell.rendered .input_prompt {
 }
 div.cell.text_cell.rendered.selected .input_prompt {
  top: 0;
- border-left: 5px solid #126dce;
+ border-left: 5px solid #f2f2f2;
  border-radius: 2px;
  border-right: 2px solid rgba(30,112,199,.50);
 }
 div.text_cell.unrendered.selected .prompt {
  top: 0;
- border-left: 5px solid #87b0db;
+ border-left: 5px solid #f2f2f2;
  border-radius: 2px;
  border-right: 2px solid rgba(30,112,199,.50);
 }
@@ -13397,6 +13316,7 @@ div.rendered_html {
 .rendered_html * + p {
  margin-top: .5em;
  margin-bottom: .5em;
+ margin-left: .5em;
 }
 div.rendered_html pre,
 div.text_cell_render pre {
@@ -13597,6 +13517,7 @@ div.widget-label {
  min-width: 100px !important;
  vertical-align: text-top !important;
  color: #303030 !important;
+ font-size: 14px;
 }
 .widget-hprogress .progress {
  flex-grow: 1;
@@ -13964,7 +13885,7 @@ body > div.modal.cmd-palette.typeahead-field {
 .typeahead-container button {
  font-family: sans-serif;
  font-size: 28pt;
- background-color: #e0e0e0;
+ background-color: #ebebeb;
  border: none;
  display: inline-block;
  line-height: inherit;
@@ -14323,6 +14244,14 @@ div.tooltiptext.bigtooltip {
 .cm-s-ipython div.CodeMirror-selected {
  background: #e0e1e3;
 }
+.CodeMirror-gutters {
+ border: none;
+ border-right: 1px solid #e0e1e3 !important;
+ background-color: #e0e1e3 !important;
+ background: #e0e1e3 !important;
+ border-radius: 0px;
+ white-space: nowrap;
+}
 .cm-s-ipython .CodeMirror-gutters {
  background: #e0e1e3;
  border: none;
@@ -14480,6 +14409,9 @@ div.cell.text_cell .cm-s-default span.cm-variable-3 {
 .cm-s-default .cm-atom {
  color: #ff8132;
 }
+.cm-s-default .cm-def {
+ color: #e22978;
+}
 .CodeMirror-cursor {
  border-left: 2px solid #ff711a !important;
  border-right: none;
@@ -14490,6 +14422,22 @@ div.cell.text_cell .cm-s-default span.cm-variable-3 {
 }
 .cm-s-default .cm-selected {
  background: #e0e1e3;
+}
+.MathJax_Display,
+.MathJax {
+ border: 0 !important;
+ font-size: 100% !important;
+ text-align: center !important;
+ margin: 0em !important;
+ line-height: 2.25 !important;
+}
+.MathJax:focus,
+body :focus .MathJax {
+ display: inline-block !important;
+}
+.MathJax:focus,
+body :focus .MathJax {
+ display: inline-block !important;
 }
 .completions {
  position: absolute;
@@ -14520,38 +14468,21 @@ div#maintoolbar {
  display: none !important;
 }
 
-/**********************************
- MathJax Settings and Style Script
-**********************************/
-.MathJax_Display,
-.MathJax nobr>span.math>span {
-    border: 0 !important;
-    font-size: 110% !important;
-    text-align: center !important;
-    margin: 0em !important;
-}
-/* Prevents MathJax from jittering */
-/* cell position when cell is selected */
-.MathJax:focus, body :focus .MathJax {
-    display: inline-block !important;
-}
-
 <script>
     MathJax.Hub.Config({
         "HTML-CSS": {
             /*preferredFont: "TeX",*/
             /*availableFonts: ["TeX", "STIX"],*/
             styles: {
-                scale: 110,
+                scale: 100,
                 ".MathJax_Display": {
-                    "font-size": "110%",
+                    "font-size": "100%",
                 }
             }
         }
     });
 </script>
-
-
+    
     </style>
 
 
@@ -14617,9 +14548,11 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Exploring-and-Visualizing-Data">Exploring and Visualizing Data<a class="anchor-link" href="#Exploring-and-Visualizing-Data">&#182;</a></h1><p><center>Shan-Hung Wu & DataLab</center>
-<br/></p>
-
+<h1 id="-Exploring-and-Visualizing-Data"><center> Exploring and Visualizing Data</center><a class="anchor-link" href="#-Exploring-and-Visualizing-Data">&#182;</a></h1><center>
+        "Shan-Hung Wu & DataLab"
+        <br>
+        "Fall 2017"
+</center>
 </div>
 </div>
 </div>
@@ -14805,8 +14738,8 @@ Data visualization plays an important role in EDA. Next, we use the <a href="htt
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As we can see, showing data row-by-row with their column names does not help us get the "big picture" and characteristics of data.</p>
-<p>NOTE: pd.read_csv() function returns a [pandas.DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) object. Pandas Dataframe is an useful "two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes".
-</p><h3 id="Pairwise-Join-Distributions">Pairwise Join Distributions<a class="anchor-link" href="#Pairwise-Join-Distributions">&#182;</a></h3><p>We can instead see the join distribution of any pair of columns/attributes/variables/features by using the pairplot function offered by <a href="https://stanford.edu/~mwaskom/software/seaborn/">Seaborn</a>, which is based on <a href="http://matplotlib.org/">Matplotlib</a>:</p>
+<p>NOTE: pd.read_csv() function returns a <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">pandas.DataFrame</a> object. Pandas Dataframe is an useful "two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes".</p>
+<h3 id="Pairwise-Join-Distributions">Pairwise Join Distributions<a class="anchor-link" href="#Pairwise-Join-Distributions">&#182;</a></h3><p>We can instead see the join distribution of any pair of columns/attributes/variables/features by using the pairplot function offered by <a href="https://stanford.edu/~mwaskom/software/seaborn/">Seaborn</a>, which is based on <a href="http://matplotlib.org/">Matplotlib</a>:</p>
 
 </div>
 </div>
@@ -55247,7 +55180,7 @@ oeUBcfMAAAAASUVORK5CYII=
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>From the above figures, we can easily see that there is a linear relationship between the "Total phenols" and "Flavanoids" variables. Furthermore, the class label cannot be easily predicted by a single variable. You may have noticed that the figures along the diagonal look different. They are histograms of values of individual variables. We can see that the "Ash" and "Alcalinity of ash" variables are roughly normally distributed.</p><p>NOTE: importing the Seaborn library modifies the default aesthetics of Matplotlib for the current Python session. If you do not want to use Seaborn's style settings, you can reset the Matplotlib settings by calling:</p>
 <pre><code>&gt;&gt;&gt; sns.reset_orig()</code></pre>
-<h3 id="Correlation-Matrix">Correlation Matrix<a class="anchor-link" href="#Correlation-Matrix">&#182;</a></h3><p>Showing the pairwise join distributions may still be overwhelming when we have a lot of variables in the dataset. Sometimes, we can just plot the correlation matrix to quantify the linear relationship between variables. The **correlation coefficient** between two random variables $a$ and $b$ are defined as:</p>$$\frac{\mathrm{Cov}(\mathrm{a},\mathrm{b})}{\sqrt{\mathrm{Var}(\mathrm{a})\mathrm{Var}(\mathrm{b})}}.$$<p>Basically, it is the "normalized" variance that captures the <strong>linear</strong> relationship of the two random variables, and the values are bounded to the range $[−1,1]$. The correlation matrix $ \boldsymbol{R}\in\mathbb{R}^{D\times D}$ of a random vector $\mathrm{x}$ is a square matrix whose each element $R_{i, j}$ denotes the correlation between the attributes $\mathrm{x}_{i}$  and $\mathrm{x}_{j}$ . If we regard data points as the i.i.d. samples of $\mathrm{x}$ , then we can have an estimate $\hat{\boldsymbol{R}}$ whose each element</p>
+<h3 id="Correlation-Matrix">Correlation Matrix<a class="anchor-link" href="#Correlation-Matrix">&#182;</a></h3><p>Showing the pairwise join distributions may still be overwhelming when we have a lot of variables in the dataset. Sometimes, we can just plot the correlation matrix to quantify the linear relationship between variables. The <b>correlation coefficient</b> between two random variables $a$ and $b$ are defined as:</p>$$\frac{\mathrm{Cov}(\mathrm{a},\mathrm{b})}{\sqrt{\mathrm{Var}(\mathrm{a})\mathrm{Var}(\mathrm{b})}}.$$<p>Basically, it is the "normalized" variance that captures the <strong>linear</strong> relationship of the two random variables, and the values are bounded to the range $[−1,1]$. The correlation matrix $ \boldsymbol{R}\in\mathbb{R}^{D\times D}$ of a random vector $\mathrm{x}$ is a square matrix whose each element $R_{i, j}$ denotes the correlation between the attributes $\mathrm{x}_{i}$  and $\mathrm{x}_{j}$ . If we regard data points as the i.i.d. samples of $\mathrm{x}$ , then we can have an estimate $\hat{\boldsymbol{R}}$ whose each element</p>
 $$\hat{R}_{i,j}=\frac{\Sigma_{s=1}^{N}(x_{i}^{(s)}-\hat{\mu}_{\mathrm{x}_{i}})(x_{j}^{(s)}-\hat{\mu}_{\mathrm{x}_{j}})}{\sqrt{\Sigma_{s=1}^{N}(x_{i}^{(s)}-\hat{\mu}_{\mathrm{x}_{i}})^{2}}\sqrt{\Sigma_{s=1}^{N}(x_{j}^{(s)}-\hat{\mu}_{\mathrm{x}_{j}})^{2}}}=\frac{\hat{\sigma}_{\mathrm{x}_{i},\mathrm{x}_{j}}}{\hat{\sigma}_{\mathrm{x}_{i}}\hat{\sigma}_{\mathrm{x}_{j}}}$$<p>is an estimate of the correlation (usually called the Pearson's r) between attribute  $\mathrm{x}_i$ and $\mathrm{x}_j$ . Note that if we <strong>z-normalize</strong> each data point such that</p>
 $$z_{i}^{(s)}=\frac{x_{i}^{(s)}-\hat{\mu}_{\mathrm{x}_{i}}}{\hat{\sigma}_{\mathrm{x}_{i}}}$$<p>for all $i$ . Then we simply have $\hat{\boldsymbol{R}}=\frac{1}{N}\boldsymbol{Z}^\top \boldsymbol{Z}$ , where $\boldsymbol{Z}$ is the design matrix of the normalized data points. We can plot $\hat{\boldsymbol{R}}$ as follows:</p>
 
@@ -56602,16 +56535,16 @@ This problem can be reduced to solve
 
 $$arg \max_{w^{i}\in \mathbb{R}^{D}} w^{(i)T}Z^TZw^{(i)} ,\mspace{5mu} for \mspace{5mu} i \in [1,\mspace{3mu}K] $$
 
-by [Rayleigh's Quotient](https://en.wikipedia.org/wiki/Rayleigh_quotient), the optimal $w^{(i)}$ is given by the eigenvector of $Z^TZ$ (or $\hat{\boldsymbol{R}}$) corresponding to the $i$th largest eigenvalue.
+by Rayleigh's Quotient, the optimal $w^{(i)}$ is given by the eigenvector of $Z^TZ$ (or $\hat{\boldsymbol{R}}$) corresponding to the $i$th largest eigenvalue.
 <p>
 
 Let's summarize PCA in a few simple steps:</p><ol>
 <li>Standardize the $D$ -dimensional dataset $\boldsymbol{X}$ , e.g., via the $z$ -normalization, and get $\boldsymbol{Z}$ ;</li>
 <li>Estimate the covariance matrix <s style=''>$\hat{\boldsymbol{R}}$</s>;</li>
 <li>Decompose <s style=''>$\hat{\boldsymbol{R}}$ </s>into its eigenvectors and eigenvalues;</li>
-<li>Select $K$ eigenvectors that correspond to the $K$ largest eigenvalues, where $K$ is the dimensionality of the new feature subspace ($k<d$);</li>
+<li>Select $K$ eigenvectors that correspond to the $K$ largest eigenvalues, where $K$ is the dimensionality of the new feature subspace <s>($k < d$)</s>;</li>
 <li>Construct a projection matrix $\boldsymbol{W}$ from the top-$K$ eigenvectors;</li>
-<li>Transform the $D$-dimensional input dataset $\boldsymbol{X}$ using the projection matrix $\boldsymbol{W}$.</li>
+<li>Transform the $D$-dimensional input dataset $\boldsymbol{Z}$ using the projection matrix $\boldsymbol{W}$.</li>
 </ol>
 <p><h3>Eigendecomposition</h3>
 Since we already have $\boldsymbol{Z}$ and <s style=''> $\hat{\boldsymbol{R}}$ </s> from the above. We can begin from the step 3:</p>
@@ -56660,7 +56593,7 @@ Eigenvalues:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>NOTE: there is an np.linalg.eig() function in NumPy that also eigendecomposes matrices. The difference isthat np.linalg.eigh() is optimized for symmetric matrices whose eigenvalues are always real numbers. The numerically less stable np.linalg.eig() can decompose non-symmetric square matrices and returns complex eigenvalues.</p>
-<h3 id="Eigenvector-Selection">Eigenvector Selection<a class="anchor-link" href="#Eigenvector-Selection">&#182;</a></h3><p>In step 4, we need to decide the value of $K$. We can plot the **variance explained ratio** of each eigenvalue:</p>$$\frac{\vert\lambda_{j}\vert}{\Sigma_{j=1}^{D}\vert\lambda_{j}\vert}$$<p>in the descending order to help us decide how many eigenvectors to keep.</p>
+<h3 id="Eigenvector-Selection">Eigenvector Selection<a class="anchor-link" href="#Eigenvector-Selection">&#182;</a></h3><p>In step 4, we need to decide the value of $K$. We can plot the <b>variance explained ratio</b> of each eigenvalue:</p>$$\frac{\vert\lambda_{j}\vert}{\Sigma_{j=1}^{D}\vert\lambda_{j}\vert}$$<p>in the descending order to help us decide how many eigenvectors to keep.</p>
 </div>
 </div>
 </div>
