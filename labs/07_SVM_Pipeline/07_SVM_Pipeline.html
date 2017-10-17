@@ -14768,7 +14768,7 @@ QAEAsvT/AQbd14ZWywBXAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If we apply linear classifiers such as Perceptron or Logistic Regression to this dataset, it is no possible get a reasonable decision boundary:</p>
+<p>If we apply linear classifiers such as Perceptron or Logistic Regression to this dataset, it is not possible to get a reasonable decision boundary:</p>
 
 </div>
 </div>
@@ -15404,7 +15404,7 @@ hClJQAkhhDAlCSghhBCmJAElhBDClCSghBBCmJIElBBCCFOSgBJCCGFKElBCCCFM6f8D4bR07Fhj
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can see, neither of the classifiers can separate the two classes  well due to the underfitting. In other words, the models are too simple to capture the shape of true boundary, introducing a large bias. It is better to use nonlinear classifiers for this dataset.</p>
+<p>As we can see, neither of the classifiers can separate the two classes  well due to underfitting. In other words, the models are too simple to capture the shape of true boundary, introducing a large bias. It is better to use nonlinear classifiers for this dataset.</p>
 
 </div>
 </div>
@@ -15416,7 +15416,7 @@ hClJQAkhhDAlCSghhBCmJAElhBDClCSghBBCmJIElBBCCFOSgBJCCGFKElBCCCFM6f8D4bR07Fhj
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="K-Nearest-Neighbors-Classifier">K-Nearest Neighbors Classifier<a class="anchor-link" href="#K-Nearest-Neighbors-Classifier">&#182;</a></h1><p>The KNN algorithm itself is fairly straightforward and can be summarized by the following steps:</p>
 <ol>
-<li>Choose the number of $K$ and a distance metric;</li>
+<li>Choose $K$ (the number of neighbors), and a distance metric;</li>
 <li>Find the $K$ nearest neighbors of the data point that we want to classify;</li>
 <li>Assign the class label by majority vote.</li>
 </ol>
@@ -15430,7 +15430,7 @@ hClJQAkhhDAlCSghhBCmJAElhBDClCSghBBCmJIElBBCCFOSgBJCCGFKElBCCCFM6f8D4bR07Fhj
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>By executing the following code, we will now implement a KNN model in scikit-learn using an Euclidean distance metric:</p>
+<p>By executing the following code, we will now implement a KNN model in scikit-learn using a Euclidean distance metric:</p>
 
 </div>
 </div>
@@ -16439,7 +16439,7 @@ CFOSKT4hhBCmJAlKCCGEKUmCEkIIYUqSoIQQQpiSJCghhBCmJAlKCCGEKUmCEkIIYUqSoIQQQpjS
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can see, non-linear SVC achieve 95% accuracy as KNN does. However, we haven't tune its hyperparameters to get the best performance yet. Let's try other values:</p>
+<p>As we can see, non-linear SVC achieves 95% accuracy as KNN does. However, we haven't tuned its hyperparameters to get the best performance yet. Let's try other values:</p>
 
 </div>
 </div>
@@ -16504,7 +16504,7 @@ Accuracy: 0.45
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Tuning-Hyperparameters-via-Grid-Search">Tuning Hyperparameters via Grid Search<a class="anchor-link" href="#Tuning-Hyperparameters-via-Grid-Search">&#182;</a></h3><p>Tuning the hyperparameters of SVC is not as straightforward as we see in Polynomial Regression, where we can simply increase the polynomial degree from 1 and stop if the validation performance does not improve anymore. In SVC, there is no simple way to relate a particular hyperparameter combination $(C,\gamma)$ to the model complexity. So, we have to try out all possible (or specified) combinations exhaustively in order to pick best one. This procedure is called the <strong>grid search</strong>:</p>
+<h3 id="Tuning-Hyperparameters-via-Grid-Search">Tuning Hyperparameters via Grid Search<a class="anchor-link" href="#Tuning-Hyperparameters-via-Grid-Search">&#182;</a></h3><p>Tuning the hyperparameters of SVC is not as straightforward as we see in Polynomial Regression, where we can simply increase the polynomial degree from 1 and stop if the validation performance does not improve anymore. In SVC, there is no simple way to relate a particular hyperparameter combination $(C,\gamma)$ to the model complexity. So, we have to try out all possible (or specified) combinations exhaustively in order to pick the best one. This procedure is called <strong>grid search</strong>:</p>
 
 </div>
 </div>
@@ -16545,7 +16545,7 @@ Accuracy: 0.45
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>0.9875
-{&#39;gamma&#39;: 1.0, &#39;kernel&#39;: &#39;rbf&#39;, &#39;C&#39;: 10.0}
+{&#39;C&#39;: 10.0, &#39;gamma&#39;: 1.0, &#39;kernel&#39;: &#39;rbf&#39;}
 </pre>
 </div>
 </div>
@@ -16933,10 +16933,10 @@ IYQQpiQBJYQQwpQkoIQQQpjS/wO5CzDY8KZ5sQAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="The-Adult-dataset">The Adult dataset<a class="anchor-link" href="#The-Adult-dataset">&#182;</a></h3><p>The <a href="https://archive.ics.uci.edu/ml/datasets/adult">Adult</a> dataset from UCI repository collects information about people (attributes) for determining whether a person makes over 50K a year (label). Following are the attributes:
-<img src="" style="width: 1200px;"/></p>
+<img src="" style="width: 1200px;"></p>
 <pre>
 1.  age               continuous.
-2.  workclass         Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov,
+2.  workclass         Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, 
                       Without-pay, Never-worked.
 3.  fnlwgt            continuous.
 4.  education         Bachelors, Some-college, 11th, HS-grad, Prof-school, Assoc-acdm, Assoc-voc, 
@@ -16959,7 +16959,7 @@ IYQQpiQBJYQQwpQkoIQQQpjS/wO5CzDY8KZ5sQAAAABJRU5ErkJggg==
                       Ireland, France, Dominican-Republic, Laos, Ecuador, Taiwan, Haiti, Columbia, 
                       Hungary, Guatemala, Nicaragua, Scotland, Thailand, Yugoslavia, El-Salvador, 
                       Trinadad&Tobago, Peru, Hong, Holand-Netherlands.
-15. label             >50K, <=50K
+15.  label            >50K, <=50K
 </pre><p>You can see more details about the dataset <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.names">here</a>. Let's load the data:</p>
 
 </div>
@@ -17324,7 +17324,7 @@ IYQQpiQBJYQQwpQkoIQQQpjS/wO5CzDY8KZ5sQAAAABJRU5ErkJggg==
 <li>Many attributes are not numeric but <strong>categorical</strong>;</li>
 <li>There are <strong>missing values</strong>. For example, data point No.14 has a missing value on native-country.</li>
 </ol>
-<p>Since most machine learning algorithms can only take datasets with numeric features and without missing values. We have to reprocess this dataset.</p>
+<p>Since most machine learning algorithms can only take datasets with numeric features and without missing values. We have to preprocess this dataset.</p>
 
 </div>
 </div>
@@ -17710,7 +17710,7 @@ IYQQpiQBJYQQwpQkoIQQQpjS/wO5CzDY8KZ5sQAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>After executing the code, we successfully replace the categorical values into numerical values.</p>
+<p>After executing the code, we successfully replaced the categorical values into numerical values.</p>
 
 </div>
 </div>
@@ -17720,7 +17720,7 @@ IYQQpiQBJYQQwpQkoIQQQpjS/wO5CzDY8KZ5sQAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dealing-with-Missing-Data">Dealing with Missing Data<a class="anchor-link" href="#Dealing-with-Missing-Data">&#182;</a></h1><p>It is not uncommon in real-world applications that our samples have missing values in one or more attributes for various reasons. For example, there could have been an error in the data collection process, or certain measurements are not applicable, or particular fields could have been left blank intentionally in a survey, etc. We typically see missing values as the blank spaces, NaN, or question mark in our datasets.</p>
+<h1 id="Dealing-with-Missing-Data">Dealing with Missing Data<a class="anchor-link" href="#Dealing-with-Missing-Data">&#182;</a></h1><p>It is common in real-world applications that our samples have missing values for various reasons in one or more attributes for various reasons. For example, there could have been an error in the data collection process, or certain measurements are not applicable, or particular fields could have been left blank intentionally in a survey, etc. We typically see missing values as the blank spaces, NaN, or question mark in our datasets.</p>
 <p>Unfortunately, most computational tools are unable to handle such missing values or would produce unpredictable results if we simply ignored them. Therefore, it is crucial that we take care of those missing values before we proceed with further analyses.</p>
 <p>First, we can use <code>isnull()</code> method in Panda's <code>Dataframe</code> to see how many missing values we have in Adult dataset:</p>
 
@@ -17897,8 +17897,8 @@ Drop row occupation: (30718, 15)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Imputing-Missing-Values">Imputing Missing Values<a class="anchor-link" href="#Imputing-Missing-Values">&#182;</a></h3><p>If we do not have a large dataset, the removal of samples or dropping of entire feature columns may not be feasible, because we could lose too much valuable information. A alternative way is to use interpolation techniques to estimate the missing values from the other training samples in the same dataset. There are some common interpolation techniques we can use, such as mean imputation, median imputation, and most frequent imputation.</p>
-<p>The <code>Imputer</code> class from scikit-learn provide a convenient way to imputation. Next, we use it to perform the most frequent imputation since the missing values in the Adult dataset are all categorical features:</p>
+<h3 id="Imputing-Missing-Values">Imputing Missing Values<a class="anchor-link" href="#Imputing-Missing-Values">&#182;</a></h3><p>If we do not have a large dataset, the removal of samples or dropping of entire feature columns may not be feasible, because we could lose too much valuable information. An alternative way is to use interpolation techniques to estimate the missing values from other training samples in the same dataset. There are some common interpolation techniques we can use, such as mean imputation, median imputation, and most frequent imputation.</p>
+<p>The <code>Imputer</code> class from scikit-learn provides a convenient way for imputation. Next, we use it to perform the most frequent imputation since the missing values in the Adult dataset are all categorical features:</p>
 
 </div>
 </div>
@@ -18632,9 +18632,9 @@ dtype: int64</pre>
 <span class="c1"># give the column index you want to do one-hot encoding</span>
 <span class="n">ohe</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">categorical_features</span> <span class="o">=</span> <span class="n">catego_features_idx</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Imput: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">impute_data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Impute: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">impute_data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 <span class="n">impute_onehot_data</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">impute_data</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Imput one-hot: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">impute_onehot_data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Impute one-hot: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">impute_onehot_data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Drop row: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">drop_row_data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 <span class="n">drop_row_onehot_data</span> <span class="o">=</span> <span class="n">ohe</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">drop_row_data</span><span class="p">)</span>
@@ -18651,8 +18651,8 @@ dtype: int64</pre>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Imput: (32561, 15)
-Imput one-hot: (32561, 106)
+<pre>Impute: (32561, 15)
+Impute one-hot: (32561, 106)
 Drop row: (30162, 15)
 Drop row one-hot: (30162, 105)
 </pre>
@@ -18668,7 +18668,7 @@ Drop row one-hot: (30162, 105)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Here, we can see that the number of column on both dataset increase significantly. Note that the number of column between <code>impute_onehot_data</code> and <code>drop_row_onehot_data</code> are different, which implies that the drop-row method makes a value in a column disappear, resulting in lose of information.</p>
+<p>Here, we can see that the numbers of column on both dataset increase significantly. Note that the number of columns between <code>impute_onehot_data</code> and <code>drop_row_onehot_data</code> are different, which implies that the drop-row method makes a value in a column disappear, resulting in loss of information.</p>
 <p>NOTE: by default, the <code>OneHotEncoder</code> returns a sparse matrix when we use the <code>transform()</code> method. Sparse matrices save space to store entries with a lot of zeros.</p>
 
 </div>
@@ -18904,7 +18904,7 @@ Drop row one-hot: (30162, 105)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Scikit-learn-Pipeline">Scikit-learn Pipeline<a class="anchor-link" href="#Scikit-learn-Pipeline">&#182;</a></h1><p>When we applied different preprocessing techniques in the previous labs, such as standardization, data preprocessing, or PCA, you learned that we have to reuse the parameters that were obtained during the fitting of the training data to scale and compress any new data, for example, the samples in the separate test dataset. Scikit-learn <code>Pipeline</code> allows us to fit a model including an arbitrary number of transformation steps and apply it to make predictions about new data. Following summarizes how a <code>Pipeline</code> works:</p>
+<h1 id="Scikit-learn-Pipeline">Scikit-learn Pipeline<a class="anchor-link" href="#Scikit-learn-Pipeline">&#182;</a></h1><p>When we applied different preprocessing techniques in the previous labs, such as standardization, data preprocessing, or PCA, you learned that we have to reuse the parameters that were obtained during the fitting of the training data to scale and compress any new data, for example, the samples in the separate test dataset. Scikit-learn <code>Pipeline</code> allows us to fit a model including an arbitrary number of transformation steps and apply it to make predictions about new data. The following summarizes how a <code>Pipeline</code> works:</p>
 <p><img src="fig-pipeline.png" style="width: 600px;"/></p>
 
 </div>
@@ -19053,7 +19053,7 @@ Accuracy: 0.8113
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can see, the performance of KNN does not change much because the model does not prefer specific numerical values. On the other hand, the performance of SVC drops because it has a weight decay term in the cost function that can be misled when the categorical features are not encoded as one-hot vectors.</p>
+<p>As we can see, the performance of KNN does not change much because the model does not prefer specific numerical values. On the other hand, the performance of SVC dropped because it has a weight decay term in the cost function that can be misled when the categorical features are not encoded as one-hot vectors.</p>
 <p>We can also compare the performance between imputation and dropping rows:</p>
 
 </div>
@@ -19127,15 +19127,6 @@ Accuracy: 0.8304
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We get slightly worse results than imputation, but not much since we have a large enough dataset.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>Finally, let's combine SVC pipeline with grid search:</p>
 
 </div>
@@ -19189,7 +19180,7 @@ Accuracy: 0.8304
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[SVC: grid search]
 Validation accuracy: 0.835
-{&#39;clf__kernel&#39;: &#39;rbf&#39;, &#39;clf__gamma&#39;: 0.001, &#39;clf__C&#39;: 100.0}
+{&#39;clf__C&#39;: 100.0, &#39;clf__gamma&#39;: 0.001, &#39;clf__kernel&#39;: &#39;rbf&#39;}
 Test accuracy: 0.830
 </pre>
 </div>
@@ -19204,19 +19195,20 @@ Test accuracy: 0.830
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Assignment">Assignment<a class="anchor-link" href="#Assignment">&#182;</a></h1><p>In this assignment, give you another dataset called Mushroom dataset. This dataset includes descriptions of hypothetical samples corresponding to 22 features of gilled mushrooms. Please refer to <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.names">the website</a> for more information about this dataset.</p>
-<h2 id="Your-mission">Your mission<a class="anchor-link" href="#Your-mission">&#182;</a></h2><p>You should train a model to predict whether the mushroom given 22 features is poisonous or edible. You can download the dataset <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.data">here</a> first.</p>
-<h2 id="You-have-to-do">You have to do<a class="anchor-link" href="#You-have-to-do">&#182;</a></h2><ol>
-<li>Use Mushroom dataset and sample 2000 from the dataset. </li>
+<h1 id="Assignment">Assignment<a class="anchor-link" href="#Assignment">&#182;</a></h1><p>In this assignment, a dataset called Mushroom dataset will be used. This data includes descriptions of hypothetical samples corresponding to 22 features of gilled mushrooms. Please refer to <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.names">the website</a> for more information about this dataset.</p>
+<h2 id="Goal">Goal<a class="anchor-link" href="#Goal">&#182;</a></h2><p>Given the dataset, predict whether a mushroom is poisonous or edible. The dataset can be downloaded <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.data">here</a>.</p>
+<h2 id="Requirements">Requirements<a class="anchor-link" href="#Requirements">&#182;</a></h2><ol>
+<li>Use Mushroom dataset and sample 2000 rows from it.</li>
 <li>Do some data preprocessing.</li>
-<li>Train a model by using KNN and SVM. Note that you need to use train_test_split and set test_size = 0.2</li>
-<li>Show us your accuracy.</li>
+<li>Train models using KNN and/or SVM. Note that you need to use train_test_split and set test_size = 0.2. Also, it is up to you which features to use – you can either use all or select a few depending on how you see fit.</li>
+<li>Show the accuracy scores of the models.</li>
+<li>Among the models that you tried, choose the best model and show its accuracy score.</li>
 </ol>
-<p>Submit your ipynb (make sure we can rerun it successfully) to iLMS, and ipynb should contain:</p>
+<p>Submit your ipynb (make sure we can rerun it successfully) to iLMS. The ipynb file should contain:</p>
 <ol>
 <li>Your code</li>
 <li>What you have done for data preprocessing</li>
-<li>Your accuracy by using KNN and SVM</li>
+<li>Your code and accuracy by using KNN and/or SVM</li>
 <li>Anything you want to tell us.</li>
 </ol>
 
