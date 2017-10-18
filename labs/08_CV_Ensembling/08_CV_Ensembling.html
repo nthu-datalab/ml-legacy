@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -14482,7 +14482,7 @@ div#maintoolbar {
         }
     });
 </script>
-    
+
     </style>
 
 
@@ -14502,14 +14502,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -15066,7 +15066,7 @@ Validation accuracy: 0.801 [ 0.73913043  0.86363636  0.75        0.75        0.9
   <span class="nb">print</span><span class="p">(</span><span class="s1">'Test accuracy: </span><span class="si">%.2f</span><span class="s1"> (n_neighbors=</span><span class="si">%d</span><span class="s1"> selected by inner 10-fold CV)'</span> <span class="o">%</span>
         <span class="p">(</span><span class="n">outer_scores</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">best_k</span><span class="p">))</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Test accuracy: </span><span class="si">%.2f</span><span class="s1"> (5x10 nested CV)'</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">outer_scores</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Test accuracy: </span><span class="si">%.2f</span><span class="s1"> (5x2 nested CV)'</span> <span class="o">%</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">outer_scores</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -15092,7 +15092,7 @@ Test accuracy: 0.93 (n_neighbors=15 selected by inner 10-fold CV)
 [Outer fold 5/5]
 Test accuracy: 1.00 (n_neighbors=15 selected by inner 10-fold CV)
 
-Test accuracy: 0.93 (5x10 nested CV)
+Test accuracy: 0.93 (5x2 nested CV)
 </pre>
 </div>
 </div>
@@ -16410,7 +16410,7 @@ Best (0, 2, 1): 0.960
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Assignment">Assignment<a class="anchor-link" href="file:///C:/Users/Real%20Wei/Desktop/08_CV_Ensembling.html#Assignment">¶</a></h1><p>In this assignment, a dataset called Playground dataset will be used. This data includes four competitors and their (x, y) coordinations while they doing some exercise in the playground.</p>
+<h1 id="Assignment">Assignment<a class="anchor-link" href="file:///C:/Users/Real%20Wei/Desktop/08_CV_Ensembling.html#Assignment">¶</a></h1><p>In this assignment, a dataset called Playground dataset will be used. This data includes four competitors and their (x, y) coordinations while they doing some exercise in the playground. The dataset can be downloaded <a href="https://github.com/nthu-datalab/ml/tree/master/labs/08_CV_Ensembling/CV_playground_dataset">here</a>.</p>
 <h2 id="Goal">Goal<a class="anchor-link" href="file:///C:/Users/Real%20Wei/Desktop/08_CV_Ensembling.html#Goal">¶</a></h2><p>Train models using any methods you have learned so far to achieve best accuracy on the testing data. You can plot the train.csv and try to ensemble models that performs well on different competitors.</p>
 <h2 id="Requirements">Requirements<a class="anchor-link" href="file:///C:/Users/Real%20Wei/Desktop/08_CV_Ensembling.html#Requirements">¶</a></h2><p>Please keep all the models you have tried in your ipynb. <br>
 Submit your ipynb (make sure we can rerun it successfully) to iLMS. The ipynb file should contain:</p>
@@ -16491,7 +16491,7 @@ Submit your ipynb (make sure we can rerun it successfully) to iLMS. The ipynb fi
   </div>
 
 
- 
+
 
 
 
