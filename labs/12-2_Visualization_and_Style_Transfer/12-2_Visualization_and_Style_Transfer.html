@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>13_Visualization_and_Style_Transfer</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>12-2_Visualization_and_Style_Transfer</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -8451,15 +8451,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11233,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11676,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -14482,7 +14482,7 @@ div#maintoolbar {
         }
     });
 </script>
-    
+
     </style>
 
 
@@ -14500,14 +14500,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -14643,7 +14643,7 @@ We are going to visualize a neural network pretrained using ImageNet, a large da
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can use a model that has been already trained ("pretrained") by someone else. We just need to have access to the model's parameters. Fortunately, nowadays many researchers are sharing their pretrained models. This is very convenient because it saves us a lot of time to train. 
+<p>We can use a model that has been already trained ("pretrained") by someone else. We just need to have access to the model's parameters. Fortunately, nowadays many researchers are sharing their pretrained models. This is very convenient because it saves us a lot of time to train.
 <br/><br/>
 Here we are going to use a pretrained VGG19 model. This is an architecture introduced from this <a href="https://arxiv.org/abs/1409.1556">paper</a>. This model is known for its simplicity, using only 3×3 convolutional layers stacked on top of each other in increasing depth. The "19" in its name stands for the number of layers in the network.
 <br/><br/></p>
@@ -15974,7 +15974,7 @@ Please download the weights <a href="https://mega.nz/#!xZ8glS6J!MAnE91ND_WyfZ_8m
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Sample of available operations: 
+<pre>Sample of available operations:
  [&#39;Placeholder&#39;, &#39;Placeholder_1&#39;, &#39;mul/y&#39;, &#39;mul&#39;, &#39;Const&#39;, &#39;split/split_dim&#39;, &#39;split&#39;, &#39;sub/y&#39;, &#39;sub&#39;, &#39;sub_1/y&#39;]
 </pre>
 </div>
@@ -18490,7 +18490,7 @@ AAAgiaYIAABAkvT/AQDhQsDyS1nqAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vgg_conv1_1</span> <span class="o">=</span> <span class="n">vgg</span><span class="o">.</span><span class="n">conv1_1</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">images</span><span class="p">:</span> <span class="n">processed_img_4d</span><span class="p">,</span> <span class="n">train_mode</span><span class="p">:</span><span class="kc">False</span><span class="p">})</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vgg_conv1_1</span> <span class="o">=</span> <span class="n">vgg</span><span class="o">.</span><span class="n">conv1_1</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">images</span><span class="p">:</span> <span class="n">processed_img_4d</span><span class="p">,</span> <span class="n">train_mode</span><span class="p">:</span><span class="kc">False</span><span class="p">})</span>
 <span class="n">vgg_conv2_1</span> <span class="o">=</span> <span class="n">vgg</span><span class="o">.</span><span class="n">conv2_1</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">images</span><span class="p">:</span> <span class="n">processed_img_4d</span><span class="p">,</span> <span class="n">train_mode</span><span class="p">:</span><span class="kc">False</span><span class="p">})</span>
 <span class="n">vgg_conv5_1</span> <span class="o">=</span> <span class="n">vgg</span><span class="o">.</span><span class="n">conv5_1</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">images</span><span class="p">:</span> <span class="n">processed_img_4d</span><span class="p">,</span> <span class="n">train_mode</span><span class="p">:</span><span class="kc">False</span><span class="p">})</span>
 </pre></div>
@@ -34824,7 +34824,7 @@ Visualizing neural network gives us a better understanding of what's going in th
 <p><a name='defining-the-content-features-and-style-features' ></a></p>
 <h2 id="Defining-Content-Features-and-Style-Features">Defining Content Features and Style Features<a class="anchor-link" href="#Defining-Content-Features-and-Style-Features">&#182;</a></h2><p><br/></p>
 <ul>
-<li>Content features of the content image is calculated by feeding the content image into the neural network, and extract the activations of those CONTENT_LAYERS. 
+<li>Content features of the content image is calculated by feeding the content image into the neural network, and extract the activations of those CONTENT_LAYERS.
 <br/><br/></li>
 <li>For style features, we extract the correlation of the features of the style-image layer-wise (the gram matrix). By adding up the feature correlations of multiple layers, we obtain a multi-scale representation of the input image, which captures its texture information instead of the object arrangement in the input image.</li>
 </ul>
@@ -34839,7 +34839,7 @@ Visualizing neural network gives us a better understanding of what's going in th
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a name='defining-the-loss' ></a></p>
 <h2 id="Defining-the-Loss">Defining the Loss<a class="anchor-link" href="#Defining-the-Loss">&#182;</a></h2><p><br/>
-Our goal is to create an output image which is synthesized by finding an image that simultaneously matches the content features of the photograph and the style features of the respective piece of art. How can we do that? 
+Our goal is to create an output image which is synthesized by finding an image that simultaneously matches the content features of the photograph and the style features of the respective piece of art. How can we do that?
 We can define the loss function as the composition of:</p>
 <ol>
 <li>The dissimilarity of the content features between the output image and the content image; and</li>
@@ -34900,12 +34900,12 @@ It might be easier for you to understand through code. Let's start by preparing 
 <span class="n">output_directory</span> <span class="o">=</span> <span class="s1">&#39;image_output/&#39;</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_directory</span><span class="p">):</span>
   <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_directory</span><span class="p">)</span>
-    
+
 <span class="c1"># This is the directory to store the half-done images during the training.</span>
 <span class="n">checkpoint_directory</span> <span class="o">=</span> <span class="s1">&#39;checkpoint_output/&#39;</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">checkpoint_directory</span><span class="p">):</span>
   <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">checkpoint_directory</span><span class="p">)</span>
-    
+
 <span class="n">content_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">content_directory</span><span class="p">,</span> <span class="s1">&#39;wonder-woman.jpg&#39;</span><span class="p">)</span>
 <span class="n">style_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">style_directory</span><span class="p">,</span> <span class="s1">&#39;starry-night.jpg&#39;</span><span class="p">)</span>
 <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_directory</span><span class="p">,</span> <span class="s1">&#39;wonder-woman-starry-night-iteration-1000.jpg&#39;</span><span class="p">)</span>
@@ -35011,7 +35011,7 @@ It might be easier for you to understand through code. Let's start by preparing 
       <span class="n">current</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;pool&#39;</span><span class="p">:</span>
       <span class="n">current</span> <span class="o">=</span> <span class="n">pool_layer</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">pooling</span><span class="p">)</span>
-    
+
     <span class="n">net</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">current</span>
 
   <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">net</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">VGG19_LAYERS</span><span class="p">)</span>
@@ -35079,29 +35079,29 @@ This is the main algorithm we will be using to stylize the network. There are a 
 
 <span class="n">VGG_MEAN</span> <span class="o">=</span> <span class="p">[</span><span class="mf">103.939</span><span class="p">,</span> <span class="mf">116.779</span><span class="p">,</span> <span class="mf">123.68</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">stylize</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">styles</span><span class="p">,</span> <span class="n">network_path</span><span class="o">=</span><span class="s1">&#39;libs/imagenet-vgg-verydeep-19.mat&#39;</span><span class="p">,</span> 
-            <span class="n">iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">content_weight</span><span class="o">=</span><span class="mf">5e0</span><span class="p">,</span> <span class="n">content_weight_blend</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">style_weight</span><span class="o">=</span><span class="mf">5e2</span><span class="p">,</span> 
+<span class="k">def</span> <span class="nf">stylize</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">styles</span><span class="p">,</span> <span class="n">network_path</span><span class="o">=</span><span class="s1">&#39;libs/imagenet-vgg-verydeep-19.mat&#39;</span><span class="p">,</span>
+            <span class="n">iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">content_weight</span><span class="o">=</span><span class="mf">5e0</span><span class="p">,</span> <span class="n">content_weight_blend</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">style_weight</span><span class="o">=</span><span class="mf">5e2</span><span class="p">,</span>
             <span class="n">style_layer_weight_exp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">style_blend_weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tv_weight</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
             <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">beta1</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">beta2</span><span class="o">=</span><span class="mf">0.999</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-08</span><span class="p">,</span> <span class="n">pooling</span><span class="o">=</span><span class="s1">&#39;avg&#39;</span><span class="p">,</span>
             <span class="n">print_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">checkpoint_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">checkpoint_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">output_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    
-    
+
+
   <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span> <span class="o">+</span> <span class="n">content</span><span class="o">.</span><span class="n">shape</span>                             <span class="c1">#content image shape : (1,433,770,3)</span>
   <span class="n">style_shapes</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,)</span> <span class="o">+</span> <span class="n">style</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">style</span> <span class="ow">in</span> <span class="n">styles</span><span class="p">]</span>  <span class="c1">#style image shape : (1,600,800,3)</span>
   <span class="n">content_features</span> <span class="o">=</span> <span class="p">{}</span>
   <span class="n">style_features</span> <span class="o">=</span> <span class="p">[{}</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">styles</span><span class="p">]</span>
 
-    
+
   <span class="c1"># scale the importance of each style layers according to their depth. </span>
   <span class="c1"># (deeper layers are more important if style_layers_weights &gt; 1 (default = 1))</span>
   <span class="n">layer_weight</span> <span class="o">=</span> <span class="mf">1.0</span>
   <span class="n">style_layers_weights</span> <span class="o">=</span> <span class="p">{}</span>                                <span class="c1"># weight for different network layers</span>
-  <span class="k">for</span> <span class="n">style_layer</span> <span class="ow">in</span> <span class="n">STYLE_LAYERS</span><span class="p">:</span>                                    
+  <span class="k">for</span> <span class="n">style_layer</span> <span class="ow">in</span> <span class="n">STYLE_LAYERS</span><span class="p">:</span>
     <span class="n">style_layers_weights</span><span class="p">[</span><span class="n">style_layer</span><span class="p">]</span> <span class="o">=</span> <span class="n">layer_weight</span>       <span class="c1">#&#39;relu1_1&#39;,&#39;relu2_1&#39;,...,&#39;relu5_1&#39;</span>
     <span class="n">layer_weight</span> <span class="o">*=</span> <span class="n">style_layer_weight_exp</span>                 <span class="c1"># 1.0</span>
 
-        
+
   <span class="c1"># normalize style layer weights</span>
   <span class="n">layer_weights_sum</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="k">for</span> <span class="n">style_layer</span> <span class="ow">in</span> <span class="n">STYLE_LAYERS</span><span class="p">:</span>                         <span class="c1">#&#39;relu1_1&#39;,..., &#39;relu5_1&#39;</span>
@@ -35109,7 +35109,7 @@ This is the main algorithm we will be using to stylize the network. There are a 
   <span class="k">for</span> <span class="n">style_layer</span> <span class="ow">in</span> <span class="n">STYLE_LAYERS</span><span class="p">:</span>
     <span class="n">style_layers_weights</span><span class="p">[</span><span class="n">style_layer</span><span class="p">]</span> <span class="o">/=</span> <span class="n">layer_weights_sum</span>
 
-        
+
   <span class="c1"># FEATURE MAPS FROM CONTENT IMAGE</span>
   <span class="c1"># compute the feature map of the content image by feeding it into the network</span>
   <span class="c1">#the output net contains the features of each content layer</span>
@@ -35120,9 +35120,9 @@ This is the main algorithm we will be using to stylize the network. There are a 
     <span class="n">net</span> <span class="o">=</span> <span class="n">net_preloaded</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">pooling</span><span class="p">)</span>             <span class="c1"># {&#39;conv1_1&#39;:Tensor,relu1_1:Tensor...}</span>
     <span class="n">content_pre</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">preprocess</span><span class="p">(</span><span class="n">content</span><span class="p">)])</span>   <span class="c1"># (1,433,770,3) subtract the mean pixel</span>
     <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">CONTENT_LAYERS</span><span class="p">:</span>                    <span class="c1">#&#39;relu4_2&#39;, &#39;relu5_2&#39;</span>
-      <span class="n">content_features</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span> <span class="o">=</span> <span class="n">net</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">image</span><span class="p">:</span> <span class="n">content_pre</span><span class="p">})</span>  
+      <span class="n">content_features</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span> <span class="o">=</span> <span class="n">net</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">image</span><span class="p">:</span> <span class="n">content_pre</span><span class="p">})</span>
 
-            
+
   <span class="c1"># FEATURE MAPS (GRAM MATRICES) FROM STYLE IMAGE</span>
   <span class="c1"># compute style features of the style image by feeding it into the network</span>
   <span class="c1"># and calculate the gram matrix</span>
@@ -35130,7 +35130,7 @@ This is the main algorithm we will be using to stylize the network. There are a 
     <span class="n">g</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
     <span class="k">with</span> <span class="n">g</span><span class="o">.</span><span class="n">as_default</span><span class="p">(),</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
       <span class="n">image</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">style_shapes</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-      <span class="n">net</span> <span class="o">=</span> <span class="n">net_preloaded</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">pooling</span><span class="p">)</span>                           
+      <span class="n">net</span> <span class="o">=</span> <span class="n">net_preloaded</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">pooling</span><span class="p">)</span>
       <span class="n">style_pre</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">preprocess</span><span class="p">(</span><span class="n">styles</span><span class="p">[</span><span class="n">i</span><span class="p">])])</span>
       <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">STYLE_LAYERS</span><span class="p">:</span>              <span class="c1">#&#39;relu1_1&#39;, &#39;relu2_1&#39;,..., &#39;relu5_1&#39;</span>
         <span class="n">features</span> <span class="o">=</span> <span class="n">net</span><span class="p">[</span><span class="n">layer</span><span class="p">]</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">image</span><span class="p">:</span> <span class="n">style_pre</span><span class="p">})</span>  <span class="c1"># relu_1:(1,600,800,64)</span>
@@ -35138,29 +35138,29 @@ This is the main algorithm we will be using to stylize the network. There are a 
         <span class="n">gram</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span> <span class="o">/</span> <span class="n">features</span><span class="o">.</span><span class="n">size</span>    <span class="c1"># (64,64)</span>
         <span class="n">style_features</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">layer</span><span class="p">]</span> <span class="o">=</span> <span class="n">gram</span>
 
-                
+
   <span class="c1"># make stylized image using backpropogation</span>
   <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
 
     <span class="c1"># Generate a random image (the output image) with the same shape as the content image</span>
-    <span class="n">initial</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.256</span>  
+    <span class="n">initial</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.256</span>
     <span class="n">image</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">initial</span><span class="p">)</span>
     <span class="n">net</span> <span class="o">=</span> <span class="n">net_preloaded</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">pooling</span><span class="p">)</span>
-    
+
 
     <span class="c1"># CONTENT LOSS</span>
     <span class="c1"># we can adjust the weight of each content layers</span>
     <span class="c1"># content_weight_blend is the ratio of two used content layers in this example</span>
     <span class="n">content_layers_weights</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">content_layers_weights</span><span class="p">[</span><span class="s1">&#39;relu4_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">content_weight_blend</span> 
-    <span class="n">content_layers_weights</span><span class="p">[</span><span class="s1">&#39;relu5_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">content_weight_blend</span>      
+    <span class="n">content_layers_weights</span><span class="p">[</span><span class="s1">&#39;relu4_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">content_weight_blend</span>
+    <span class="n">content_layers_weights</span><span class="p">[</span><span class="s1">&#39;relu5_2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">content_weight_blend</span>
 
     <span class="n">content_loss</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">content_losses</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">content_layer</span> <span class="ow">in</span> <span class="n">CONTENT_LAYERS</span><span class="p">:</span>
       <span class="c1"># Use MSE as content losses</span>
       <span class="c1"># content weight is the coefficient for content loss</span>
-      <span class="n">content_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content_layers_weights</span><span class="p">[</span><span class="n">content_layer</span><span class="p">]</span> <span class="o">*</span> <span class="n">content_weight</span> <span class="o">*</span> 
+      <span class="n">content_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content_layers_weights</span><span class="p">[</span><span class="n">content_layer</span><span class="p">]</span> <span class="o">*</span> <span class="n">content_weight</span> <span class="o">*</span>
               <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">l2_loss</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="n">content_layer</span><span class="p">]</span> <span class="o">-</span> <span class="n">content_features</span><span class="p">[</span><span class="n">content_layer</span><span class="p">])</span> <span class="o">/</span>
               <span class="n">content_features</span><span class="p">[</span><span class="n">content_layer</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
     <span class="n">content_loss</span> <span class="o">+=</span> <span class="n">reduce</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="n">content_losses</span><span class="p">)</span>
@@ -35187,17 +35187,17 @@ This is the main algorithm we will be using to stylize the network. There are a 
       <span class="n">style_losses</span> <span class="o">=</span> <span class="p">[]</span>
       <span class="k">for</span> <span class="n">style_layer</span> <span class="ow">in</span> <span class="n">STYLE_LAYERS</span><span class="p">:</span>             <span class="c1"># e.g. relu1_1</span>
         <span class="n">layer</span> <span class="o">=</span> <span class="n">net</span><span class="p">[</span><span class="n">style_layer</span><span class="p">]</span>                   <span class="c1"># relu1_1 of output image:(1,433,770,64)</span>
-        <span class="n">_</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">number</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">layer</span><span class="o">.</span><span class="n">get_shape</span><span class="p">())</span>  
+        <span class="n">_</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">number</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">layer</span><span class="o">.</span><span class="n">get_shape</span><span class="p">())</span>
         <span class="n">size</span> <span class="o">=</span> <span class="n">height</span> <span class="o">*</span> <span class="n">width</span> <span class="o">*</span> <span class="n">number</span>
         <span class="n">feats</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">number</span><span class="p">))</span>    <span class="c1"># (333410,64)</span>
 
         <span class="c1"># Gram matrix for the features in relu1_1 of the output image.</span>
         <span class="n">gram</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">feats</span><span class="p">),</span> <span class="n">feats</span><span class="p">)</span> <span class="o">/</span> <span class="n">size</span>
         <span class="c1"># Gram matrix for the features in relu1_1 of the style image</span>
-        <span class="n">style_gram</span> <span class="o">=</span> <span class="n">style_features</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">style_layer</span><span class="p">]</span>   
+        <span class="n">style_gram</span> <span class="o">=</span> <span class="n">style_features</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">style_layer</span><span class="p">]</span>
 
         <span class="c1"># Style loss is the MSE for the difference of the 2 Gram matrices</span>
-        <span class="n">style_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">style_layers_weights</span><span class="p">[</span><span class="n">style_layer</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> 
+        <span class="n">style_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">style_layers_weights</span><span class="p">[</span><span class="n">style_layer</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span>
                             <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">l2_loss</span><span class="p">(</span><span class="n">gram</span> <span class="o">-</span> <span class="n">style_gram</span><span class="p">)</span> <span class="o">/</span> <span class="n">style_gram</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
       <span class="n">style_loss</span> <span class="o">+=</span> <span class="n">style_weight</span> <span class="o">*</span> <span class="n">style_blend_weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">reduce</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="n">style_losses</span><span class="p">)</span>
 
@@ -35233,19 +35233,19 @@ This is the main algorithm we will be using to stylize the network. There are a 
       <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
       <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">95</span><span class="p">)</span>
 
-    
-    
+
+
     <span class="c1"># TRAINING</span>
     <span class="n">best_loss</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
     <span class="n">best</span> <span class="o">=</span> <span class="kc">None</span>
-    
+
     <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
-        
+
       <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">())</span>
-    
+
       <span class="k">if</span> <span class="p">(</span><span class="n">print_iterations</span> <span class="ow">and</span> <span class="n">print_iterations</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
         <span class="n">print_progress</span><span class="p">()</span>
-        
+
       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
 
         <span class="n">train_step</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
@@ -35272,7 +35272,7 @@ This is the main algorithm we will be using to stylize the network. There are a 
 
           <span class="k">if</span> <span class="n">output_file</span><span class="p">:</span>
             <span class="n">imsave</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">img_out</span><span class="p">)</span>
-            
+
   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;finish stylizing.&quot;</span><span class="p">)</span>
 
 
@@ -35305,7 +35305,7 @@ This is the main algorithm we will be using to stylize the network. There are a 
 <span class="n">output_path</span><span class="o">=</span><span class="s1">&#39;image_output/wonder-woman-starry-night-tvweight-100.jpg&#39;</span>
 
 <span class="n">stylize</span><span class="p">(</span><span class="n">content_image</span><span class="p">,</span> <span class="n">style_images</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
-        <span class="n">content_weight</span><span class="o">=</span><span class="mf">5e0</span><span class="p">,</span> <span class="n">content_weight_blend</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">style_weight</span><span class="o">=</span><span class="mf">5e2</span><span class="p">,</span> 
+        <span class="n">content_weight</span><span class="o">=</span><span class="mf">5e0</span><span class="p">,</span> <span class="n">content_weight_blend</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">style_weight</span><span class="o">=</span><span class="mf">5e2</span><span class="p">,</span>
         <span class="n">style_layer_weight_exp</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">style_blend_weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tv_weight</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
         <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e1</span><span class="p">,</span> <span class="n">beta1</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">beta2</span><span class="o">=</span><span class="mf">0.999</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-08</span><span class="p">,</span> <span class="n">pooling</span><span class="o">=</span><span class="s1">&#39;avg&#39;</span><span class="p">,</span>
         <span class="n">print_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">checkpoint_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">checkpoint_path</span><span class="o">=</span><span class="n">checkpoint_path</span><span class="p">,</span>
@@ -35655,7 +35655,7 @@ and mix two styles -- Starry Night and Rain Princess -- together!</p>
   </div>
 </body>
 
- 
+
 
 
 </html>
