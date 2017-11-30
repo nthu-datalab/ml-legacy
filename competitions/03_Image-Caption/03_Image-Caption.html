@@ -14993,7 +14993,7 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Task:-Image-Caption">Task: Image Caption<a class="anchor-link" href="#Task:-Image-Caption">&#182;</a></h2><p>Given a set of images, your task is to generate suitable sentences to describe each of the images.
 <img src="http://cocodataset.org/images/captions-challenge-splash.jpg" alt=""></p>
-<p>You will compete on the modified release of 2014 <a href="http://cocodataset.org/#captions-challenge2015">Microsoft COCO dataset</a>, which is the standard testbed for image caption.</p>
+<p>You will compete on the modified release of 2014 <a href="http://cocodataset.org/#captions-challenge2015">Microsoft COCO dadtaset</a>, which is the standard testbed for image caption.</p>
 <ul>
 <li>102739 images for training set, where each images is annotated with 5 captions.</li>
 <li>20548 images for testing (you must generate 1 caption for each image)</li>
@@ -15259,14 +15259,14 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>decoding the encoded captions back...
 
-0: &lt;ST&gt; a group of three women sitting at a table sharing a cup of tea &lt;ED&gt;
-1: &lt;ST&gt; three women wearing hats at a table together &lt;ED&gt;
-2: &lt;ST&gt; three women with hats at a table having a tea party &lt;ED&gt;
-3: &lt;ST&gt; several woman dressed up with fancy hats at a tea party &lt;ED&gt;
-4: &lt;ST&gt; three women wearing large hats at a fancy tea event &lt;ED&gt;
-5: &lt;ST&gt; a twin door refrigerator in a kitchen next to cabinets &lt;ED&gt;
-6: &lt;ST&gt; a black refrigerator freezer sitting inside of a kitchen &lt;ED&gt;
-7: &lt;ST&gt; black refrigerator in messy kitchen of residential home &lt;ED&gt;
+0: &lt;ST&gt; jam tucked keyboards bar knife freight tight jam sticker parallel jam spatula keyboards arms &lt;ED&gt;
+1: &lt;ST&gt; bar knife grand stripes tight jam sticker kiss &lt;ED&gt;
+2: &lt;ST&gt; bar knife bunk stripes tight jam sticker besides jam arms dotted &lt;ED&gt;
+3: &lt;ST&gt; gather opened goat car bunk tomatoes stripes tight jam arms dotted &lt;ED&gt;
+4: &lt;ST&gt; bar knife grand button stripes tight jam tomatoes arms between &lt;ED&gt;
+5: &lt;ST&gt; jam covers biker make really jam commuter speaker obama ceramic &lt;ED&gt;
+6: &lt;ST&gt; jam comes make bed freight clear keyboards jam commuter &lt;ED&gt;
+7: &lt;ST&gt; comes make really pot commuter keyboards roads blueberries &lt;ED&gt;
 </pre>
 </div>
 </div>
@@ -15394,21 +15394,19 @@ div#notebook {
                                          <span class="s1">&#39;.tfrecord&#39;</span><span class="p">)</span>
 
     <span class="c1"># put remaining records in last file</span>
-    <span class="c1"># start point (inclusive)</span>
-    <span class="n">st</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">num_records_per_file</span> 
-    <span class="c1"># end point (exclusive)</span>
-    <span class="n">ed</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">num_records_per_file</span> <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">num_files</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">img_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">st</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">num_records_per_file</span>  <span class="c1"># start point (inclusive)</span>
+    <span class="n">ed</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">num_records_per_file</span> <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">num_files</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">img_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span>
+        <span class="mi">0</span><span class="p">]</span>  <span class="c1"># end point (exclusive)</span>
 
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">img_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">st</span><span class="p">:</span><span class="n">ed</span><span class="p">]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-      
-      <span class="c1"># img representation in 256-d array format</span>
-      <span class="n">img_representation</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">]</span> 
+
+      <span class="n">img_representation</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span>
+          <span class="s1">&#39;img&#39;</span><span class="p">]</span>  <span class="c1"># img representation in 256-d array format</span>
 
       <span class="c1"># each image has some captions describing it.</span>
       <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">inner_row</span> <span class="ow">in</span> <span class="n">df_cap</span><span class="p">[</span><span class="n">df_cap</span><span class="p">[</span><span class="s1">&#39;img_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;img_id&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        
-        <span class="c1"># caption in different sequence length list format</span>
-        <span class="n">caption</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">inner_row</span><span class="p">[</span><span class="s1">&#39;caption&#39;</span><span class="p">])</span>  
+        <span class="n">caption</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">inner_row</span><span class="p">[</span>
+            <span class="s1">&#39;caption&#39;</span><span class="p">])</span>  <span class="c1"># caption in different sequence length list format</span>
 
         <span class="c1"># construct &#39;example&#39; object containing &#39;img&#39;, &#39;caption&#39;</span>
         <span class="n">example</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Example</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Features</span><span class="p">(</span>
@@ -15543,8 +15541,9 @@ div#notebook {
   <span class="c1"># features contains - &#39;img&#39;, &#39;caption&#39;</span>
   <span class="n">features</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">parse_single_example</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="n">keys_to_features</span><span class="p">)</span>
 
-  <span class="n">img</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">]</span>  
-  <span class="n">caption</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s1">&#39;caption&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  
+  <span class="n">img</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="s1">&#39;img&#39;</span><span class="p">]</span>  <span class="c1"># tensor</span>
+  <span class="n">caption</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span>
+      <span class="s1">&#39;caption&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># tensor (features[&#39;caption&#39;] - sparse_tensor)</span>
   <span class="n">caption</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">caption</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 
   <span class="c1"># create input and output sequence for each training example</span>
@@ -16101,6 +16100,7 @@ Note: TensorFlow provides a very efficient implementation to do lookup embedding
 <span class="kn">from</span> <span class="nn">pre_trained.cnn</span> <span class="k">import</span> <span class="n">PretrainedCNN</span>
 <span class="kn">import</span> <span class="nn">imageio</span>
 <span class="kn">import</span> <span class="nn">skimage.transform</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
@@ -21468,7 +21468,13 @@ To automatically evaluate quality of a caption, there are 2 main goals:</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>2. Execute CIDEr-D executable to generate score.csv</strong>
-Important: because some path depandence issue, you must change your directory to CIDErD, then execute <code>./gen_score</code>.</p>
+Important: Download corresponding CIDEr-D version of your operating system,</p>
+<ul>
+<li><code>CIDErD_macos</code> : for macos.</li>
+<li><code>CIDErD_linux</code> : for linux.</li>
+<li><code>CIDErD_win</code>: for windows.</li>
+</ul>
+<p>because some path depandence issue, you must change your directory to CIDErD, then execute <code>./gen_score</code>.</p>
 <ul>
 <li><code>-i</code>: your generated captions in csv format</li>
 <li><code>-r</code>: your evaluated CIDErD score, submit this to Kaggle-InClass</li>
@@ -21483,7 +21489,7 @@ Important: because some path depandence issue, you must change your directory to
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;cd CIDErD &amp;&amp; ./gen_score -i ../generated/demo.csv -r ../generated/score.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;cd CIDErD_macos &amp;&amp; ./gen_score -i ../generated/demo.csv -r ../generated/score.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
