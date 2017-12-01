@@ -15259,14 +15259,14 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>decoding the encoded captions back...
 
-0: &lt;ST&gt; jam tucked keyboards bar knife freight tight jam sticker parallel jam spatula keyboards arms &lt;ED&gt;
-1: &lt;ST&gt; bar knife grand stripes tight jam sticker kiss &lt;ED&gt;
-2: &lt;ST&gt; bar knife bunk stripes tight jam sticker besides jam arms dotted &lt;ED&gt;
-3: &lt;ST&gt; gather opened goat car bunk tomatoes stripes tight jam arms dotted &lt;ED&gt;
-4: &lt;ST&gt; bar knife grand button stripes tight jam tomatoes arms between &lt;ED&gt;
-5: &lt;ST&gt; jam covers biker make really jam commuter speaker obama ceramic &lt;ED&gt;
-6: &lt;ST&gt; jam comes make bed freight clear keyboards jam commuter &lt;ED&gt;
-7: &lt;ST&gt; comes make really pot commuter keyboards roads blueberries &lt;ED&gt;
+0: &lt;ST&gt; a group of three women sitting at a table sharing a cup of tea &lt;ED&gt;
+1: &lt;ST&gt; three women wearing hats at a table together &lt;ED&gt;
+2: &lt;ST&gt; three women with hats at a table having a tea party &lt;ED&gt;
+3: &lt;ST&gt; several woman dressed up with fancy hats at a tea party &lt;ED&gt;
+4: &lt;ST&gt; three women wearing large hats at a fancy tea event &lt;ED&gt;
+5: &lt;ST&gt; a twin door refrigerator in a kitchen next to cabinets &lt;ED&gt;
+6: &lt;ST&gt; a black refrigerator freezer sitting inside of a kitchen &lt;ED&gt;
+7: &lt;ST&gt; black refrigerator in messy kitchen of residential home &lt;ED&gt;
 </pre>
 </div>
 </div>
@@ -21467,16 +21467,16 @@ To automatically evaluate quality of a caption, there are 2 main goals:</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>2. Execute CIDEr-D executable to generate score.csv</strong>
+<p><strong>2. Execute CIDEr-D executable to generate score.csv</strong><br>
 Important: Download corresponding CIDEr-D version of your operating system,</p>
 <ul>
 <li><code>CIDErD_macos</code> : for macos.</li>
 <li><code>CIDErD_linux</code> : for linux.</li>
-<li><code>CIDErD_win</code>: for windows.</li>
-</ul>
-<p>because some path depandence issue, you must change your directory to CIDErD, then execute <code>./gen_score</code>.</p>
-<ul>
-<li><code>-i</code>: your generated captions in csv format</li>
+<li><p><code>CIDErD_win</code>: for windows.<br>
+because some path depandence issue, you must change your directory to CIDErD, then execute <code>./gen_score</code>.</p>
+</li>
+<li><p><code>-i</code>: your generated captions in csv format</p>
+</li>
 <li><code>-r</code>: your evaluated CIDErD score, submit this to Kaggle-InClass</li>
 </ul>
 <p>You can see help manual by argument <code>-h</code>, for example, <code>./gen_score -h</code></p>
@@ -21489,7 +21489,7 @@ Important: Download corresponding CIDEr-D version of your operating system,</p>
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;cd CIDErD_macos &amp;&amp; ./gen_score -i ../generated/demo.csv -r ../generated/score.csv&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;cd CIDErD &amp;&amp; ./gen_score -i ../generated/demo.csv -r ../generated/score.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
