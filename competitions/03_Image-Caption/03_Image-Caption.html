@@ -14992,7 +14992,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Task:-Image-Caption">Task: Image Caption<a class="anchor-link" href="#Task:-Image-Caption">&#182;</a></h2><p>Given a set of images, your task is to generate suitable sentences to describe each of the images.
-<img src="http://cocodataset.org/images/captions-challenge-splash.jpg" alt=""></p>
+<img src="img/caption-challenge.jpg" alt=""></p>
 <p>You will compete on the modified release of 2014 <a href="http://cocodataset.org/#captions-challenge2015">Microsoft COCO dadtaset</a>, which is the standard testbed for image caption.</p>
 <ul>
 <li>102739 images for training set, where each images is annotated with 5 captions.</li>
@@ -21592,10 +21592,10 @@ because some path depandence issue, you must change your directory to CIDErD, th
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Inference:-Beam-Search">Inference: Beam Search<a class="anchor-link" href="#Inference:-Beam-Search">&#182;</a></h3><p>The example code above generates caption by a locally greedy algorithm, which only samples a word with highest probability at each timestep. However, it doesn't necessarily going to give the best caption. The ideal caption should maximize the joint probability of all words at each timestep.</p>
 <div>
-<img src='simple_generate.jpg', style="width: 400px">
+<img src='img/simple_generate.jpg', style="width: 400px">
 </div><p>There's a commonly trick, called beam search, which has been empirically observed to improve testing performance by doing Breadth-First-Search over top k possible next word at each timestep, where k is called beam-size. We could rank the candidate captions by taking negative log likelihood(NLL) of joint probability of all words, then the above objective becomes</p>
 <div>
-<img src='beam_search.jpg', style="width: 400px">
+<img src='img/beam_search.jpg', style="width: 400px">
 </div><p>which can be easily summed up by taking negative log of softmax score at each timestep. After generating several possible captions, we could choose the one with least NLL as our final caption.</p>
 <p><a href="https://arxiv.org/pdf/1606.02960.pdf">Sequence-to-Sequence Learning as Beam-Search Optimization</a></p>
 
@@ -21618,7 +21618,7 @@ because some path depandence issue, you must change your directory to CIDErD, th
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Training:-Scheduled-Sampling-">Training: Scheduled Sampling <br /><a class="anchor-link" href="#Training:-Scheduled-Sampling-">&#182;</a></h3><p>Curriculum learning strategy to gently change the training process from a fully guided scheme using the true previous token, towards a less guided scheme which mostly uses the generated token instead.</p>
 <p><a href="https://arxiv.org/pdf/1506.03099.pdf">Scheduled Sampling for Sequence Prediction with RNN</a></p>
-<div><img src=https://pbs.twimg.com/media/CiREMsRXAAAn9lB.jpg alt="Drawing" style="width: 500px;"/></div>
+<div><img src='img/scheduled-sampling.jpg' alt="Drawing" style="width: 500px;"/></div>
 </div>
 </div>
 </div>
@@ -21629,7 +21629,7 @@ because some path depandence issue, you must change your directory to CIDErD, th
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Training:-Professor-Forcing-">Training: Professor Forcing <br /><a class="anchor-link" href="#Training:-Professor-Forcing-">&#182;</a></h3><p>Use adversarial domain adaptation to encourage the dynamics of the rnn to be the same when training the network and when sampling from the network over multiple time steps.</p>
 <p><a href="https://arxiv.org/pdf/1610.09038.pdf">Professor Forcing</a></p>
-<div><img src=https://pbs.twimg.com/media/CwMLZY1WYAAiTLl.jpg alt="Drawing" style="width: 500px;"/> </div>
+<div><img src='img/professor-forcing.jpg' alt="Drawing" style="width: 500px;"/> </div>
 </div>
 </div>
 </div>
