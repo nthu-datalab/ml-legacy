@@ -15909,20 +15909,7 @@ Note: TensorFlow provides a very efficient implementation to do lookup embedding
 
       <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done&#39;</span><span class="p">)</span>
 
-  <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_embed</span><span class="p">,</span> <span class="n">enc_map</span><span class="p">,</span> <span class="n">dec_map</span><span class="p">):</span>
-    <span class="n">saver</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">()</span>
-    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
-
-      <span class="c1"># restore variables from disk.</span>
-      <span class="n">ckpt</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">get_checkpoint_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hps</span><span class="o">.</span><span class="n">ckpt_dir</span><span class="p">)</span>
-      <span class="k">if</span> <span class="n">ckpt</span> <span class="ow">and</span> <span class="n">ckpt</span><span class="o">.</span><span class="n">model_checkpoint_path</span><span class="p">:</span>
-        <span class="n">saver</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">latest_checkpoint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hps</span><span class="o">.</span><span class="n">ckpt_dir</span><span class="p">))</span>
-        <span class="n">caption</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predict</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">img_embed</span><span class="p">,</span> <span class="n">enc_map</span><span class="p">,</span> <span class="n">dec_map</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">caption</span>
-      <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No checkpoint found.&quot;</span><span class="p">)</span>
-
-  <span class="k">def</span> <span class="nf">_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sess</span><span class="p">,</span> <span class="n">img_embed</span><span class="p">,</span> <span class="n">enc_map</span><span class="p">,</span> <span class="n">dec_map</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sess</span><span class="p">,</span> <span class="n">img_embed</span><span class="p">,</span> <span class="n">enc_map</span><span class="p">,</span> <span class="n">dec_map</span><span class="p">):</span>
 
     <span class="c1"># get &lt;start&gt; and &lt;end&gt; word id</span>
     <span class="n">st</span><span class="p">,</span> <span class="n">ed</span> <span class="o">=</span> <span class="n">enc_map</span><span class="p">[</span><span class="s1">&#39;&lt;ST&gt;&#39;</span><span class="p">],</span> <span class="n">enc_map</span><span class="p">[</span><span class="s1">&#39;&lt;ED&gt;&#39;</span><span class="p">]</span>
@@ -16050,16 +16037,28 @@ Note: TensorFlow provides a very efficient implementation to do lookup embedding
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">ImageCaptionModel</span><span class="p">(</span><span class="n">hparams</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;inference&#39;</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
 <span class="c1"># sample one image in training data and generate caption</span>
 <span class="n">testimg</span> <span class="o">=</span> <span class="n">img_train_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">9</span><span class="p">][</span><span class="s1">&#39;img&#39;</span><span class="p">]</span>
 <span class="n">testimg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">testimg</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">caption</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">testimg</span><span class="p">,</span> <span class="n">enc_map</span><span class="p">,</span> <span class="n">dec_map</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+  <span class="n">saver</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">()</span>
+  <span class="c1"># restore variables from disk.</span>
+  <span class="n">ckpt</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">get_checkpoint_state</span><span class="p">(</span><span class="n">hparams</span><span class="o">.</span><span class="n">ckpt_dir</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">ckpt</span> <span class="ow">and</span> <span class="n">ckpt</span><span class="o">.</span><span class="n">model_checkpoint_path</span><span class="p">:</span>
+    <span class="n">saver</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">latest_checkpoint</span><span class="p">(</span><span class="n">hparams</span><span class="o">.</span><span class="n">ckpt_dir</span><span class="p">))</span>
+    <span class="n">caption</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">testimg</span><span class="p">,</span> <span class="n">enc_map</span><span class="p">,</span> <span class="n">dec_map</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No checkpoint found.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">caption</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -16072,7 +16071,8 @@ Note: TensorFlow provides a very efficient implementation to do lookup embedding
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>INFO:tensorflow:Restoring parameters from model_ckpt/model.ckpt-1132230
+<pre>INFO:tensorflow:Restoring parameters from model_ckpt/model.ckpt-12253780
+others band interesting bushes narrow morning lots band interesting bushes narrow morning lots band interesting
 </pre>
 </div>
 </div>
@@ -21472,11 +21472,11 @@ Important: Download corresponding CIDEr-D version of your operating system,</p>
 <ul>
 <li><code>CIDErD_macos</code> : for macos.</li>
 <li><code>CIDErD_linux</code> : for linux.</li>
-<li><p><code>CIDErD_win</code>: for windows.<br>
-because some path depandence issue, you must change your directory to CIDErD, then execute <code>./gen_score</code>.</p>
-</li>
-<li><p><code>-i</code>: your generated captions in csv format</p>
-</li>
+<li><code>CIDErD_win</code>: for windows.  </li>
+</ul>
+<p>because some path depandence issue, you must change your directory to CIDErD, then execute <code>./gen_score</code>.</p>
+<ul>
+<li><code>-i</code>: your generated captions in csv format</li>
 <li><code>-r</code>: your evaluated CIDErD score, submit this to Kaggle-InClass</li>
 </ul>
 <p>You can see help manual by argument <code>-h</code>, for example, <code>./gen_score -h</code></p>
@@ -21618,7 +21618,7 @@ because some path depandence issue, you must change your directory to CIDErD, th
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Training:-Scheduled-Sampling-">Training: Scheduled Sampling <br /><a class="anchor-link" href="#Training:-Scheduled-Sampling-">&#182;</a></h3><p>Curriculum learning strategy to gently change the training process from a fully guided scheme using the true previous token, towards a less guided scheme which mostly uses the generated token instead.</p>
 <p><a href="https://arxiv.org/pdf/1506.03099.pdf">Scheduled Sampling for Sequence Prediction with RNN</a></p>
-<div><img src='img/scheduled-sampling.jpg' alt="Drawing" style="width: 500px;"/></div>
+<div><img src=https://pbs.twimg.com/media/CiREMsRXAAAn9lB.jpg alt="Drawing" style="width: 500px;"/></div>
 </div>
 </div>
 </div>
@@ -21629,7 +21629,7 @@ because some path depandence issue, you must change your directory to CIDErD, th
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Training:-Professor-Forcing-">Training: Professor Forcing <br /><a class="anchor-link" href="#Training:-Professor-Forcing-">&#182;</a></h3><p>Use adversarial domain adaptation to encourage the dynamics of the rnn to be the same when training the network and when sampling from the network over multiple time steps.</p>
 <p><a href="https://arxiv.org/pdf/1610.09038.pdf">Professor Forcing</a></p>
-<div><img src='img/professor-forcing.jpg' alt="Drawing" style="width: 500px;"/> </div>
+<div><img src=https://pbs.twimg.com/media/CwMLZY1WYAAiTLl.jpg alt="Drawing" style="width: 500px;"/> </div>
 </div>
 </div>
 </div>
