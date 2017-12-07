@@ -15938,7 +15938,7 @@ Note: TensorFlow provides a very efficient implementation to do lookup embedding
           <span class="n">fetches</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;optimize/prediction:0&#39;</span><span class="p">,</span> <span class="s1">&#39;rnn_scope/final_state:0&#39;</span><span class="p">],</span>
           <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span>
               <span class="s1">&#39;input_feed:0&#39;</span><span class="p">:</span> <span class="n">nxt_word</span><span class="p">,</span>
-              <span class="s1">&#39;rnn_scope/state_feed:0&#39;</span><span class="p">:</span> <span class="n">initial_state</span>
+              <span class="s1">&#39;rnn_scope/state_feed:0&#39;</span><span class="p">:</span> <span class="n">this_state</span>
           <span class="p">})</span>
       <span class="n">caption_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">nxt_word</span><span class="p">))</span>
 
