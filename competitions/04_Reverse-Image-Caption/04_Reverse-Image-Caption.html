@@ -15036,10 +15036,10 @@ You will compete on the modified release of <a href="http://www.robots.ox.ac.uk/
 <li>delete all puntuation in the texts</li>
 <li>encode each vocabulary in dictionary/vocab.npy</li>
 <li>represent texts by a sequence of integer IDs</li>
-<li>replace rare words by $<RARE>$ token to reduce vocabulary size for more efficient training</li>
-<li>add padding as $<PAD>$ to each text to MAX_SEQ_LENGTH</li>
+<li>replace rare words by <code>&lt;RARE&gt;</code> token to reduce vocabulary size for more efficient training</li>
+<li>add padding as <code>&lt;PAD&gt;</code> to each text to MAX_SEQ_LENGTH</li>
 </ul>
-<p>NOTE that there is no nessary to append $<ST>$ and $<ED>$ to each text because we don't need to generate any sequence in this task</p>
+<p>NOTE that there is no nessary to append <code>&lt;ST&gt;</code> and <code>&lt;ED&gt;</code> to each text because we don't need to generate any sequence in this task</p>
 <p>To check the original text, we can decode sequence vocabulary IDs by looking up the vocabulary dictionary</p>
 <ul>
 <li>dictionary/word2Id.npy is a numpy array that map word to id</li>
