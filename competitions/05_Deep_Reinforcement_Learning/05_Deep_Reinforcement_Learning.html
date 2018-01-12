@@ -15296,7 +15296,7 @@ A1eqnxi1sfAeAAAAAElFTkSuQmCC
     <span class="n">env</span><span class="o">.</span><span class="n">reset_game</span><span class="p">()</span>
     <span class="n">env</span><span class="o">.</span><span class="n">act</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># dummy input</span>
     <span class="c1"># grayscale input screen for this episode  </span>
-    <span class="n">input_screens</span> <span class="o">=</span> <span class="p">[</span><span class="n">agent</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">getScreenGrayscale</span><span class="p">())]</span><span class="o">*</span><span class="mi">4</span>
+    <span class="n">input_screens</span> <span class="o">=</span> <span class="p">[</span><span class="n">agent</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">getScreenGrayscale</span><span class="p">())]</span>
     <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="ow">not</span> <span class="n">env</span><span class="o">.</span><span class="n">game_over</span><span class="p">():</span>
         <span class="c1"># feed four previous screen, select an action</span>
