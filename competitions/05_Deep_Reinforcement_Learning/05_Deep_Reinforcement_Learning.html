@@ -15306,7 +15306,7 @@ A1eqnxi1sfAeAAAAAElFTkSuQmCC
         <span class="c1"># observe the result</span>
         <span class="n">screen_plum</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">getScreenGrayscale</span><span class="p">()</span>  <span class="c1"># get next screen</span>
         <span class="c1"># append grayscale screen for this episode</span>
-        <span class="n">input_screens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">preprocess</span><span class="p">(</span><span class="n">screen_plum</span><span class="p">))</span>
+        <span class="n">input_screens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">agent.preprocess</span><span class="p">(</span><span class="n">screen_plum</span><span class="p">))</span>
         <span class="n">t</span><span class="o">+=</span><span class="mi">1</span>
         <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="mi">1000</span><span class="p">:</span> <span class="c1"># maximum score to prevent run forever</span>
             <span class="k">break</span>
