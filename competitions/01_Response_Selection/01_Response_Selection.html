@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>01_Predicting-Appropriate-Response</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Comp01</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11,8 +13,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1107,6 +1109,7 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2535,6 +2538,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3025,6 +3029,7 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8755,9 +8760,6 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
-[dir="rtl"] #ipython_notebook {
-  float: right !important;
-}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8960,14 +8962,8 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
-[dir="rtl"] #tabs li {
-  float: right;
-}
 ul#tabs {
   margin-bottom: 4px;
-}
-[dir="rtl"] ul#tabs {
-  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8990,16 +8986,6 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
-}
-[dir="rtl"] .list_toolbar .tree-buttons {
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-right {
-  padding-top: 1px;
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-left {
-  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9136,9 +9122,6 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
-[dir="rtl"] #tree-selector a {
-  float: right;
-}
 #button-select-all {
   min-width: 50px;
 }
@@ -9228,9 +9211,6 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
-[dir="rtl"] #new-menu {
-  text-align: right;
-}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9275,9 +9255,6 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
-}
-[dir="rtl"] #running .col-sm-8 {
-  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9574,7 +9551,6 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
-  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9595,6 +9571,11 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11265,7 +11246,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 21ex;
+  width: 20ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11577,7 +11558,6 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
-  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11591,9 +11571,6 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
-}
-.terminal-app .terminal .xterm-rows {
-  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11750,17 +11727,26 @@ a:focus {
 }
 .list_header,
 div#notebook_list_header.row.list_header {
- font-size: 13.5pt;
+ font-size: 14pt;
  color: #2f2f2f;
  background-color: transparent;
  height: 35px;
+}
+i.fa.fa-folder {
+ display: inline-block;
+ font: normal normal normal 14px "FontAwesome";
+ font-family: "FontAwesome" !important;
+ text-rendering: auto;
+ -webkit-font-smoothing: antialiased;
+ font-size: 18px;
+ -moz-osx-font-smoothing: grayscale;
 }
 #running .panel-group .panel .panel-heading {
  font-size: 14pt;
  color: #303030;
  padding: 8px 8px;
- background: #eeeeee;
- background-color: #eeeeee;
+ background: #e4e4e4;
+ background-color: #e4e4e4;
 }
 #running .panel-group .panel .panel-heading a {
  font-size: 14pt;
@@ -11772,17 +11758,23 @@ div#notebook_list_header.row.list_header {
  color: #303030;
 }
 #running .panel-group .panel .panel-body .list_container .list_item {
- background: #fafafa;
- background-color: #fafafa;
+ background: #f4f4f4;
+ background-color: #f4f4f4;
  padding: 2px;
- border-bottom: 2px solid rgba(180,180,180,.30);
+ border-bottom: 2px solid #dedede;
 }
 #running .panel-group .panel .panel-body .list_container .list_item:hover {
- background: #fafafa;
- background-color: #fafafa;
+ background: #f4f4f4;
+ background-color: #f4f4f4;
 }
 #running .panel-group .panel .panel-body {
  padding: 2px;
+}
+button#refresh_running_list {
+ border: none !important;
+}
+button#refresh_cluster_list {
+ border: none !important;
 }
 div.running_list_info.toolbar_info {
  font-size: 15px;
@@ -11798,6 +11790,7 @@ div.running_list_info.toolbar_info {
 }
 #tree-selector {
  padding: 0px;
+ border-color: transparent;
 }
 #project_name > ul > li > a > i.fa.fa-home {
  color: #ff7823;
@@ -11818,6 +11811,10 @@ div.running_list_info.toolbar_info {
 .fa-arrow-down:before {
  font-size: 14px;
 }
+span#last-modified.btn.btn-xs.btn-default.sort-action:hover .fa,
+span#sort-name.btn.btn-xs.btn-default.sort-action:hover .fa {
+ color: #ef5c00;
+}
 .folder_icon:before {
  display: inline-block;
  font: normal normal normal 14px/1 FontAwesome;
@@ -11837,7 +11834,7 @@ div.running_list_info.toolbar_info {
  -moz-osx-font-smoothing: grayscale;
  content: "\f02d";
  position: relative;
- color: #2c85f7 !important;
+ color: #009e07 !important;
  top: 0px;
 }
 .file_icon:before {
@@ -11850,45 +11847,44 @@ div.running_list_info.toolbar_info {
  content: "\f15b";
  position: relative;
  top: 0px;
- color: #303030 !important;
+ color: #6a737d !important;
 }
-#project_name {
+#project_name a {
  display: inline-flex;
  padding-left: 7px;
  margin-left: -2px;
- margin-bottom: -20px;
  text-align: -webkit-auto;
- vertical-align: text-top;
+ vertical-align: baseline;
+ font-size: 18px;
 }
 div#notebook_toolbar div.dynamic-instructions {
  font-family: sans-serif;
- font-size: 15px;
-}
-div#maintoolbar .container {
- margin-left: -5px !important;
+ font-size: 17px;
+ color: #828892;
 }
 span#login_widget > .button,
 #logout {
- font-family: sans-serif;
+ font-family: "Proxima Nova", sans-serif;
  color: #303030;
- background: #ebebeb;
- background-color: #ebebeb;
- border: 2px solid #e8e8e8;
+ background: transparent;
+ background-color: transparent;
+ border: 2px solid #e5e5e5;
  font-weight: normal;
  box-shadow: none;
  text-shadow: none;
- border-radius: 2px;
- font-size: inherit;
+ border-radius: 3px;
+ margin-right: 10px;
+ padding: 2px 7px;
 }
 span#login_widget > .button:hover,
 #logout:hover {
- color: #2f2f2f;
- background-color: #e4e4e4;
- background: #e4e4e4;
- border-color: #e4e4e4;
+ color: #ef5c00;
+ background-color: transparent;
+ background: transparent;
+ border: 2px solid #ef5c00;
  background-image: none;
  box-shadow: none !important;
- border-radius: 2px;
+ border-radius: 3px;
 }
 span#login_widget > .button:focus,
 #logout:focus,
@@ -11901,9 +11897,9 @@ span#login_widget > .button.active,
 .open > .dropdown-togglespan#login_widget > .button,
 .open > .dropdown-toggle#logout {
  color: #1c1c1c;
- background-color: #ff7823;
- background: #ff7823;
- border-color: #ff7823;
+ background-color: #303030;
+ background: #303030;
+ border-color: #303030;
  background-image: none;
  box-shadow: none !important;
  border-radius: 2px;
@@ -11922,17 +11918,19 @@ body > #header {
  z-index: 100;
 }
 .list_container {
- font-size: 12.0pt;
+ font-size: 13pt;
  color: #303030;
  border: none;
  text-shadow: none !important;
 }
 .list_container > div {
  border-bottom: 1px solid rgba(180,180,180,.14);
- font-size: 12.0pt;
+ font-size: 13pt;
 }
 .list_header > div,
 .list_item > div {
+ padding-top: 6px;
+ padding-bottom: 2px;
  padding-left: 0px;
 }
 .list_header > div .item_link,
@@ -11940,25 +11938,26 @@ body > #header {
  margin-left: -1px;
  vertical-align: middle;
  line-height: 22px;
- font-size: 12.0pt;
+ font-size: 13pt;
 }
 .item_icon {
- font-size: 12.0pt;
+ color: #126dce;
+ font-size: 13pt;
  vertical-align: middle;
 }
 .list_item input:not([type="checkbox"]) {
  padding-right: 0px;
- height: auto;
- width: 20%;
- margin: 6px 0 0;
- margin-top: 1px;
+ height: 1.75em;
+ width: 25%;
+ margin: 0px 0 0;
+ margin-top: 0px;
 }
 .list_header > div .item_link,
 .list_item > div .item_link {
  margin-left: -1px;
  vertical-align: middle;
- line-height: 22px;
- font-size: 10.5pt;
+ line-height: 1.5em;
+ font-size: 12pt;
  display: inline-table;
  position: static;
 }
@@ -11974,11 +11973,20 @@ body > #header {
  left: -3px;
  border-radius: 0px !important;
 }
+#button-select-all:focus,
+#button-select-all:active:focus,
+#button-select-all.active:focus,
+#button-select-all.focus,
+#button-select-all:active.focus,
+#button-select-all.active.focus {
+ background-color: #e5e5e5 !important;
+ background: #e5e5e5 !important;
+}
 button#tree-selector-btn {
  height: 34px;
  font-size: 12.0pt;
  border: none;
- left: -3px;
+ left: 0px;
  border-radius: 0px !important;
 }
 input#select-all.pull-left.tree-selector {
@@ -11992,6 +12000,12 @@ input[type="checkbox"] {
  margin-top: 1px;
  line-height: normal;
 }
+.delete-button {
+ border: none !important;
+}
+i.fa.fa-trash {
+ font-size: 13.5pt;
+}
 .list_container a {
  font-size: 16px;
  color: #303030;
@@ -12002,6 +12016,15 @@ input[type="checkbox"] {
 }
 div.list_container a:hover {
  color: #2f2f2f;
+}
+.list_header > div input,
+.list_item > div input {
+ margin-right: 7px;
+ margin-left: 12px;
+ vertical-align: baseline;
+ line-height: 22px;
+ position: relative;
+ top: -1px;
 }
 div.list_item:hover {
  background-color: #fafafa;
@@ -12018,51 +12041,80 @@ div.list_item:hover {
  color: #303030;
  font-size: 18px;
 }
+#project_name > .breadcrumb {
+ padding: 0px;
+ margin-bottom: 0px;
+ background-color: transparent;
+ font-weight: normal;
+ margin-top: -2px;
+}
 ul#tabs a {
  font-family: sans-serif;
- font-size: 13pt;
+ font-size: 13.5pt;
  font-weight: normal;
  font-style: normal;
- border-color: transparent;
  text-shadow: none !important;
 }
 .nav-tabs {
  font-family: sans-serif;
- font-size: 13pt;
+ font-size: 13.5pt;
  font-weight: normal;
  font-style: normal;
- background: #ffffff;
- text-shadow: none !important;
+ background-color: transparent;
  border-color: transparent;
- border-bottom-color: rgba(180,180,180,.30);
-}
-.nav-tabs > li > a:hover {
- color: #2f2f2f;
- background-color: rgba(180,180,180,.14);
+ text-shadow: none !important;
+ border: 2px solid transparent;
 }
 .nav-tabs > li > a:active,
 .nav-tabs > li > a:focus,
+.nav-tabs > li > a:hover,
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:focus,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
- color: #1c1c1c;
- background-color: #eeeeee;
- border: 1px solid transparent;
- border-bottom-color: transparent;
- cursor: default;
-}
-.nav > li > a:hover,
-.nav > li > a:focus {
- text-decoration: none;
- background-color: rgba(180,180,180,.14);
- transition: 200ms ease;
+ color: #ef5c00;
+ background-color: transparent;
+ border-color: transparent;
+ border-bottom: 2px solid transparent;
 }
 .nav > li.disabled > a,
 .nav > li.disabled > a:hover {
- color: #aaaaaa;
+ color: #828892;
+}
+.nav-tabs > li > a:before {
+ content: "";
+ position: absolute;
+ width: 100%;
+ height: 2px;
+ bottom: -2px;
+ left: 0;
+ background-color: #ef5c00;
+ visibility: hidden;
+ -webkit-transform: perspective(0)scaleX(0);
+ transform: perspective(0)scaleX(0);
+ -webkit-transition: ease 220ms;
+ transition: ease 220ms;
+ -webkit-font-smoothing: antialiased !important;
+}
+.nav-tabs > li > a:hover:before {
+ visibility: visible;
+ -webkit-transform: perspective(1)scaleX(1);
+ transform: perspective(1)scaleX(1);
+}
+.nav-tabs > li.active > a:before {
+ content: "";
+ position: absolute;
+ width: 100%;
+ height: 2px;
+ bottom: -2px;
+ left: 0;
+ background-color: #ef5c00;
+ visibility: visible;
+ -webkit-transform: perspective(1)scaleX(1);
+ transform: perspective(1)scaleX(1);
+ -webkit-font-smoothing: subpixel-antialiased !important;
 }
 div#notebook {
  font-family: sans-serif;
@@ -12153,7 +12205,7 @@ p.navbar-text.indicator_area {
  font-family: sans-serif;
  font-size: 13pt;
  background-color: #ffffff;
- border-color: rgba(180,180,180,.14);
+ border-color: #d4d4d4;
  line-height: 1.5em;
  padding-bottom: 0px;
 }
@@ -12170,7 +12222,7 @@ p.navbar-text.indicator_area {
 .navbar-default .navbar-nav > li > a:focus {
  color: #2f2f2f;
  background-color: rgba(180,180,180,.14);
- border-color: rgba(180,180,180,.14);
+ border-color: #d4d4d4;
  line-height: 1.5em;
  transition: 200ms ease;
 }
@@ -12178,8 +12230,8 @@ p.navbar-text.indicator_area {
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
  color: #1c1c1c;
- background-color: rgba(180,180,180,.14);
- border-color: rgba(180,180,180,.14);
+ background-color: #dedede;
+ border-color: #dedede;
  line-height: 1.5em;
  transition: 200ms ease;
 }
@@ -12203,26 +12255,44 @@ div.notification_widget.info,
 div#notification_notebook.notification_widget.btn.btn-xs.navbar-btn,
 div#notification_notebook.notification_widget.btn.btn-xs.navbar-btn:hover,
 div#notification_notebook.notification_widget.btn.btn-xs.navbar-btn:focus {
- color: #126dce;
+ color: #303030 !important;
  background-color: transparent !important;
  border-color: transparent !important;
  padding-bottom: 0px !important;
  margin-bottom: 0px !important;
- font-size: 8pt;
+ font-size: 9pt !important;
  z-index: 0;
 }
 div#notification_notebook.notification_widget.btn.btn-xs.navbar-btn {
- font-size: 8pt;
+ font-size: 9pt !important;
  z-index: 0;
 }
 .notification_widget {
  color: #126dce;
  z-index: -500;
- font-size: 8pt;
+ font-size: 9pt;
  background: transparent;
  background-color: transparent;
  margin-right: 3px;
  border: none;
+}
+.notification_widget,
+div.notification_widget {
+ margin-right: 0px;
+ margin-left: 0px;
+ padding-right: 0px;
+ vertical-align: text-top !important;
+ margin-top: 6px !important;
+ background: transparent !important;
+ background-color: transparent !important;
+ font-size: 9pt !important;
+ border: none;
+}
+.navbar-btn.btn-xs:hover {
+ border: none !important;
+ background: transparent !important;
+ background-color: transparent !important;
+ color: #303030 !important;
 }
 div.notification_widget.info,
 .notification_widget.info {
@@ -12231,8 +12301,7 @@ div.notification_widget.info,
 .edit_mode .modal_indicator:before {
  font-size: 18px;
  color: #ff7823;
- content: "E";
- opacity: 0.35;
+ opacity: 1.0;
  padding-bottom: 0px;
  vertical-align: -webkit-baseline-middle;
  margin-left: 1px;
@@ -12242,7 +12311,6 @@ div.notification_widget.info,
  font-family: sans-serif;
  font-size: 18px;
  color: #ff7823;
- content: "C";
  padding-bottom: 0px;
  vertical-align: -webkit-baseline-middle;
  margin-left: 1px;
@@ -12381,7 +12449,7 @@ div.notification_widget.info,
 div#notification_notebook.notification_widget.btn.btn-xs.navbar-btn,
 div#notification_notebook.notification_widget.btn.btn-xs.navbar-btn:hover,
 div#notification_notebook.notification_widget.btn.btn-xs.navbar-btn:focus {
- color: #126dce;
+ color: #303030;
  background-color: #ffffff;
  border-color: #ffffff;
 }
@@ -12424,9 +12492,9 @@ i.fa.fa-icon {
  box-shadow: none;
  padding: 0px;
  text-align: left;
- border: 2px solid rgba(180,180,180,.30);
- background-color: #ffffff;
- background: #ffffff;
+ border: 2px solid #dedede;
+ background-color: #dedede;
+ background: #dedede;
  line-height: 1;
 }
 .dropdown-menu:hover {
@@ -12435,8 +12503,8 @@ i.fa.fa-icon {
  box-shadow: none;
  padding: 0px;
  text-align: left;
- border: 2px solid rgba(180,180,180,.30);
- background-color: #ffffff;
+ border: 2px solid #dedede;
+ background-color: #dedede;
  box-shadow: none;
  line-height: 1;
 }
@@ -12447,15 +12515,15 @@ i.fa.fa-icon {
  display: block;
  padding: 10px 20px 9px 10px;
  color: #303030;
- background-color: #ffffff;
- background: #ffffff;
+ background-color: #dedede;
+ background: #dedede;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
  color: #2f2f2f;
- background-color: rgba(180,180,180,.14);
- background: rgba(180,180,180,.14);
- border-color: rgba(180,180,180,.14);
+ background-color: #d4d4d4;
+ background: #d4d4d4;
+ border-color: #d4d4d4;
  transition: 200ms ease;
 }
 .dropdown-menu .divider {
@@ -12478,7 +12546,7 @@ i.fa.fa-icon {
  font-family: sans-serif;
  font-size: 12.0pt;
  font-weight: normal;
- color: #aaaaaa;
+ color: #828892;
  padding: none;
  display: block;
  clear: both;
@@ -12506,14 +12574,14 @@ div.kse-dropdown > .dropdown-menu,
 .btn-default {
  font-family: sans-serif;
  color: #303030;
- background: #ebebeb;
- background-color: #ebebeb;
- border: 1px solid #e8e8e8;
+ background: #e5e5e5;
+ background-color: #e5e5e5;
+ border: 2px solid #e5e5e5;
  font-weight: normal;
  box-shadow: none;
  text-shadow: none;
- border-radius: 2px;
- font-size: inherit;
+ border-radius: 3px;
+ font-size: initial;
 }
 .btn:hover,
 .btn:active:hover,
@@ -12521,14 +12589,13 @@ div.kse-dropdown > .dropdown-menu,
 .btn-default:hover,
 .open > .dropdown-toggle.btn-default:hover,
 .open > .dropdown-toggle.btn:hover {
- color: #2f2f2f;
- border: 1px solid #e4e4e4;
- background-color: #e4e4e4;
- background: #e4e4e4;
+ color: #ef5c00;
+ border: 2px solid #e0e0e0;
+ background-color: #e0e0e0;
+ background: #e0e0e0;
  background-image: none;
  box-shadow: none !important;
- border-radius: 2px;
- transition: 200ms ease;
+ border-radius: 3px;
 }
 .btn:active,
 .btn.active,
@@ -12548,33 +12615,80 @@ div.kse-dropdown > .dropdown-menu,
 .btn-default.active.focus,
 .open > .dropdown-toggle.btn:focus,
 .open > .dropdown-toggle.btn.focus,
-.open > .dropdown-toggle.btn-default {
- color: #1c1c1c;
- border: 1px solid #e4e4e4;
- background-color: #e4e4e4;
- background: #e4e4e4;
- border-color: #e4e4e4;
+.open > .dropdown-toggle.btn-default:hover,
+.open > .dropdown-toggle.btn-default:focus,
+.open > .dropdown-toggle.btn-default.hover,
+.open > .dropdown-toggle.btn-default.focus {
+ color: #ef5c00;
+ border: 2px solid #e0e0e0;
+ background-color: #e0e0e0 !important;
+ background: #e0e0e0 !important;
  background-image: none;
  box-shadow: none !important;
- border-radius: 2px;
- transition: 200ms ease;
+ border-radius: 3px;
+}
+.btn-default:active:hover,
+.btn-default.active:hover,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.btn-default:active.focus,
+.btn-default.active.focus {
+ color: #ef5c00 !important;
+ background-color: #e5e5e5;
+ border-color: #ffccac !important;
+ transition: 2000ms ease;
+}
+.btn:focus,
+.btn.focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn:active,
+.btn.active,
+.btn:active.focus,
+.btn.active.focus {
+ color: #ef5c00 !important;
+ outline: none !important;
+ outline-width: 0px !important;
+ background: #ffccac !important;
+ background-color: #ffccac !important;
+ border-color: #ffccac !important;
+ transition: 200ms ease !important;
 }
 .item_buttons > .btn,
 .item_buttons > .btn-group,
 .item_buttons > .input-group {
+ font-size: 13pt;
+ background: transparent;
+ background-color: transparent;
+ border: 0px solid #e4e4e4;
+ border-bottom: 2px solid transparent;
  margin-left: 5px;
- background: #eeeeee;
- background-color: #eeeeee;
- border: 1px solid #eeeeee;
+ padding-top: 4px !important;
 }
 .item_buttons > .btn:hover,
 .item_buttons > .btn-group:hover,
-.item_buttons > .input-group:hover {
+.item_buttons > .input-group:hover,
+.item_buttons > .btn.active,
+.item_buttons > .btn-group.active,
+.item_buttons > .input-group.active,
+.item_buttons > .btn.focus {
  margin-left: 5px;
- background: #e9e9e9;
- background-color: #e9e9e9;
- border: 1px solid #e9e9e9;
- transition: 200ms ease;
+ background: #dfdfdf;
+ padding-top: 4px !important;
+ background-color: transparent;
+ border: 0px solid transparent;
+ border-bottom: 2px solid #ff7823;
+ border-radius: 0px;
+ transition: none;
+}
+.item_buttons {
+ line-height: 1.5em !important;
+}
+.item_buttons .btn {
+ min-width: 11ex;
+}
+.btn-group > .btn:first-child {
+ margin-left: 3px;
 }
 .btn-group > .btn-mini,
 .btn-sm,
@@ -12584,31 +12698,85 @@ div.kse-dropdown > .dropdown-menu,
 .alternate_upload .btn-upload,
 .btn-group,
 .btn-group-vertical {
- font-size: 12.0pt;
+ font-size: inherit;
  font-weight: normal;
  height: inherit;
+ line-height: inherit;
 }
 .btn-xs,
 .btn-group-xs > .btn {
- font-size: 12.0pt;
+ font-size: initial !important;
  background-image: none;
  font-weight: normal;
  text-shadow: none;
  display: inline-table;
+ padding: 2px 5px;
+ line-height: 1.45;
 }
 .btn-group > .btn:first-child {
  margin-left: 3px;
+}
+div#new-buttons > button,
+#new-buttons > button,
+div#refresh_notebook_list,
+#refresh_notebook_list {
+ background: transparent;
+ background-color: transparent;
+ border: none;
+}
+div#new-buttons > button:hover,
+#new-buttons > button:hover,
+div#refresh_notebook_list,
+#refresh_notebook_list,
+div.alternate_upload .btn-upload,
+.alternate_upload .btn-upload,
+div.dynamic-buttons > button,
+.dynamic-buttons > button,
+.dynamic-buttons > button:focus,
+.dynamic-buttons > button:active:focus,
+.dynamic-buttons > button.active:focus,
+.dynamic-buttons > button.focus,
+.dynamic-buttons > button:active.focus,
+.dynamic-buttons > button.active.focus,
+#new-buttons > button:focus,
+#new-buttons > button:active:focus,
+#new-buttons > button.active:focus,
+#new-buttons > button.focus,
+#new-buttons > button:active.focus,
+#new-buttons > button.active.focus,
+.alternate_upload .btn-upload:focus,
+.alternate_upload .btn-upload:active:focus,
+.alternate_upload .btn-upload.active:focus,
+.alternate_upload .btn-upload.focus,
+.alternate_upload .btn-upload:active.focus,
+.alternate_upload .btn-upload.active.focus {
+ background: transparent !important;
+ background-color: transparent !important;
+ border: none !important;
 }
 .alternate_upload input.fileinput {
  text-align: center;
  vertical-align: bottom;
  margin-left: -.5ex;
  display: inline-table;
- border: solid 0px #ebebeb;
+ border: solid 0px #e5e5e5;
  margin-bottom: -1ex;
 }
 .alternate_upload .btn-upload {
  display: inline-table;
+ background: transparent;
+ border: none;
+}
+.btn-group .btn + .btn,
+.btn-group .btn + .btn-group,
+.btn-group .btn-group + .btn,
+.btn-group .btn-group + .btn-group {
+ margin-left: -2px;
+}
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+ border-bottom-right-radius: 0;
+ border-top-right-radius: 0;
+ z-index: 2;
 }
 .dropdown-header {
  font-family: sans-serif !important;
@@ -12625,6 +12793,7 @@ span#sort-name.btn.btn-xs.btn-default.sort-action {
  background-color: transparent;
  background: transparent;
  border: none;
+ color: #303030;
  padding-bottom: 0px;
  margin-bottom: 0px;
  vertical-align: sub;
@@ -12639,7 +12808,6 @@ button.close {
  font-weight: normal;
 }
 .dynamic-buttons {
- font-size: 15px;
  padding-top: 0px;
  display: inline-block;
 }
@@ -12668,88 +12836,97 @@ fieldset[disabled] .btn-default:focus,
 .btn-default[disabled].focus,
 fieldset[disabled] .btn-default.focus {
  color: #4a4a4a;
- background: #e8e8e8;
- background-color: #e8e8e8;
- border-color: #e8e8e8;
+ background: #e2e2e2;
+ background-color: #e2e2e2;
+ border-color: #e2e2e2;
  transition: 200ms ease;
 }
 .input-group-addon {
  padding: 2px 5px;
- font-size: 12.0pt;
+ font-size: 13pt;
  font-weight: normal;
  height: auto;
  color: #303030;
  text-align: center;
- background-color: #ffffff;
- border: none;
+ background-color: transparent;
+ border: 2px solid transparent !important;
+ text-transform: capitalize;
+}
+a.btn.btn-default.input-group-addon:hover {
+ background: transparent !important;
+ background-color: transparent !important;
 }
 .btn-group > .btn + .dropdown-toggle {
  padding-left: 8px;
  padding-right: 8px;
  height: 100%;
- border-left: 2px solid #ff7823 !important;
 }
 .btn-group > .btn + .dropdown-toggle:hover {
- border-left: 2px solid #ff7823 !important;
+ background: #e0e0e0 !important;
 }
 .input-group-btn {
  position: relative;
  font-size: inherit;
  white-space: nowrap;
+ background: #e4e4e4;
+ background-color: #e4e4e4;
  border: none;
 }
 .input-group-btn:hover {
+ background: #dfdfdf;
+ background-color: #dfdfdf;
  border: none;
 }
 .input-group-btn:first-child > .btn,
 .input-group-btn:first-child > .btn-group {
- background: #eeeeee;
- background-color: #eeeeee;
+ background: #e4e4e4;
+ background-color: #e4e4e4;
  border: none;
- margin-right: 3px;
+ margin-left: 2px;
+ margin-right: -1px;
  font-size: inherit;
 }
 .input-group-btn:first-child > .btn:hover,
 .input-group-btn:first-child > .btn-group:hover {
- background: #e9e9e9;
- background-color: #e9e9e9;
+ background: #e0e0e0;
+ background-color: #e0e0e0;
  border: none;
  font-size: inherit;
  transition: 200ms ease;
 }
 div.modal .btn-group > .btn:first-child {
- background: #eeeeee;
- background-color: #eeeeee;
- border: 1px solid #ebebeb;
+ background: #e4e4e4;
+ background-color: #e4e4e4;
+ border: 1px solid #e1e1e1;
  margin-top: 0px !important;
  margin-left: 0px;
  margin-bottom: 2px;
 }
 div.modal .btn-group > .btn:first-child:hover {
- background: #e9e9e9;
- background-color: #e9e9e9;
- border: 1px solid #e9e9e9;
+ background: #dfdfdf;
+ background-color: #dfdfdf;
+ border: 1px solid #dfdfdf;
  transition: 200ms ease;
 }
 div.modal > button,
 div.modal-footer > button {
- background: #eeeeee;
- background-color: #eeeeee;
- border-color: #eeeeee;
+ background: #e4e4e4;
+ background-color: #e4e4e4;
+ border-color: #e4e4e4;
 }
 div.modal > button:hover,
 div.modal-footer > button:hover {
- background: #e9e9e9;
- background-color: #e9e9e9;
- border-color: #e9e9e9;
+ background: #dfdfdf;
+ background-color: #dfdfdf;
+ border-color: #dfdfdf;
  transition: 200ms ease;
 }
 .modal-content {
  font-family: sans-serif;
  font-size: 12.0pt;
  position: relative;
- background: #eeeeee;
- background-color: #eeeeee;
+ background: #e4e4e4;
+ background-color: #e4e4e4;
  border: none;
  border-radius: 1px;
  background-clip: padding-box;
@@ -12759,9 +12936,9 @@ div.modal-footer > button:hover {
  font-family: sans-serif;
  font-size: 13pt;
  color: #303030;
- background: #eeeeee;
- background-color: #eeeeee;
- border-color: rgba(180,180,180,.30);
+ background: #e4e4e4;
+ background-color: #e4e4e4;
+ border-color: #dedede;
  padding: 12px;
  min-height: 16.4286px;
 }
@@ -12777,14 +12954,14 @@ div.modal-footer > button:hover {
  padding: 15px;
 }
 .modal-footer {
- padding: 10px;
+ padding: 8px;
  text-align: right;
- background-color: #fafafa;
- border-top: 1px solid rgba(180,180,180,.30);
+ background-color: #ffffff;
+ border-top: none;
 }
 .alert-info {
  background-color: #fdfdfd;
- border-color: rgba(180,180,180,.30);
+ border-color: #dedede;
  color: #303030;
 }
 .modal-header .close {
@@ -12793,16 +12970,16 @@ div.modal-footer > button:hover {
 }
 .modal-backdrop,
 .modal-backdrop.in {
- opacity: 0.7;
- background-color: #c4c4c4;
+ opacity: 0.85;
+ background-color: notebook-bg;
 }
 div.panel,
 div.panel-default,
 .panel,
 .panel-default {
  font-family: sans-serif;
- font-size: 12.0pt;
- background-color: #fafafa;
+ font-size: 13pt;
+ background-color: #f4f4f4;
  color: #303030;
  margin-bottom: 14px;
  border: 0;
@@ -12812,8 +12989,8 @@ div.panel > .panel-heading,
 div.panel-default > .panel-heading {
  font-size: 14pt;
  color: #303030;
- background: #eeeeee;
- background-color: #eeeeee;
+ background: #e4e4e4;
+ background-color: #e4e4e4;
  border: 0;
 }
 .modal .modal-dialog {
@@ -12829,20 +13006,22 @@ div.container-fluid {
 div.form-control,
 .form-control {
  font-family: sans-serif;
- font-size: inherit;
+ font-size: initial;
  color: #303030;
  background-color: #ffffff;
- border: 2px solid #e7e7e7;
+ border: 1px solid #d0d0d0 !important;
  margin-left: 2px;
- height: auto;
  box-shadow: none;
- padding: 6px 12px;
  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+.form-control-static {
+ min-height: inherit;
+ height: inherit;
 }
 .form-group.list-group-item {
  color: #303030;
- background-color: #fafafa;
- border-color: rgba(180,180,180,.30);
+ background-color: #f4f4f4;
+ border-color: #dedede;
  margin-bottom: 0px;
 }
 input,
@@ -12851,37 +13030,51 @@ select,
 textarea {
  background-color: #ffffff;
  font-weight: normal;
- border: 1px solid rgba(180,180,180,.30);
+ border: 1px solid #dedede;
 }
 select.form-control.select-xs {
- height: auto;
+ height: 33px;
+ font-size: 13pt;
+}
+.toolbar select,
+.toolbar label {
+ width: auto;
+ vertical-align: middle;
+ margin-right: 0px;
+ margin-bottom: 0px;
+ display: inline;
+ font-size: 92%;
+ margin-left: 10px;
+ padding: 0px;
+ background: #e5e5e5 !important;
+ background-color: #e5e5e5 !important;
+ border: 2px solid #e5e5e5 !important;
 }
 .form-control:focus {
  border-color: #ff7823;
- outline: 0;
- -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(240,147,43,.50);
- box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(240,147,43,.50);
+ outline: 2px solid rgba(240,147,43,.50);
+ -webkit-box-shadow: none;
 }
 ::-webkit-input-placeholder {
- color: #aaaaaa;
+ color: #828892;
 }
 ::-moz-placeholder {
- color: #aaaaaa;
+ color: #828892;
 }
 :-ms-input-placeholder {
- color: #aaaaaa;
+ color: #828892;
 }
 :-moz-placeholder {
- color: #aaaaaa;
+ color: #828892;
 }
 [dir="ltr"] #find-and-replace .input-group-btn + .form-control {
- border-left: 2px solid rgba(180,180,180,.30) !important;
+ border: 2px solid #dedede !important;
 }
 [dir="ltr"] #find-and-replace .input-group-btn + .form-control:focus {
- border-left-color: #ff7823 !important;
- outline: 0;
- -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(240,147,43,.50) !important;
- box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(240,147,43,.50) !important;
+ border-color: #ff7823;
+ outline: 2px solid rgba(240,147,43,.50);
+ -webkit-box-shadow: none;
+ box-shadow: none;
 }
 div.output.output_scroll {
  box-shadow: none;
@@ -13014,32 +13207,56 @@ div.cell.code_cell .input {
 div.cell.code_cell.selected .input {
  border-left: 5px solid #ff7823 !important;
  border-radius: 3px;
- border-bottom-left-radius: 3px;
- border-top-left-radius: 3px;
 }
 .edit_mode div.cell.code_cell.selected .input {
  border-left: 5px solid #ffd5bb !important;
  border-radius: 3px;
- border-bottom-left-radius: 3px;
- border-top-left-radius: 3px;
 }
-div.cell.selected.jupyter-soft-selected:before .input,
-.edit_mode div.cell.selected:before .input {
- border-left: 3px solid #ffd5bb !important;
- border-bottom-left-radius: 3px;
- border-top-left-radius: 3px;
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+ position: absolute;
+ display: block;
+ top: -1px;
+ left: -1px;
+ width: 5px;
+ height: calc(102%);
+ content: '';
+ background: transparent !important;
 }
-div.cell.jupyter-soft-selected .input,
+div.cell.jupyter-soft-selected,
+div.cell.selected.jupyter-soft-selected {
+ border-left-color: #ffd5bb !important;
+ border-left-width: 0px !important;
+ padding-left: 7px !important;
+ border-right-color: #ffd5bb !important;
+ border-right-width: 0px !important;
+ background: #ffd5bb !important;
+ border-radius: 6px !important;
+}
 div.cell.selected.jupyter-soft-selected .input {
- border-left: 3px solid #ffd5bb !important;
- border-bottom-left-radius: 3px;
- border-top-left-radius: 3px;
+ border-left: 5px solid #ededed !important;
+}
+div.cell.selected.jupyter-soft-selected:before,
+.edit_mode div.cell.selected:before .input {
+ background: #ffd5bb !important;
+ border: 2px solid #ffd5bb !important;
+ border-radius: 6px !important;
+ position: absolute !important;
+ display: block !important;
+ top: 0px !important;
+ left: 0px !important;
+ width: 6px !important;
+ height: 100% !important;
 }
 div.cell.selected.jupyter-soft-selected {
  border-left-color: #ff7823;
  border-color: #ffffff;
  padding-left: 7px;
  border-radius: 6px;
+}
+div.cell.code_cell.selected .input {
+ border-left: none;
+ border-radius: 3px;
 }
 div.cell.selected.jupyter-soft-selected .prompt,
 div.cell.text_cell.selected.jupyter-soft-selected .prompt {
@@ -13076,7 +13293,7 @@ div.prompt,
  font-family: monospace, monospace;
  font-size: 9pt !important;
  font-weight: normal;
- color: #aaaaaa;
+ color: #828892;
  line-height: 170%;
  padding: 0px;
  padding-top: 4px;
@@ -13155,14 +13372,14 @@ div.output_subarea {
  flex: 1;
 }
 div.btn.btn-default.output_collapsed {
- background: #e1e1e1;
- background-color: #e1e1e1;
- border-color: #e1e1e1;
+ background: #d7d7d7;
+ background-color: #d7d7d7;
+ border-color: #d7d7d7;
 }
 div.btn.btn-default.output_collapsed:hover {
- background: #dcdcdc;
- background-color: #dcdcdc;
- border-color: #dcdcdc;
+ background: #d2d2d2;
+ background-color: #d2d2d2;
+ border-color: #d2d2d2;
 }
 div.prompt.output_prompt {
  font-family: monospace, monospace;
@@ -13221,46 +13438,139 @@ div.cell.selected .out_prompt_overlay.prompt {
  border-right: 2px solid #ffffff;
  border-radius: 0px !important;
 }
-div.cell.text_cell .input_prompt {
+div.text_cell,
+div.text_cell_render pre,
+div.text_cell_render {
+ font-family: sans-serif;
+ font-size: 13pt;
+ line-height: 130% !important;
+ color: #353535;
+ background: #ffffff;
+ background-color: #ffffff;
+ border-radius: 0px;
+}
+div .text_cell_render {
+ padding: 0.4em 0.4em 0.4em 0.4em;
+}
+div.cell.text_cell .CodeMirror-lines {
+ padding-top: .7em !important;
+ padding-bottom: .4em !important;
+ padding-left: .5em !important;
+ padding-right: .5em !important;
+ margin-top: .4em;
+ margin-bottom: .3em;
+}
+div.cell.text_cell.unrendered div.input_area,
+div.cell.text_cell.rendered div.input_area {
+ background-color: #ffffff;
+ background: #ffffff;
+ border: 0px;
+ border-radius: 2px;
+}
+div.cell.text_cell .CodeMirror,
+div.cell.text_cell .CodeMirror pre {
+ line-height: 170% !important;
+}
+div.cell.text_cell.rendered.selected {
+ font-family: sans-serif;
+ line-height: 130% !important;
+ background: #ffffff;
+ background-color: #ffffff;
+ border-radius: 0px;
+}
+div.cell.text_cell.unrendered.selected {
+ font-family: sans-serif;
+ line-height: 130% !important;
+ background: #ffffff;
+ background-color: #ffffff;
+ border-radius: 0px;
+}
+div.cell.text_cell.selected {
+ font-family: sans-serif;
+ line-height: 130% !important;
+ background: #ffffff;
+ background-color: #ffffff;
+ border-radius: 0px;
+}
+.edit_mode div.cell.text_cell.selected {
+ font-family: sans-serif;
+ line-height: 130% !important;
+ background: #ffffff;
+ background-color: #ffffff;
+ border-radius: 0px;
+}
+div.text_cell.unrendered,
+div.text_cell.unrendered.selected,
+div.edit_mode div.text_cell.unrendered {
+ font-family: sans-serif;
+ line-height: 130% !important;
+ background: #ffffff;
+ background-color: #ffffff;
+ border-radius: 0px;
+}
+div.cell.text_cell.selected:before {
+ background: #f2f2f2;
+ border: 2px solid #f2f2f2;
+ border-top-left-radius: 2px;
+ border-bottom-left-radius: 2px;
+ position: absolute;
+ display: block;
+ top: 0px;
+ left: 0px;
+ width: 5px;
+ height: 100%;
+}
+.edit_mode div.cell.text_cell.selected:before {
+ background: #f2f2f2;
+ border: 2px solid #f2f2f2;
+ border-top-left-radius: 2px;
+ border-bottom-left-radius: 2px;
+ position: absolute;
+ display: block;
+ top: 0px;
+ left: 0px;
+ width: 5px;
+ height: 100%;
+}
+div.cell.text_cell .prompt {
  border-right: 0;
 }
-div.cell.text_cell.rendered .input_prompt {
+div.cell.text_cell.rendered .prompt {
  font-family: monospace, monospace;
  font-size: 9.5pt;
  font-weight: normal;
- color: #aaaaaa;
+ color: #828892 !important;
  text-align: right !important;
- min-width: 12.5ex;
+ min-width: 12.5ex !important;
  width: 12.5ex !important;
  background-color: #ffffff;
- border-right: 2px solid rgba(30,112,199,.50);
+ border-right: 2px solid transparent;
  border-left: 5px solid #ffffff;
 }
-div.cell.text_cell.unrendered .input_prompt {
+div.cell.text_cell.unrendered .prompt {
  font-family: monospace, monospace;
  font-size: 9.5pt;
  font-weight: normal;
- color: #aaaaaa;
+ color: #828892 !important;
  text-align: right !important;
- min-width: 12.5ex;
+ min-width: 12.5ex !important;
  width: 12.5ex !important;
- border-right: 2px solid rgba(30,112,199,.50);
+ border-right: 2px solid transparent;
  border-left: 5px solid #ffffff;
 }
-div.cell.text_cell.rendered .input_prompt {
- border-right: 2px solid rgba(30,112,199,.50);
+div.cell.text_cell.rendered .prompt {
+ border-right: 2px solid transparent;
 }
-div.cell.text_cell.rendered.selected .input_prompt {
+div.cell.text_cell.rendered.selected .prompt {
  top: 0;
  border-left: 5px solid #f2f2f2;
- border-radius: 2px;
- border-right: 2px solid rgba(30,112,199,.50);
+ border-right: 2px solid transparent;
 }
 div.text_cell.unrendered.selected .prompt {
  top: 0;
+ background: #ffffff;
  border-left: 5px solid #f2f2f2;
- border-radius: 2px;
- border-right: 2px solid rgba(30,112,199,.50);
+ border-right: 2px solid transparent;
 }
 div.rendered_html code {
  font-family: monospace, monospace;
@@ -13268,8 +13578,8 @@ div.rendered_html code {
  padding-top: 3px;
  padding-left: 2px;
  color: #303030;
- background: #ffffff;
- background-color: #ffffff;
+ background: #efefef;
+ background-color: #efefef;
 }
 pre,
 code,
@@ -13288,10 +13598,11 @@ code {
  border-color: #efefef;
 }
 kbd {
- padding: 4px;
+ padding: 1px;
  font-size: 11pt;
+ font-weight: 800;
  color: #303030;
- background-color: #efefef;
+ background-color: transparent !important;
  border: 0;
  box-shadow: none;
 }
@@ -13316,10 +13627,24 @@ div.rendered_html {
 .rendered_html * + p {
  margin-top: .5em;
  margin-bottom: .5em;
- margin-left: .5em;
 }
-div.rendered_html pre,
-div.text_cell_render pre {
+div.rendered_html pre {
+ font-family: monospace, monospace;
+ font-size: 11pt !important;
+ line-height: 130% !important;
+ color: #353535;
+ background: #efefef;
+ background-color: #efefef;
+ max-width: 80%;
+ border-radius: 0px;
+ border-left: 3px solid #efefef;
+ max-width: 80%;
+ border-radius: 0px;
+ padding-left: 5px;
+ margin-left: 6px;
+}
+div.text_cell_render pre,
+div.text_cell_render code {
  font-family: monospace, monospace;
  font-size: 11pt !important;
  line-height: 130% !important;
@@ -13328,7 +13653,10 @@ div.text_cell_render pre {
  background-color: #ffffff;
  max-width: 80%;
  border-radius: 0px;
- border-left: 3px solid rgba(240,147,43,.50);
+ border-left: none;
+}
+div.text_cell_render pre {
+ border-left: 3px solid rgba(240,147,43,.50) !important;
  max-width: 80%;
  border-radius: 0px;
  padding-left: 5px;
@@ -13359,7 +13687,7 @@ div.rendered_html h5 {
 .rendered_html h1,
 .text_cell_render h1 {
  color: #126dce;
- font-size: 215%;
+ font-size: 200%;
  text-align: center;
  font-style: normal;
  font-weight: lighter;
@@ -13367,22 +13695,22 @@ div.rendered_html h5 {
 .rendered_html h2,
 .text_cell_render h2 {
  text-align: left;
- font-size: 180%;
- color: #126dce;
+ font-size: 170%;
+ color: #3f3d46;
  font-style: normal;
  font-weight: lighter;
 }
 .rendered_html h3,
 .text_cell_render h3 {
- font-size: 150%;
- color: #126dce;
+ font-size: 140%;
+ color: #3f3d46;
  font-style: normal;
  font-weight: lighter;
 }
 .rendered_html h4,
 .text_cell_render h4 {
- font-size: 120%;
- color: #126dce;
+ font-size: 110%;
+ color: #3f3d46;
  font-style: normal;
  font-weight: lighter;
 }
@@ -13405,8 +13733,8 @@ hr {
  margin-right: 2em;
 }
 #complete > select > option:hover {
- background: rgba(180,180,180,.14);
- background-color: rgba(180,180,180,.14);
+ background: #d4d4d4;
+ background-color: #d4d4d4;
 }
 div#_vivaldi-spatnav-focus-indicator._vivaldi-spatnav-focus-indicator {
  position: absolute;
@@ -13428,13 +13756,9 @@ div#_vivaldi-spatnav-focus-indicator._vivaldi-spatnav-focus-indicator {
  max-width: none;
  border: none;
 }
-.rendered_html tr,
 .rendered_html td {
- font-size: 11pt !important;
-}
-.rendered_html thead {
- font-family: sans-serif;
- font-size: 12.0pt !important;
+ font-family: sans-serif !important;
+ font-size: 11pt;
 }
 .rendered_html table {
  font-family: sans-serif !important;
@@ -13447,6 +13771,8 @@ div#_vivaldi-spatnav-focus-indicator._vivaldi-spatnav-focus-indicator {
  table-layout: fixed;
 }
 .rendered_html thead {
+ font-family: sans-serif !important;
+ font-size: 12.0pt !important;
  background: #ebebeb;
  color: #353535;
  border-bottom: 1px solid #ebebeb;
@@ -13495,9 +13821,9 @@ div.widget-area a:focus {
 }
 div.widget_item.btn-group > button.btn.btn-default.widget-combo-btn,
 div.widget_item.btn-group > button.btn.btn-default.widget-combo-btn:hover {
- background: #ebebeb;
- background-color: #ebebeb;
- border: 2px solid #ebebeb !important;
+ background: #e1e1e1;
+ background-color: #e1e1e1;
+ border: 2px solid #e1e1e1 !important;
  font-size: inherit;
  z-index: 0;
 }
@@ -13517,7 +13843,7 @@ div.widget-label {
  min-width: 100px !important;
  vertical-align: text-top !important;
  color: #303030 !important;
- font-size: 14px;
+ font-size: 14px !important;
 }
 .widget-hprogress .progress {
  flex-grow: 1;
@@ -13556,37 +13882,37 @@ div.widget-label {
 .rendered_html :link {
  font-family: sans-serif;
  font-size: 100%;
- color: #126dce;
+ color: #ff7823;
  text-decoration: underline;
 }
 .rendered_html :visited,
 .rendered_html :visited:active,
 .rendered_html :visited:focus {
- color: #1a77da;
+ color: #fa853d;
 }
 .rendered_html :visited:hover,
 .rendered_html :link:hover {
  font-family: sans-serif;
  font-size: 100%;
- color: #ff8132;
+ color: #f96000;
 }
-a.anchor-link:link {
+div.cell.text_cell a.anchor-link:link {
  font-size: inherit;
  text-decoration: none;
  padding: 0px 20px;
  visibility: none;
- color: #126dce;
+ color: rgba(0,0,0,.32);
 }
-a.anchor-link:link:hover {
+div.cell.text_cell a.anchor-link:link:hover {
  font-size: inherit;
- color: #ff8132;
+ color: #828892;
 }
 .navbar-text {
  margin-top: 4px;
  margin-bottom: 0px;
 }
 #clusters > a {
- color: #ff8132;
+ color: #ef5c00;
  text-decoration: underline;
  cursor: auto;
 }
@@ -13596,7 +13922,7 @@ a.anchor-link:link:hover {
  cursor: auto;
 }
 #nbextensions-configurator-container > div.row.container-fluid.nbext-selector > h3 {
- font-size: 15px;
+ font-size: 17px;
  margin-top: 5px;
  margin-bottom: 8px;
  height: 24px;
@@ -13612,6 +13938,27 @@ div.nbext-selector > nav > .nav > li > a {
  font-family: sans-serif;
  font-size: 10.5pt;
  padding: 2px 5px;
+}
+div.nbext-selector > nav > .nav > li > a:hover {
+ background: transparent;
+}
+div.nbext-selector > nav > .nav > li:hover {
+ background-color: rgba(180,180,180,.14) !important;
+ background: rgba(180,180,180,.14) !important;
+}
+div.nbext-selector > nav > .nav > li.active:hover {
+ background: transparent !important;
+ background-color: transparent !important;
+}
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:active,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+ color: #1c1c1c;
+ background-color: rgba(180,180,180,.14) !important;
+ background: rgba(180,180,180,.14) !important;
+ -webkit-backface-visibility: hidden;
+ -webkit-font-smoothing: subpixel-antialiased !important;
 }
 div.nbext-readme > .nbext-readme-contents > .rendered_html {
  font-family: sans-serif;
@@ -13640,7 +13987,7 @@ div.nbext-readme > .nbext-readme-contents:not(:empty) {
  margin-top: 0.5em;
  margin-bottom: 2em;
  border: none;
- border-top-color: rgba(180,180,180,.30);
+ border-top-color: #828892;
 }
 .nbext-showhide-incompat {
  padding-bottom: 0.5em;
@@ -13651,9 +13998,18 @@ div.nbext-readme > .nbext-readme-contents:not(:empty) {
 .nbext-filter-menu.dropdown-menu > li > a:focus,
 .nbext-filter-menu.dropdown-menu > li > a.ui-state-focus {
  color: #2f2f2f !important;
- background-color: rgba(180,180,180,.14) !important;
- background: rgba(180,180,180,.14) !important;
- border-color: rgba(180,180,180,.14) !important;
+ background-color: #d4d4d4 !important;
+ background: #d4d4d4 !important;
+ border-color: #d4d4d4 !important;
+}
+.nbext-filter-input-wrap > .nbext-filter-input-subwrap,
+.nbext-filter-input-wrap > .nbext-filter-input-subwrap > input {
+ border: none;
+ outline: none;
+ background-color: transparent;
+ padding: 0;
+ vertical-align: middle;
+ margin-top: -2px;
 }
 span.rendered_html code {
  background-color: transparent;
@@ -13667,11 +14023,14 @@ span.rendered_html code {
  max-height: 50vh;
  overflow-y: auto;
  outline: none;
- border: 2px solid rgba(180,180,180,.30);
+ border: 2px solid #dedede;
+}
+.nbext-filter-menu:hover {
+ border: 2px solid #dedede;
 }
 .alert-warning {
- background-color: #fafafa;
- border-color: #fafafa;
+ background-color: #f4f4f4;
+ border-color: #f4f4f4;
  color: #303030;
 }
 .notification_widget.danger {
@@ -13679,6 +14038,12 @@ span.rendered_html code {
  background-color: #e5344a;
  border-color: #e5344a;
  padding-right: 5px;
+}
+#nbextensions-configurator-container > div.nbext-buttons.tree-buttons.no-padding.pull-right > span > button {
+ border: none !important;
+}
+button#refresh_running_list {
+ border: none !important;
 }
 mark,
 .mark {
@@ -13688,7 +14053,7 @@ mark,
 }
 a.text-warning,
 a.text-warning:hover {
- color: #aaaaaa;
+ color: #828892;
 }
 a.text-warning.bg-warning {
  background-color: #ffffff;
@@ -13739,45 +14104,41 @@ div.nbext-enable-btns .btn[disabled],
 div.nbext-enable-btns .btn[disabled]:hover,
 .btn-default.disabled,
 .btn-default[disabled] {
- background: #e8e8e8;
- background-color: #e8e8e8;
+ background: #e2e2e2;
+ background-color: #e2e2e2;
  color: #282828;
 }
 label#Keyword-Filter {
  display: none;
 }
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
- color: #1c1c1c;
- background-color: #eeeeee;
-}
 .input-group .nbext-list-btn-add,
 .input-group-btn:last-child > .btn-group > .btn {
- background: #eeeeee;
- background-color: #eeeeee;
- border-color: #eeeeee;
+ background: #e4e4e4;
+ background-color: #e4e4e4;
+ border-color: #e4e4e4;
+ border: 2px solid #e4e4e4;
 }
 .input-group .nbext-list-btn-add:hover,
 .input-group-btn:last-child > .btn-group > .btn:hover {
- background: #e9e9e9;
- background-color: #e9e9e9;
- border-color: #e9e9e9;
+ background: #dfdfdf;
+ background-color: #dfdfdf;
+ border-color: #dfdfdf;
+ border: 2px solid #dfdfdf;
 }
 #notebook-container > div.cell.code_cell.rendered.selected > div.widget-area > div.widget-subarea > div > div.widget_item.btn-group > button.btn.btn-default.dropdown-toggle.widget-combo-carrot-btn {
- background: #eeeeee;
- background-color: #eeeeee;
- border-color: #eeeeee;
+ background: #e4e4e4;
+ background-color: #e4e4e4;
+ border-color: #e4e4e4;
 }
 #notebook-container > div.cell.code_cell.rendered.selected > div.widget-area > div.widget-subarea > div > div.widget_item.btn-group > button.btn.btn-default.dropdown-toggle.widget-combo-carrot-btn:hover {
- background: #e9e9e9;
- background-color: #e9e9e9;
- border-color: #e9e9e9;
+ background: #dfdfdf;
+ background-color: #dfdfdf;
+ border-color: #dfdfdf;
 }
 .ui-widget-content {
- background: #ebebeb;
- background-color: #ebebeb;
- border: 2px solid #ebebeb;
+ background: #e5e5e5;
+ background-color: #e5e5e5;
+ border: 2px solid #e5e5e5;
  color: #303030;
 }
 div.collapsible_headings_toggle {
@@ -13855,13 +14216,13 @@ video {
  margin: 0px;
 }
 .cmd-palette form {
- background: #eeeeee;
- background-color: #eeeeee;
+ background: #e5e5e5;
+ background-color: #e5e5e5;
 }
 .typeahead-field input:last-child,
 .typeahead-hint {
- background: #eeeeee;
- background-color: #eeeeee;
+ background: #e5e5e5;
+ background-color: #e5e5e5;
  z-index: 1;
 }
 .typeahead-field input {
@@ -13875,17 +14236,17 @@ video {
  height: 70px;
 }
 .typeahead-select {
- background-color: #eeeeee;
+ background-color: #e5e5e5;
 }
 body > div.modal.cmd-palette.typeahead-field {
  display: table;
  border-collapse: separate;
- background-color: #fafafa;
+ background-color: #f4f4f4;
 }
 .typeahead-container button {
  font-family: sans-serif;
  font-size: 28pt;
- background-color: #ebebeb;
+ background-color: #e4e4e4;
  border: none;
  display: inline-block;
  line-height: inherit;
@@ -13902,8 +14263,8 @@ body > div.modal.cmd-palette.typeahead-field {
 .typeahead-container button:focus,
 .typeahead-container button:hover {
  color: #2f2f2f;
- background-color: #ff7823;
- border-color: #ff7823;
+ background-color: #dfdfdf;
+ border-color: #e0e0e0;
 }
 .typeahead-list > li.typeahead-group.active > a,
 .typeahead-list > li.typeahead-group > a,
@@ -13935,18 +14296,18 @@ body > div.modal.cmd-palette.typeahead-field {
 .typeahead-list > li > a:focus,
 .typeahead-list > li > a:hover {
  color: #2f2f2f;
- background-color: #fafafa;
- border-color: #fafafa;
+ background-color: #f4f4f4;
+ border-color: #f4f4f4;
 }
 .command-shortcut:before {
  content: "(command)";
  padding-right: 3px;
- color: #aaaaaa;
+ color: #828892;
 }
 .edit-shortcut:before {
  content: "(edit)";
  padding-right: 3px;
- color: #aaaaaa;
+ color: #828892;
 }
 ul.typeahead-list i {
  margin-left: 1px;
@@ -13964,7 +14325,7 @@ ul.typeahead-list {
 div.input.typeahead-hint,
 input.typeahead-hint,
 body > div.modal.cmd-palette.in > div > div > div > form > div > div.typeahead-field > span.typeahead-query > input.typeahead-hint {
- color: #aaaaaa !important;
+ color: #828892 !important;
  background-color: transparent;
  padding: 3px 10px;
 }
@@ -14025,8 +14386,8 @@ span.shortcut_key {
 }
 div#short-key-bindings-intro.well,
 .well {
- background-color: #eeeeee;
- border: 1px solid #eeeeee;
+ background-color: #e4e4e4;
+ border: 1px solid #e4e4e4;
  color: #303030;
  border-radius: 2px;
  -webkit-box-shadow: none;
@@ -14040,7 +14401,7 @@ div#short-key-bindings-intro.well,
 #texteditor-backdrop #texteditor-container .CodeMirror-gutters {
  background: #e0e1e3;
  background-color: #e0e1e3;
- color: #aaaaaa;
+ color: #828892;
 }
 .edit_app #menubar .navbar {
  margin-bottom: 0px;
@@ -14094,7 +14455,7 @@ div#short-key-bindings-intro.well,
  color: #e22978;
 }
 .terminal .xterm-color-8 {
- color: #ff8132;
+ color: #ef5c00;
 }
 .terminal .xterm-color-9 {
  color: #009e07;
@@ -14115,6 +14476,41 @@ div#short-key-bindings-intro.well,
 .terminal:not(.focus) .terminal-cursor {
  outline: 1px solid #ff7823;
  outline-offset: -1px;
+}
+.celltoolbar {
+ font-size: 100%;
+ padding-top: 3px;
+ border-color: transparent;
+ border-bottom: thin solid #828892;
+ background: transparent;
+}
+.cell-tag,
+.tags-input input,
+.tags-input button {
+ color: #303030;
+ background-color: #ffffff;
+ background-image: none;
+ border: 1px solid #303030;
+ border-radius: 1px;
+ box-shadow: none;
+ width: inherit;
+ font-size: inherit;
+ height: 22px;
+ line-height: 22px;
+}
+#notebook-container > div.cell.code_cell.rendered.selected > div.input > div.inner_cell > div.ctb_hideshow.ctb_show > div > div > button,
+#notebook-container > div.input > div.inner_cell > div.ctb_hideshow.ctb_show > div > div > button {
+ font-size: 10pt;
+ color: #303030;
+ background-color: #ffffff;
+ background-image: none;
+ border: 1px solid #303030;
+ border-radius: 1px;
+ box-shadow: none;
+ width: inherit;
+ font-size: inherit;
+ height: 22px;
+ line-height: 22px;
 }
 div#pager #pager-contents {
  background: #ffffff !important;
@@ -14259,7 +14655,7 @@ div.tooltiptext.bigtooltip {
  width: 36px;
 }
 .cm-s-ipython .CodeMirror-linenumber {
- color: #aaaaaa;
+ color: #828892;
 }
 .CodeMirror-sizer {
  margin-left: 40px;
@@ -14275,7 +14671,7 @@ div.CodeMirror-linenumber,
  text-align: right;
 }
 .CodeMirror-linenumber {
- color: #aaaaaa;
+ color: #828892;
 }
 .cm-s-ipython .CodeMirror-cursor {
  border-left: 2px solid #ff711a !important;
@@ -14332,7 +14728,7 @@ div.CodeMirror-linenumber,
  color: #e22978;
 }
 .cm-s-ipython span.cm-link {
- color: #ff8132;
+ color: #ef5c00;
 }
 .cm-s-ipython span.cm-storage {
  color: #055be0;
@@ -14404,7 +14800,7 @@ div.cell.text_cell .cm-s-default span.cm-variable-3 {
  color: #055be0;
 }
 .cm-s-default .cm-link {
- color: #ff8132;
+ color: #ef5c00;
 }
 .cm-s-default .cm-atom {
  color: #ff8132;
@@ -14463,6 +14859,9 @@ body :focus .MathJax {
 }
 div#maintoolbar {
  margin-left: 8px !important;
+}
+.toolbar.container {
+ width: 100% !important;
 }
 #header-container {
  display: none !important;
@@ -14549,7 +14948,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1><center>DataLab Cup 1: Predicting Appropriate Response<center></h1>
-<center>Shan-Hung Wu &amp; DataLab<br>Fall 2017</center>
+<center>Shan-Hung Wu &amp; DataLab<br>Fall 2018</center>
 </div>
 </div>
 </div>
@@ -14592,7 +14991,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Dataset-Format">Dataset Format<a class="anchor-link" href="#Dataset-Format">&#182;</a></h3><ul>
-<li><code>Program01.csv~Program08.csv</code> contains total 8 tv program's lines</li>
+<li><code>Program01.csv~Program08.csv</code> contains total 8 tv program's lines.</li>
 <li><code>Question.csv</code> contains total 500 questions, and each question includes chat and candidate options.</li>
 </ul>
 
@@ -14652,7 +15051,17 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Scoring">Scoring<a class="anchor-link" href="#Scoring">&#182;</a></h3><p>The evaluation metric is <strong>CategorizationAccuracy</strong>. The ranking shown on the leaderboard before the end of competition reflects only the accuracy over <strong>part of</strong> <code>Question.csv</code>. However, this is <strong>not</strong> how we evaluate your final scores. After the competition, we combine <strong>accuracy over the entire <code>Question.csv</code></strong> and <strong>your report</strong> as the final score.
+<p><strong>Note</strong>: You can only submit 20 submissions per UTC day.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Scoring">Scoring<a class="anchor-link" href="#Scoring">&#182;</a></h3><p>The evaluation metric is <strong>CategorizationAccuracy</strong>. The ranking shown on the leaderboard before the end of competition reflects only the accuracy over <strong>50% of</strong> <code>Question.csv</code>. However, this is <strong>not</strong> how we evaluate your final scores. After the competition, we combine <strong>accuracy over the rest <code>Question.csv</code></strong> and <strong>your report</strong> as the final score.
 <br>
 <br>
 There will be two baseline results, namely, <code>Benchmark-60</code> and <code>Benchmark-80</code>. You have to outperform <code>Benchmark-60</code> to get 60 points, and <code>Benchmark-80</code> to get 80. Meanwhile, <strong>the higher accuracy you achieve, the higher the final score you will get</strong>.</p>
@@ -14665,11 +15074,27 @@ There will be two baseline results, namely, <code>Benchmark-60</code> and <code>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Honor-code">Honor code<a class="anchor-link" href="#Honor-code">&#182;</a></h3><p>In addition to the behaviors outlined by the official competition rules, "cheating" encompasses any attempt to gain an edge in accuracy by using information that is outside of the provided dataset, or an attempt to use the provided information in a way that is not intended ,or attempt to copy code from other teams. Examples of cheating include (but are not limited to):</p>
+<ul>
+<li>Attempting to use datasets and references beyond those made available by the competition</li>
+<li>Attempting to abuse the competition infrastructure to gain an edge</li>
+<li>Attempting to copy code from other teams</li>
+</ul>
+<p>Your team will get 0 score in this competition once being found out cheating.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Important-Dates">Important Dates<a class="anchor-link" href="#Important-Dates">&#182;</a></h3><ul>
-<li>2017/10/24 (TUE) - competition starts</li>
-<li>2017/10/29 (SUN) 23:59pm - competition ends, final score announcement</li>
-<li>2017/10/31 (TUE) - winner team share</li>
-<li>2017/11/2 (THU) 23:59pm - report submission (iLMS);</li>
+<li>2018/10/16 (TUE) - competition starts</li>
+<li>2018/10/27 (SUN) 23:59pm - competition ends, final score announcement</li>
+<li>2018/10/30 (TUE) - winner team share (not determined)</li>
+<li>2018/11/01 (THU) 23:59pm - report submission (iLMS)</li>
 </ul>
 
 </div>
@@ -14742,9 +15167,7 @@ There will be two baseline results, namely, <code>Benchmark-60</code> and <code>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Program 1
 Episodes: 1299
@@ -14846,9 +15269,7 @@ Name: Content, dtype: object
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Question
 Episodes: 500
@@ -14963,21 +15384,17 @@ Name: Option5, dtype: object
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>Building prefix dict from /home/tim/ray/Workspace/Course_DeepLearning/Comp1/Release/big5_dict.txt ...
-Loading model from cache /tmp/jieba.ubfd2136d7a9b93dc278d35ab3e6630e5.cache
-Loading model cost 0.544 seconds.
+<pre>Building prefix dict from C:\Users\User\Desktop\DataLab\CS 565600\Competition 01\Comp01\big5_dict.txt ...
+Loading model from cache C:\Users\User\AppData\Local\Temp\jieba.ube8fe9c3061f8c5e229c09e69d35a940.cache
+Loading model cost 0.539 seconds.
 Prefix dict has been built succesfully.
 </pre>
 </div>
 </div>
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39;我&#39;, &#39;討厭&#39;, &#39;吃&#39;, &#39;蘋果&#39;]
 </pre>
@@ -15026,11 +15443,11 @@ Prefix dict has been built succesfully.
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cut_programs</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">program</span> <span class="ow">in</span> <span class="n">programs</span><span class="p">:</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">program</span><span class="p">)</span>
+    <span class="n">episodes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">program</span><span class="p">)</span>
     <span class="n">cut_program</span> <span class="o">=</span> <span class="p">[]</span>
     
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">lines</span> <span class="o">=</span> <span class="n">program</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Content&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">episode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">episodes</span><span class="p">):</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">program</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">episode</span><span class="p">][</span><span class="s1">&#39;Content&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="n">cut_program</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">jieba_lines</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
     
     <span class="n">cut_programs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cut_program</span><span class="p">)</span>
@@ -15046,9 +15463,12 @@ Prefix dict has been built succesfully.
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cut_programs</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cut_programs</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cut_programs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> programs&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">cut_programs</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> episodes in program 0&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">cut_programs</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> lines in first episode of program 0&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">cut_programs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first 3 lines in 1st episode of program 0: &quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cut_programs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 
@@ -15060,13 +15480,13 @@ Prefix dict has been built succesfully.
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>8
-1299
-635
+<pre>8 programs
+1299 episodes in program 0
+635 lines in first episode of program 0
+
+first 3 lines in 1st episode of program 0: 
 [[&#39;還好&#39;, &#39;天氣&#39;, &#39;不錯&#39;], [&#39;昨天&#39;, &#39;晚上&#39;, &#39;的&#39;, &#39;流星雨&#39;], [&#39;我&#39;, &#39;看到&#39;, &#39;很多&#39;, &#39;流星&#39;]]
 </pre>
 </div>
@@ -15090,7 +15510,7 @@ Prefix dict has been built succesfully.
     <span class="n">cut_question</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">jieba_lines</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
     
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="n">questions</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="s1">&#39;Option</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">j</span><span class="p">)]</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">questions</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;Option</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">j</span><span class="p">)]</span>
         <span class="n">cut_question</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">lcut</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
     
     <span class="n">cut_questions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cut_question</span><span class="p">)</span>
@@ -15106,10 +15526,13 @@ Prefix dict has been built succesfully.
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cut_questions</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> questions&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">cut_questions</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cut_questions</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="c1"># 1 question</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cut_questions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 
+<span class="c1"># 6 optional reponses</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">cut_questions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
@@ -15122,19 +15545,17 @@ Prefix dict has been built succesfully.
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>500
+<pre>500 questions
 7
 [[&#39;媽給&#39;, &#39;你&#39;, &#39;送&#39;, &#39;錢包&#39;, &#39;來&#39;, &#39;啦&#39;, &#39; &#39;, &#39;來&#39;, &#39; &#39;, &#39;你&#39;, &#39;看&#39;, &#39;一下&#39;, &#39;是&#39;, &#39;不&#39;, &#39;是&#39;, &#39;這個&#39;], [&#39;對&#39;, &#39; &#39;, &#39;就是&#39;, &#39;這個&#39;, &#39; &#39;, &#39;你&#39;, &#39;在&#39;, &#39;哪裡&#39;, &#39;找到&#39;, &#39;它&#39;, &#39;的&#39;], []]
 [&#39;你&#39;, &#39;看&#39;, &#39; &#39;, &#39;這是&#39;, &#39;我&#39;, &#39;新&#39;, &#39;買&#39;, &#39;的&#39;, &#39;錢包&#39;]
-[&#39;是&#39;, &#39;不&#39;, &#39;是&#39;, &#39;要&#39;, &#39;定期&#39;, &#39;來&#39;, &#39;舉辦&#39;]
-[&#39;聽起來&#39;, &#39;好好玩&#39;, &#39;天&#39;, &#39;啊&#39;]
-[&#39;那&#39;, &#39;我&#39;, &#39;去&#39;, &#39;探索&#39;, &#39;一下&#39;]
-[&#39;什麼&#39;, &#39;你&#39;, &#39;說&#39;, &#39;我&#39;, &#39;是&#39;, &#39;鬼&#39;]
-[&#39;沒有&#39;, &#39;人&#39;, &#39;是&#39;, &#39;十全十美&#39;, &#39;的&#39;]
+[&#39;我&#39;, &#39;的&#39;, &#39;錢包&#39;, &#39;不見了&#39;, &#39;啦&#39;]
+[&#39;以後&#39;, &#39;上&#39;, &#39;網咖&#39;, &#39;的&#39;, &#39;錢包&#39;, &#39;在&#39;, &#39;我&#39;, &#39;身上&#39;]
+[&#39;什麼&#39;, &#39;有&#39;, &#39;錢包&#39;, &#39;場&#39;]
+[&#39;早上&#39;, &#39;你&#39;, &#39;爸爸&#39;, &#39;在&#39;, &#39;車上&#39;, &#39;找到&#39;, &#39;的&#39;, &#39; &#39;, &#39;一定&#39;, &#39;是&#39;, &#39;前天&#39;, &#39;你&#39;, &#39;放學&#39;, &#39;的&#39;, &#39;時候&#39;, &#39;掉&#39;, &#39;在&#39;, &#39;車上&#39;, &#39;了&#39;]
+[&#39;我&#39;, &#39;為什麼&#39;, &#39;要給&#39;, &#39;你們&#39;, &#39;錢包&#39;]
 </pre>
 </div>
 </div>
@@ -15197,7 +15618,7 @@ Prefix dict has been built succesfully.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are many words after cutting, but <strong>not all of them is useful</strong>. The word <strong>too common or too rare</strong> can not give us information but may noise. We count the the number of occurrence for each word and remove useless one.</p>
+<p>There are many words after cutting, but <strong>not all of them are useful</strong>. The words <strong>too common or too rare</strong> can not give us information but may introduce noise. We count the the number of occurrence for each word and remove useless one.</p>
 
 </div>
 </div>
@@ -15279,9 +15700,24 @@ Prefix dict has been built succesfully.
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">operator</span>
 
 <span class="n">word_dict</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">word_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total </span><span class="si">%d</span><span class="s2"> words in word_dict&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">word_dict</span><span class="p">))</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Total 174420 words in word_dict
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -15296,6 +15732,8 @@ Prefix dict has been built succesfully.
 
 <span class="n">voc_dict</span> <span class="o">=</span> <span class="n">word_dict</span><span class="p">[</span><span class="n">VOC_START</span><span class="p">:</span><span class="n">VOC_START</span><span class="o">+</span><span class="n">VOC_SIZE</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">voc_dict</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total </span><span class="si">%d</span><span class="s2"> words in voc_dict&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">voc_dict</span><span class="p">))</span>
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;voc_dict.npy&#39;</span><span class="p">,</span> <span class="n">voc_dict</span><span class="p">)</span>
 </pre></div>
 
@@ -15307,11 +15745,11 @@ Prefix dict has been built succesfully.
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[(&#39;他&#39;, 81495), (&#39;也&#39;, 77074), (&#39;就是&#39;, 75444), (&#39;說&#39;, 74677), (&#39;來&#39;, 69134), (&#39;會&#39;, 67805), (&#39;那&#39;, 67274), (&#39;喔&#39;, 61443), (&#39;可以&#39;, 60159), (&#39;跟&#39;, 59954)]
+<pre>[(&#39;他&#39;, 81632), (&#39;也&#39;, 77206), (&#39;就是&#39;, 75579), (&#39;說&#39;, 74281), (&#39;來&#39;, 68735), (&#39;會&#39;, 67933), (&#39;那&#39;, 66863), (&#39;喔&#39;, 61530), (&#39;可以&#39;, 60268), (&#39;跟&#39;, 60056)]
+
+Total 15000 words in voc_dict
 </pre>
 </div>
 </div>
@@ -15357,7 +15795,7 @@ Prefix dict has been built succesfully.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Though the format of question is to select one from six, our traing data only have continuous lines. Naively, i want to change the whole problem <strong>into a binary classification</strong> which means given two lines, my model want to <strong>judge these two are context or not</strong>.</p>
+<p>Though the format of question is to select one from six, our traing data only have continuous lines. Naively, I want to change the whole problem <strong>into a binary classification</strong> which means given two lines, my model want to <strong>judge these two are context or not</strong>.</p>
 
 </div>
 </div>
@@ -15452,6 +15890,7 @@ Prefix dict has been built succesfully.
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">example_doc</span> <span class="o">=</span> <span class="p">[]</span>
 
+<span class="c1"># lines in 1st episode in program 0 </span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">cut_programs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
     <span class="n">example_line</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
     <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
@@ -15471,9 +15910,7 @@ Prefix dict has been built succesfully.
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[&#39;還好 天氣 不錯 &#39;, &#39;昨天 晚上 &#39;, &#39;看到 很多 流星 &#39;, &#39;這次 收穫 真 豐富 &#39;, &#39;當然 豐富 啦 &#39;, &#39;說 嘛 &#39;, &#39;精心 製作 &#39;, &#39;被 一個 人 吃掉 &#39;, &#39;真的 嗎 &#39;, &#39;不要 忘記 做 秘密 檔案 &#39;]
 </pre>
@@ -15528,22 +15965,20 @@ Here, we use Scikit-learn's implementation <a href="http://scikit-learn.org/stab
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[vocabulary]
 
-一半 7
-經常 377
-兩種 89
-跑進去 445
-地盤 156
-趕走 443
-常常 206
-脫皮 395
-更新 271
-現在 323
+還好 469
+天氣 168
+不錯 46
+昨天 268
+晚上 270
+看到 352
+很多 217
+流星 310
+這次 456
+收穫 259
 </pre>
 </div>
 </div>
@@ -15570,9 +16005,9 @@ Let's transform the example documents into feature vectors:</p>
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get matrix (doc_id, vocabulary_id) --&gt; tf</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get matrix (line_id, vocabulary_id) --&gt; (this vocabulary occurs how many times in this line)</span>
 <span class="n">doc_bag</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">example_doc</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(did, vid)</span><span class="se">\t</span><span class="s1">tf&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; (lid, vid)     tf&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">doc_bag</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Is document-term matrix a scipy.sparse matrix? </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">issparse</span><span class="p">(</span><span class="n">doc_bag</span><span class="p">)))</span>
@@ -15586,11 +16021,9 @@ Let's transform the example documents into feature vectors:</p>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(did, vid)	tf
+<pre> (lid, vid)     tf
   (0, 46)	1
   (0, 168)	1
   (0, 469)	1
@@ -15628,7 +16061,7 @@ Is document-term matrix a scipy.sparse matrix? True
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Since each document contains only a small subset of vocabularies, <code>CountVectorizer.transform()</code> stores feature vectors as scipy.sparse matrix, where entry index is <code>(document-index, vocabulary-index)</code> pair, and the value is the <strong>term frequency</strong>---the number of times a vocabulary (term) occurs in a document.
+<p>Since each document contains only a small subset of vocabularies, <code>CountVectorizer.transform()</code> stores feature vectors as scipy.sparse matrix, where entry index is <code>(line-index, vocabulary-index)</code> pair, and the value is the <strong>term frequency</strong>---the number of times a vocabulary (term) occurs in a document.
 <br>
 <br>
 Unfortunately, many Scikit-learn classifiers do not support input as sparse matrix now. We can convert <code>doc_bag</code> into a Numpy dense matrix:</p>
@@ -15655,17 +16088,15 @@ Unfortunately, many Scikit-learn classifiers do not support input as sparse matr
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[0 0 0 ..., 0 0 0]
- [0 0 0 ..., 0 0 0]
- [0 0 0 ..., 0 0 0]
- ..., 
- [0 0 0 ..., 0 0 0]
- [0 0 0 ..., 0 0 0]
- [0 0 0 ..., 0 0 0]]
+<pre>[[0 0 0 ... 0 0 0]
+ [0 0 0 ... 0 0 0]
+ [0 0 0 ... 0 0 0]
+ ...
+ [0 0 0 ... 0 0 0]
+ [0 0 0 ... 0 0 0]
+ [0 0 0 ... 0 0 0]]
 
 After calling .toarray(), is it a scipy.sparse matrix? False
 </pre>
@@ -15684,11 +16115,23 @@ After calling .toarray(), is it a scipy.sparse matrix? False
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">doc_bag</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">example_doc</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[most frequent vocabularies]&quot;</span><span class="p">)</span>
+
+<span class="c1"># conpute how many times each word occurs in doc_bag</span>
 <span class="n">bag_cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">doc_bag</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># get words occur in doc_bag</span>
+<span class="n">words_num</span> <span class="o">=</span> <span class="n">bag_cnts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ones_vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">words_num</span><span class="p">)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">ones_vector</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># sort bag_cnts and get its indices and values</span>
+<span class="n">most_freq_word_index</span> <span class="o">=</span> <span class="n">bag_cnts</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
+<span class="n">most_freq_word_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">bag_cnts</span><span class="p">)</span>
+
 <span class="n">top</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="c1"># [::-1] reverses a list since sort is in ascending order</span>
-<span class="k">for</span> <span class="n">tok</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">count</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">bag_cnts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))[</span><span class="mi">0</span><span class="p">][</span><span class="n">bag_cnts</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="n">top</span><span class="p">]],</span> 
-                  <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">bag_cnts</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="n">top</span><span class="p">]):</span>
+<span class="k">for</span> <span class="n">tok</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="n">most_freq_word_index</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="n">top</span><span class="p">]],</span> 
+                        <span class="n">most_freq_word_times</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="n">top</span><span class="p">]):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tok</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
 </pre></div>
 
@@ -15700,9 +16143,7 @@ After calling .toarray(), is it a scipy.sparse matrix? False
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[most frequent vocabularies]
 蟋蟀: 98
@@ -15750,9 +16191,10 @@ Next, we introduce the <strong>TF-IDF</strong> model that <strong>downweights fr
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>F-IDF model calculates not only the term-frequency (TF) as BoW model does, but also the <strong>document-frequency</strong>
+<p>TF-IDF model calculates not only the term-frequency (TF) as BoW model does, but also the <strong>document-frequency</strong>
 (DF) of a term, which refers to the number of documents that contain this term. The TF-IDF score for a term is defined as
-<img src='tf-idf.png' width='30%' />
+<img src='tf-idf.png' width='40%' />
+<br>
 where the <code>log()</code> term is called the <strong>inverse-document-frequency</strong> (IDF) and <code>Ndoc</code> is the total number of documents. The idea behind TF-IDF is to downweight the TF of a word if it appears in many documents. For example, if a word appears in every document, the second term become <code>log(1)+1=1</code> , which will be smaller than any other word appearing in only a part of documents.
 <br>
 <br>
@@ -15787,7 +16229,7 @@ Let's create the TF-IDF feature representation:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[vocabularies with highest tf-idf scores]&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">tok</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">tfidf</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">tfidf_sum</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))[</span><span class="mi">0</span><span class="p">][</span><span class="n">tfidf_sum</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]][:</span><span class="n">top</span><span class="p">],</span> 
                   <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">tfidf_sum</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="n">top</span><span class="p">]):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tok</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tok</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -15798,9 +16240,7 @@ Let's create the TF-IDF feature representation:</p>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[vocabularies with smallest idf scores]
 蟋蟀: 2.87
@@ -15815,16 +16255,16 @@ Let's create the TF-IDF feature representation:</p>
 比較: 4.68
 
 [vocabularies with highest tf-idf scores]
-蟋蟀: 42.016104
-這樣: 11.916386
-真的: 11.405347
-就是: 11.256123
-可以: 10.898674
-聲音: 10.442999
-豆油伯: 10.325579
-還有: 9.835135
-你們: 9.293539
-叫做: 8.395597
+蟋蟀: 42.02
+這樣: 11.92
+真的: 11.41
+就是: 11.26
+可以: 10.90
+聲音: 10.44
+豆油伯: 10.33
+還有: 9.84
+你們: 9.29
+叫做: 8.40
 </pre>
 </div>
 </div>
@@ -15859,9 +16299,7 @@ Let's create the TF-IDF feature representation:</p>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(635, 516)
 </pre>
@@ -15927,9 +16365,7 @@ Let's create the TF-IDF feature representation:</p>
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(635, 64)
 </pre>
@@ -16042,9 +16478,7 @@ Let's create a stream to read a chunk of CSV file at a time using the Pandas I/O
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>                                              review  sentiment
 0  This movie is well done on so many levels that...          1
@@ -16091,9 +16525,9 @@ Let's create a stream to read a chunk of CSV file at a time using the Pandas I/O
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ol>
-<li>Stream documents directly from disk to get a mini-batch (chunk) of documents;</li>
-<li>Preprocess: clean words in the mini-batch of documents;</li>
-<li>Word2vec: use HashingVectorizer to extract features from text;</li>
+<li>Stream documents directly from disk to get a mini-batch (chunk) of documents</li>
+<li>Preprocess: clean words in the mini-batch of documents</li>
+<li>Word2vec: use HashingVectorizer to extract features from text</li>
 <li>Update <code>SGDClassifier</code> and go back to step 1.</li>
 </ol>
 
@@ -16133,9 +16567,7 @@ Let's create a stream to read a chunk of CSV file at a time using the Pandas I/O
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>hello this is a sanity check  :( ;P
 </pre>
@@ -16156,6 +16588,7 @@ Let's create a stream to read a chunk of CSV file at a time using the Pandas I/O
 <span class="kn">from</span> <span class="nn">nltk.stem.porter</span> <span class="k">import</span> <span class="n">PorterStemmer</span>
 
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+<span class="c1"># Stop Words are words which do not contain important significance to be used in Search Queries. i.e. the, and,...etc</span>
 <span class="n">stop</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">tokenizer_stem_nostop</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
@@ -16174,11 +16607,10 @@ Let's create a stream to read a chunk of CSV file at a time using the Pandas I/O
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[nltk_data] Downloading package stopwords to /home/tim/nltk_data...
+<pre>[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\User\AppData\Roaming\nltk_data...
 [nltk_data]   Package stopwords is already up-to-date!
 [&#39;runner&#39;, &#39;like&#39;, &#39;run&#39;, &#39;thu&#39;, &#39;run&#39;]
 </pre>
@@ -16197,11 +16629,12 @@ Let's create a stream to read a chunk of CSV file at a time using the Pandas I/O
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="k">import</span> <span class="n">HashingVectorizer</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">SGDClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">roc_auc_score</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">hashvec</span> <span class="o">=</span> <span class="n">HashingVectorizer</span><span class="p">(</span><span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="o">**</span><span class="mi">20</span><span class="p">,</span> 
                             <span class="n">preprocessor</span><span class="o">=</span><span class="n">preprocessor</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer_stem_nostop</span><span class="p">)</span>
 <span class="c1"># loss=&#39;log&#39; gives logistic regression</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">stream</span> <span class="o">=</span> <span class="n">get_stream</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;imdb.csv&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
@@ -16210,7 +16643,7 @@ Let's create a stream to read a chunk of CSV file at a time using the Pandas I/O
 <span class="n">train_auc</span><span class="p">,</span> <span class="n">val_auc</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 
 <span class="c1"># we use one batch for training and another for validation in each iteration</span>
-<span class="n">iters</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">25000</span><span class="o">+</span><span class="n">batch_size</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">batch_size</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">iters</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">25000</span><span class="o">/</span><span class="p">(</span><span class="n">batch_size</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iters</span><span class="p">):</span>
     <span class="n">batch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
@@ -16225,7 +16658,9 @@ Let's create a stream to read a chunk of CSV file at a time using the Pandas I/O
     <span class="c1"># validate</span>
     <span class="n">batch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
     <span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;review&#39;</span><span class="p">],</span> <span class="n">batch</span><span class="p">[</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span>
-    <span class="n">score</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">hashvec</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_val</span><span class="p">))[:,</span><span class="mi">1</span><span class="p">])</span>
+    
+    <span class="n">X_val</span> <span class="o">=</span> <span class="n">hashvec</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_val</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">val_auc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[</span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1">] </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">batch_size</span><span class="o">*</span><span class="mi">2</span><span class="p">),</span> <span class="mi">25000</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>
 </pre></div>
@@ -16238,22 +16673,20 @@ Let's create a stream to read a chunk of CSV file at a time using the Pandas I/O
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[2000/25000] 0.883333
-[4000/25000] 0.910172
-[6000/25000] 0.909240
-[8000/25000] 0.911040
-[10000/25000] 0.936461
-[12000/25000] 0.908915
-[14000/25000] 0.936745
-[16000/25000] 0.939940
-[18000/25000] 0.943612
-[20000/25000] 0.928762
-[22000/25000] 0.925087
-[24000/25000] 0.943273
+<pre>[2000/25000] 0.872147
+[4000/25000] 0.899838
+[6000/25000] 0.910761
+[8000/25000] 0.909352
+[10000/25000] 0.936001
+[12000/25000] 0.915791
+[14000/25000] 0.931641
+[16000/25000] 0.939808
+[18000/25000] 0.941024
+[20000/25000] 0.926753
+[22000/25000] 0.925071
+[24000/25000] 0.944370
 </pre>
 </div>
 </div>
@@ -16297,374 +16730,236 @@ Let's create a stream to read a chunk of CSV file at a time using the Pandas I/O
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAk4AAAGGCAYAAACNCg6xAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
-AAAPYQAAD2EBqD+naQAAIABJREFUeJzs3Xd4VFX+x/H3SUC6FFFALCiiKGJJBEWRtSyygljXEkFd
-FUXFQkBEBKlSRMGVtSD83LUgUezYAMGCVCUINsC2ArqANClShOT8/vgmppAySWZyZyaf1/PMM5k7
-d+79zhCST8459xznvUdEREREipcQdAEiIiIisULBSURERCRECk4iIiIiIVJwEhEREQmRgpOIiIhI
-iBScREREREKk4CQiIiISIgUnERERkRApOImIiIiESMFJREREJERREZycc2c656Y6535xzmU65y4M
-4TVnOefSnXO7nHPfOueuK2Cfy51zy5xzO51zS51z50fmHYiIiEhFEBXBCagBLAFuA4pdPM851wR4
-G5gFnAg8Cvyfc659rn1OByYDE4GTgDeBN5xzx4W5dhEREakgXLQt8uucywQu9t5PLWKfB4Hzvfcn
-5NqWBtT23nfMevwiUN17f2GufeYDn3vvb4vYGxAREZG4FS0tTiV1GjAz37bpQJtcj9uEsI+IiIhI
-yGI1ODUE1uXbtg7Y3zlXpZh9Gka4NhEREYlTlYIuIJo45w4AOgA/AbuCrUZERETCoCrQBJjuvd9Y
-1oPFanBaCzTIt60BsNV7v7uYfdYWcdwOwAthqVBERESiSRfsorEyidXgNB/IP7XAeVnbc+9zLjAu
-17b2+fbJ7yeASZMmceyxx5a9ygouNTWVRx55JOgy4oY+z/DS5xle+jzDS59n+CxbtoyuXbtC1u/4
-soqK4OScqwEcBbisTUc6504ENnnvVzvnRgIHe++z52oaD/TIurru31hA+jvQMddhHwU+cs71At4B
-UoBk4KYiStkFcOyxx5KUlBSeN1eB1a5dW59jGOnzDC99nuGlzzO89HlGRFiG4ETL4PBTgM+BdGwe
-pzHAYmBI1vMNgUOzd/be/wR0Av6Kzf+UCtzovZ+Za5/5wNXAzVn7XApc5L3/JsLvRUREROJUVLQ4
-ee8/pogQ572/voBts7EWpKKO+yrwapkLFBERESF6WpxEREREop6Ck0RMSkpK0CXEFX2e4aXPM7z0
-eYaXPs/oFXVLrgTJOZcEpKenp2tQnohIlFi1ahUbNmwIugyJYvXr1+ewww4r8LnFixeTnJwMkOy9
-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
+<img src="data:image/png;base64,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
 "
 >
 </div>
@@ -16724,11 +17019,9 @@ iIgmJXGKiIiIaFISp4iIiIgm/T9jVSRAeSf6FwAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area">
-<div class="prompt"></div>
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>test auc: 0.947
+<pre>test auc: 0.948
 </pre>
 </div>
 </div>
@@ -16750,8 +17043,4 @@ iIgmJXGKiIiIaFISp4iIiIgm/T9jVSRAeSf6FwAAAABJRU5ErkJggg==
     </div>
   </div>
 </body>
-
- 
-
-
 </html>
