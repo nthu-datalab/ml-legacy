@@ -14989,8 +14989,7 @@ The installation guide can be found <a href="https://www.nvidia.com/en-us/data-c
 <pre><code>&gt; python</code></pre>
 <p>Type in the following program:</p>
 
-<pre><code>python=
-import tensorflow as tf
+<pre><code>import tensorflow as tf
 hello = tf.constant('Hello, TensorFlow!')
 sess = tf.Session()
 print(sess.run(hello))</code></pre>
@@ -15299,11 +15298,11 @@ Tensor(&#34;ones_like_matrix:0&#34;, shape=(3, 2), dtype=float32)
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a variable of vector</span>
-<span class="n">vec_var</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;vector&quot;</span><span class="p">,</span>
-                          <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ones_initializer</span><span class="p">)</span>
+<span class="n">vec_var</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;vector&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+                          <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ones_initializer</span><span class="p">)</span>
 <span class="c1"># create a variable of matrix</span>
-<span class="n">mat_var</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;matrix&quot;</span><span class="p">,</span>
-                          <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal_initializer</span><span class="p">)</span>
+<span class="n">mat_var</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;matrix&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                          <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal_initializer</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">vec_var</span><span class="p">,</span> <span class="n">mat_var</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -15602,15 +15601,15 @@ Tensor(&#34;Assign:0&#34;, shape=(), dtype=int32_ref)
 <pre>[scalar]
  5.0 
 [vector]
- [ 0.89785016 -0.23613338 -1.1767508  -0.12170798 -0.46906853] 
+ [ 0.6171401  -0.62936664 -0.9851576  -0.20703411 -1.629029  ] 
 [broadcast]
- [5.89785   4.7638664 3.8232493 4.878292  4.5309315]
+ [5.6171403 4.370633  4.0148425 4.792966  3.370971 ]
 [input]
- [[1. 4. 1. 1. 2.]
- [1. 4. 1. 3. 2.]
- [3. 0. 3. 3. 2.]
- [4. 3. 3. 1. 1.]
- [0. 1. 4. 3. 1.]] 
+ [[1. 0. 2. 1. 1.]
+ [4. 2. 2. 4. 1.]
+ [1. 3. 2. 2. 3.]
+ [2. 4. 0. 0. 4.]
+ [2. 1. 0. 3. 2.]] 
 [matrix]
  [[1. 1.]
  [1. 1.]
@@ -15618,11 +15617,11 @@ Tensor(&#34;Assign:0&#34;, shape=(), dtype=int32_ref)
  [1. 1.]
  [1. 1.]] 
 [output]
- [[ 9.  9.]
+ [[ 5.  5.]
+ [13. 13.]
  [11. 11.]
- [11. 11.]
- [12. 12.]
- [ 9.  9.]]
+ [10. 10.]
+ [ 8.  8.]]
 </pre>
 </div>
 </div>
@@ -15720,8 +15719,8 @@ The following cell shows how to call the <code>tf.train.Saver.save</code> method
 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">ckpt_dir</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span><span class="o">.</span><span class="n">as_default</span><span class="p">()</span> <span class="k">as</span> <span class="n">g</span><span class="p">:</span>
     <span class="n">const_a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-    <span class="n">var_b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;var_b&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span>
-                            <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros_initializer</span><span class="p">)</span> <span class="c1"># variable</span>
+    <span class="n">var_b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;var_b&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>
+                            <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros_initializer</span><span class="p">)</span> <span class="c1"># variable</span>
     <span class="n">const_c</span> <span class="o">=</span> <span class="n">var_b</span> <span class="o">+</span> <span class="n">const_a</span>
     <span class="n">var_d</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;var_d&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
                             <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ones_initializer</span><span class="p">)</span> <span class="c1"># variable</span>
@@ -15800,8 +15799,10 @@ Tensor(&#34;add:0&#34;, shape=(5,), dtype=int32)
 <span class="c1"># tensor_name: Name of the tensor in the checkpoint file to print. </span>
 <span class="c1"># all_tensors: Boolean indicating whether to print all tensors.</span>
 <span class="c1"># all_tensor_names: Boolean indicating whether to print all tensor names.</span>
-<span class="n">print_tensors_in_checkpoint_file</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="n">tensor_name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-                                 <span class="n">all_tensors</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">all_tensor_names</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">print_tensors_in_checkpoint_file</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span>
+                                 <span class="n">tensor_name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                 <span class="n">all_tensors</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                 <span class="n">all_tensor_names</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -15955,8 +15956,10 @@ INFO:tensorflow:Restoring parameters from checkpoints/demo/model.ckpt
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
 <span class="c1">## Pseudo dataset</span>
 <span class="n">dataset_size</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dataset_size</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># 20 examples, each example has 5 features</span>
-<span class="n">label</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">dataset_size</span><span class="p">)</span> <span class="c1"># this dataset has 3 labels</span>
+<span class="c1"># 20 examples, each example has 5 features</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dataset_size</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1"># this dataset has 3 labels</span>
+<span class="n">label</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">dataset_size</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -16001,7 +16004,7 @@ INFO:tensorflow:Restoring parameters from checkpoints/demo/model.ckpt
  &lt;BatchDataset shapes: ((?, 5), (?,)), types: (tf.float64, tf.int64)&gt;
 
 [Iterator] 
- &lt;tensorflow.python.data.ops.iterator_ops.Iterator object at 0x7efff7d78be0&gt;
+ &lt;tensorflow.python.data.ops.iterator_ops.Iterator object at 0x7faf2ece5668&gt;
 
 [Elements extracted by iterator] 
  Tensor(&#34;IteratorGetNext:0&#34;, shape=(?, 5), dtype=float64) 
@@ -16056,28 +16059,28 @@ Here we skip the model building process, we demonstrates how will the tensors di
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>1 batch - 7 examples
-[[0.1785114  0.37917823 0.97863917 0.9965862  0.17850776]
- [0.02398287 0.72241064 0.1971222  0.87530128 0.62915861]
- [0.00299223 0.5728955  0.04305269 0.70530687 0.65392263]
- [0.0714728  0.14404754 0.41925957 0.47584777 0.94056444]
- [0.41377267 0.22546002 0.00696483 0.96123835 0.49257399]
- [0.83134302 0.8257122  0.6612064  0.97110385 0.78329471]
- [0.09832722 0.91167012 0.40365477 0.53979386 0.6957001 ]] [2 0 2 2 1 0 2]
+[[0.68880144 0.45820932 0.0933284  0.11698017 0.68062723]
+ [0.67106035 0.48675026 0.91091263 0.29967799 0.85786791]
+ [0.43799941 0.8727089  0.1940985  0.6503561  0.73969706]
+ [0.65753504 0.35646448 0.73402211 0.17953538 0.01661563]
+ [0.55612526 0.50054542 0.92438134 0.77449136 0.65876804]
+ [0.68316813 0.9640992  0.21514398 0.0893625  0.81807983]
+ [0.46975759 0.7351496  0.5437554  0.82464043 0.33783769]] [0 2 2 2 1 2 0]
 2 batch - 7 examples
-[[0.30653865 0.25898975 0.13849397 0.93080022 0.2972471 ]
- [0.23872979 0.94448126 0.06755758 0.30375601 0.94975243]
- [0.10518478 0.72772465 0.39976475 0.17243995 0.04816434]
- [0.74252794 0.7780784  0.08125116 0.98228199 0.07168171]
- [0.87771312 0.91280685 0.30740192 0.29386847 0.3691519 ]
- [0.19219948 0.97256249 0.29177497 0.57044576 0.27758466]
- [0.38280096 0.64941004 0.32128166 0.55874674 0.45195284]] [1 2 2 0 2 0 2]
+[[0.70967952 0.85450311 0.56727708 0.43637177 0.0981975 ]
+ [0.86089878 0.34218751 0.60524437 0.26863628 0.93602212]
+ [0.93862799 0.85447439 0.08609007 0.68068665 0.89006594]
+ [0.2268581  0.45049359 0.76482735 0.88694749 0.07648086]
+ [0.17960476 0.65857934 0.86677285 0.97785092 0.58892966]
+ [0.40062176 0.1304138  0.23204579 0.00307362 0.72440135]
+ [0.60711622 0.10547526 0.9420298  0.36704756 0.68525478]] [0 0 0 1 0 2 0]
 3 batch - 6 examples
-[[0.74044775 0.90206664 0.53942021 0.42437452 0.37208602]
- [0.66346546 0.77456165 0.13677823 0.62873137 0.45698952]
- [0.72863796 0.61601528 0.53289283 0.57807317 0.33966963]
- [0.18878925 0.2962816  0.56295579 0.67741766 0.27760496]
- [0.72415415 0.5211763  0.20297727 0.69788695 0.41387318]
- [0.11947213 0.22049638 0.44904797 0.40580298 0.60891654]] [1 0 2 0 1 2]
+[[0.71098492 0.52966504 0.81681161 0.68633017 0.85433253]
+ [0.09960638 0.38350399 0.70664178 0.71965239 0.77929277]
+ [0.77001948 0.04848661 0.25685444 0.84525906 0.27124554]
+ [0.09828425 0.12181316 0.67483929 0.1476622  0.80938239]
+ [0.63551322 0.9073376  0.87516773 0.67115949 0.27661095]
+ [0.7525332  0.36692394 0.82019368 0.0725182  0.6708501 ]] [1 2 0 2 0 1]
 </pre>
 </div>
 </div>
@@ -16219,8 +16222,9 @@ Tensor(&#34;logits/add:0&#34;, shape=(?, 10), dtype=float32)
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">feature_dims</span><span class="p">])</span>
-<span class="n">fc</span> <span class="o">=</span> <span class="n">fully_connected_layer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">neurons</span><span class="p">,</span> <span class="s2">&quot;fc&quot;</span><span class="p">)</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">fully_connected_layer</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="s2">&quot;logits&quot;</span><span class="p">)</span>
+<span class="n">fc</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">neurons</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;fc&quot;</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> 
+                      <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;logits&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[Output tensor]&quot;</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[Variables] &quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">tf</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">(),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -16236,13 +16240,13 @@ Tensor(&#34;logits/add:0&#34;, shape=(?, 10), dtype=float32)
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[Output tensor]
-Tensor(&#34;fc/add:0&#34;, shape=(?, 1024), dtype=float32)
-Tensor(&#34;logits/add:0&#34;, shape=(?, 10), dtype=float32)
+Tensor(&#34;fc/Relu:0&#34;, shape=(?, 1024), dtype=float32)
+Tensor(&#34;logits/Softmax:0&#34;, shape=(?, 10), dtype=float32)
 
 [Variables] 
-&lt;tf.Variable &#39;fc/weights:0&#39; shape=(784, 1024) dtype=float32_ref&gt;
+&lt;tf.Variable &#39;fc/kernel:0&#39; shape=(784, 1024) dtype=float32_ref&gt;
 &lt;tf.Variable &#39;fc/bias:0&#39; shape=(1024,) dtype=float32_ref&gt;
-&lt;tf.Variable &#39;logits/weights:0&#39; shape=(1024, 10) dtype=float32_ref&gt;
+&lt;tf.Variable &#39;logits/kernel:0&#39; shape=(1024, 10) dtype=float32_ref&gt;
 &lt;tf.Variable &#39;logits/bias:0&#39; shape=(10,) dtype=float32_ref&gt;
 </pre>
 </div>
@@ -16376,8 +16380,10 @@ If we want to create a skip-gram model, we can use the following snippets.</p>
     <span class="n">center_words</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="p">[</span><span class="n">batch_size</span><span class="p">])</span>
     <span class="n">target_words</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="p">[</span><span class="n">batch_size</span><span class="p">])</span>
     
-    <span class="n">encode_matrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;encoder&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">vocabulary_size</span><span class="p">,</span> <span class="n">embedding_size</span><span class="p">])</span>
-    <span class="n">decode_matrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;decoder&quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">embedding_size</span><span class="p">,</span> <span class="n">vocabulary_size</span><span class="p">])</span>
+    <span class="n">encode_matrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;encoder&quot;</span><span class="p">,</span>
+                                    <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">vocabulary_size</span><span class="p">,</span> <span class="n">embedding_size</span><span class="p">])</span>
+    <span class="n">decode_matrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;decoder&quot;</span><span class="p">,</span>
+                                    <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">embedding_size</span><span class="p">,</span> <span class="n">vocabulary_size</span><span class="p">])</span>
     
     <span class="n">embedding</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">center_words</span><span class="p">,</span> <span class="n">encode_matrix</span><span class="p">)</span>
     <span class="n">logits</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">embedding</span><span class="p">,</span> <span class="n">decode_matrix</span><span class="p">)</span>
@@ -16457,8 +16463,8 @@ $$ C(\theta) = - \sum_{i=1}^{V} [log\frac{ exp(\,z_{i}^{(L)}\,) }{ exp(\,z_{i}^{
     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">local_file_path</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataset ready&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">local_file_path</span>
-    <span class="n">file_name</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DOWNLOAD_URL</span><span class="p">,</span> <span class="n">file_name</span><span class="p">),</span>
-                                              <span class="n">local_file_path</span><span class="p">)</span>
+    <span class="n">file_name</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span>
+      <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DOWNLOAD_URL</span><span class="p">,</span> <span class="n">file_name</span><span class="p">),</span> <span class="n">local_file_path</span><span class="p">)</span>
     <span class="n">file_stat</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">local_file_path</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">file_stat</span><span class="o">.</span><span class="n">st_size</span> <span class="o">==</span> <span class="n">expected_bytes</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Successfully downloaded the file&#39;</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
@@ -16702,7 +16708,8 @@ Sample data: [5234, 3081, 12, 6, 195, 2, 3134, 46, 59, 156]
     <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">name_scope</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">):</span>
         <span class="c1"># one_shot_iterator doesn&#39;t need to be initialized</span>
         <span class="n">iterator</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">make_one_shot_iterator</span><span class="p">()</span> 
-        <span class="n">center_words</span><span class="p">,</span> <span class="n">target_words</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="n">get_next</span><span class="p">()</span> <span class="c1"># get the input and output</span>
+        <span class="c1"># get the input and output</span>
+        <span class="n">center_words</span><span class="p">,</span> <span class="n">target_words</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="n">get_next</span><span class="p">()</span> 
     
     <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">name_scope</span><span class="p">(</span><span class="s1">&#39;embed&#39;</span><span class="p">):</span>
         <span class="n">embedding_matrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="s2">&quot;embedding_matrix&quot;</span><span class="p">,</span>
@@ -16741,7 +16748,6 @@ Sample data: [5234, 3081, 12, 6, 195, 2, 3134, 46, 59, 156]
         <span class="c1"># if that checkpoint exists, restore from checkpoint</span>
         <span class="k">if</span> <span class="n">ckpt</span> <span class="ow">and</span> <span class="n">ckpt</span><span class="o">.</span><span class="n">model_checkpoint_path</span><span class="p">:</span>
             <span class="n">saver</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">ckpt</span><span class="o">.</span><span class="n">model_checkpoint_path</span><span class="p">)</span>
-        
         <span class="c1"># we use this to calculate late average loss in the last SKIP_STEP steps</span>
         <span class="n">total_loss</span> <span class="o">=</span> <span class="mf">0.0</span> 
         <span class="n">writer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">FileWriter</span><span class="p">(</span><span class="n">graph_dir</span><span class="p">,</span> <span class="n">sess</span><span class="o">.</span><span class="n">graph</span><span class="p">)</span>
@@ -16752,9 +16758,11 @@ Sample data: [5234, 3081, 12, 6, 195, 2, 3134, 46, 59, 156]
                 <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">loss_batch</span>
                 <span class="k">if</span> <span class="n">index</span> <span class="o">%</span> <span class="n">skip_step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Average loss at step </span><span class="si">{}</span><span class="s1">: </span><span class="si">{:5.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">index</span><span class="p">,</span> <span class="n">total_loss</span><span class="o">/</span><span class="n">skip_step</span><span class="p">))</span>
+                        <span class="n">index</span><span class="p">,</span> <span class="n">total_loss</span> <span class="o">/</span> <span class="n">skip_step</span><span class="p">))</span>
                     <span class="n">total_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
-                    <span class="n">saver</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ckpt_dir</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">),</span> <span class="n">index</span><span class="p">)</span>
+                    <span class="n">saver</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">sess</span><span class="p">,</span>
+                               <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ckpt_dir</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">),</span>
+                               <span class="n">index</span><span class="p">)</span>
             <span class="k">except</span> <span class="n">tf</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">OutOfRangeError</span><span class="p">:</span>
                 <span class="k">pass</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -16772,8 +16780,7 @@ Sample data: [5234, 3081, 12, 6, 195, 2, 3134, 46, 59, 156]
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
 
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_generator</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span>
-                                         <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_generator</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span>
                                          <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">([</span><span class="n">batch_size</span><span class="p">]),</span>
                                           <span class="n">tf</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">([</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">])))</span>
 <span class="n">word2vec</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
@@ -16789,16 +16796,16 @@ Sample data: [5234, 3081, 12, 6, 195, 2, 3134, 46, 59, 156]
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Average loss at step 100: 234.9
-Average loss at step 200: 187.4
-Average loss at step 300: 162.8
-Average loss at step 400: 148.5
-Average loss at step 500: 142.2
-Average loss at step 600: 131.5
-Average loss at step 700: 122.0
-Average loss at step 800: 112.1
-Average loss at step 900: 111.5
-Average loss at step 1000: 104.3
+<pre>Average loss at step 100: 230.0
+Average loss at step 200: 186.2
+Average loss at step 300: 163.8
+Average loss at step 400: 152.0
+Average loss at step 500: 140.0
+Average loss at step 600: 126.4
+Average loss at step 700: 124.3
+Average loss at step 800: 113.0
+Average loss at step 900: 107.7
+Average loss at step 1000: 101.5
 </pre>
 </div>
 </div>
@@ -17155,6 +17162,19 @@ AFTq/wCp0eskqzMwNgAAAABJRU5ErkJggg==
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="n">g</span><span class="p">)</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
     <span class="c1">## just do it</span>
     <span class="k">pass</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
 </div>
