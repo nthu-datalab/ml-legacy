@@ -14960,7 +14960,6 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_VISIBLE_DEVICES&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;2&quot;</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 
 <span class="kn">import</span> <span class="nn">scipy</span>
@@ -15977,7 +15976,7 @@ INFO:tensorflow:Restoring parameters from ./checkpoint/g_model_4.ckpt
 <li>images content similarity: how much is generated image similar to text</li>
 <li>image standard deviation: how much diversity between generate images</li>
 </ul>
-<h3 id="1.-Run-evaluation-to-generate-socre.csv">1. Run evaluation to generate socre.csv<a class="anchor-link" href="#1.-Run-evaluation-to-generate-socre.csv">&#182;</a></h3><ol>
+<h3 id="1.-Run-evaluation-to-generate-score.csv">1. Run evaluation to generate score.csv<a class="anchor-link" href="#1.-Run-evaluation-to-generate-score.csv">&#182;</a></h3><ol>
 <li>first move into testing folder</li>
 <li>run <strong><code>python ./inception_score.py [argv1] [argv2]</code></strong><ul>
 <li>first argument: folder path where generated are</li>
@@ -15985,10 +15984,10 @@ INFO:tensorflow:Restoring parameters from ./checkpoint/g_model_4.ckpt
 </ul>
 </li>
 </ol>
-<p>For exmaple, run following comment</p>
-<p><strong><code>python ./inception_score.py ./generate_image_folder ./score_output_path/score.csv</code></strong></p>
+<p>For exmaple, run following comment
+    <strong><code>python ./inception_score.py ./generate_image_folder ./score_output_path/score.csv</code></strong></p>
 <h4 id="Note">Note<a class="anchor-link" href="#Note">&#182;</a></h4><p>The evaluation need to run on GPUs, please make sure the GPU resource is available.</p>
-<h3 id="2.-Submit">2. Submit<a class="anchor-link" href="#2.-Submit">&#182;</a></h3><p>Submit score.csv to <a href="https://www.kaggle.com/t/0e8f1e960b5e4a839ff77c5a58bfff43">DataLabCup: Text_to_Image</a></p>
+<h3 id="2.-Submit">2. Submit<a class="anchor-link" href="#2.-Submit">&#182;</a></h3><p>Submit score.csv to <a href="https://www.kaggle.com/t/0e8f1e960b5e4a839ff77c5a58bfff43">DataLabCup: Reverse Image Caption</a></p>
 
 </div>
 </div>
@@ -16022,14 +16021,14 @@ INFO:tensorflow:Restoring parameters from ./checkpoint/g_model_4.ckpt
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Precautions">Precautions<a class="anchor-link" href="#Precautions">&#182;</a></h2><h3 id="Timeline">Timeline<a class="anchor-link" href="#Timeline">&#182;</a></h3><ul>
-<li>12/4: Competition Start</li>
-<li>12/16: Competition End and Team Registration Closed</li>
-<li>12/18: Winner team share</li>
-<li>12/23: Deadline of report submit</li>
+<li>12/4(Tue.): Competition Start</li>
+<li>12/16(Sun.): Competition End and Team Registration Closed</li>
+<li>12/20(Thr.): Winner team share (Tentative)</li>
+<li>12/23(Sun.): Deadline of report submit</li>
 </ul>
 <h3 id="Scoring">Scoring<a class="anchor-link" href="#Scoring">&#182;</a></h3><ul>
 <li>50%: rank from competition <strong>private</strong> leaderboard<ul>
-<li>team name should be exactly matched with <a href="https://docs.google.com/spreadsheets/d/1XBBTVPU_LQS0WxF9BbwcJWKsML7qzIEGa_ROShcaq9I/edit?usp=sharing">google sheet</a></li>
+<li>team name should be exactly matched with <a href="https://docs.google.com/spreadsheets/d/1XBBTVPU_LQS0WxF9BbwcJWKsML7qzIEGa_ROShcaq9I/edit?usp=sharing">google sheet</a> or you will get zero in this part</li>
 </ul>
 </li>
 <li>50%: final report</li>
@@ -16046,6 +16045,7 @@ INFO:tensorflow:Restoring parameters from ./checkpoint/g_model_4.ckpt
 <li>Pre-training model on other dateset other than Oxford flower dataset.</li>
 <li>Re-use the data and model from previous competitions.</li>
 <li>Preprocess data by yourself. You need to strickly follow the data splitting as we announced and use captions from <code>text_c10</code> folder of downloaded data.</li>
+<li>Use any package under tensorflow. You <strong>cannot</strong> implement your model by <code>tensorlayer</code> api.</li>
 </ul>
 <h3 id="What-will-make-you-get-zero-in-the-competition">What will make you get zero in the competition<a class="anchor-link" href="#What-will-make-you-get-zero-in-the-competition">&#182;</a></h3><ul>
 <li>Use category labels from flower dataset in any part of model.</li>
