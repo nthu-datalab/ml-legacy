@@ -14549,7 +14549,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Q-Learning"><center>Q-Learning</center><a class="anchor-link" href="#Q-Learning">&#182;</a></h1><center>Shan-Hung Wu & DataLab</center>
-<center>Fall 2017</center>
+<center>Fall 2018</center>
 </div>
 </div>
 </div>
@@ -14597,7 +14597,7 @@ $$</p>
 $$V(S^{(t)})\leftarrow V(S^{(t)})+\eta[G^{(t)}-V(S^{(t)})]$$
 Replace $G_{t}$ by $R_{t+1}+\gamma V_{\pi}(S_{t+1})$, we get:
 $$V(S^{(t)})\leftarrow V(S^{(t)})+\eta[R^{(t+1)}+\gamma V_{\pi}(S^{(t+1)})-V(S^{(t)})]$$</p>
-<p>These can also be apply to action-value function:
+<p>These can also be applied to action-value function:
 $$
 \begin{align}
 Q_{\pi}(s,a)~ &= ~\mathbb{E}_{\pi, P}[G^{(t)}~|~S^{(t)}~=~s,~A^{(t)}=~a] \\
@@ -14610,7 +14610,7 @@ $$Q(S^{(t)},A^{(t)})\leftarrow Q(S^{(t)},A^{(t)})+\eta[R^{(t+1)}+\gamma Q(S^{(t+
 This becomes update rule of SARSA.
 <img src="img/sarsa.png" alt="SARSA"></p>
 <center>
-image come from <a href="http://ufal.mff.cuni.cz/~straka/courses/npfl114/2016/sutton-bookdraft2016sep.pdf">Reinforcement Learning: An Introduction</a>
+image come from <a href="http://incompleteideas.net/book/the-book-2nd.html">Reinforcement Learning: An Introduction</a>
 </center>
 </div>
 </div>
@@ -14625,7 +14625,7 @@ $$Q(S^{(t)},A^{(t)})\leftarrow Q(S^{(t)},A^{(t)})+\eta[R^{(t+1)}+\gamma ~maxQ(S'
 The difference is that SARSA use expectation of $Q$ value of next state to chase $Q_{\pi^{*}}$, while Q-learning use best $Q$ value of next state to chase $Q_{\pi^{*}}$. In fact, if policy of SARSA is greedy, it become Q-learning.
 <img src="img/q_learning.png" alt="q-learning"></p>
 <center>
-image come from <a href="http://ufal.mff.cuni.cz/~straka/courses/npfl114/2016/sutton-bookdraft2016sep.pdf">Reinforcement Learning: An Introduction</a>
+image come from <a href="http://incompleteideas.net/book/the-book-2nd.html">Reinforcement Learning: An Introduction</a>
 </center>
 </div>
 </div>
@@ -17323,8 +17323,8 @@ hBBCCCGEEELIIvL/AYEtfxIjpPDsAAAAAElFTkSuQmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>change update rule from Q-learning to SARSA and discuss the result.</li>
-<li>Submit notebook on iLMS (ex: Lab15-1_studentID.ipynb)</li>
-<li>deadline: 2018/1/4 23:59</li>
+<li>Submit notebook on iLMS (ex: Lab16-1_studentID.ipynb)</li>
+<li>deadline: 2018/12/13 23:59</li>
 </ul>
 
 </div>
