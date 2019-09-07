@@ -10,14 +10,22 @@ def plot_validation_history(his, fig_path):
     val_loss = his.history['val_loss']
 
     # visualize training history
-    plt.plot(range(1, len(train_loss) + 1), train_loss,
-             color='blue', label='Train loss')
-    plt.plot(range(1, len(val_loss) + 1), val_loss,
-             color='red', label='Val loss')
-    plt.legend(loc="upper right")
+    plt.plot(
+        range(1, len(train_loss) + 1),
+        train_loss, 
+        color = 'blue',
+        label = 'Train loss'
+    )
+    plt.plot(
+        range(1, len(val_loss) + 1),
+        val_loss,
+        color = 'red',
+        label = 'Val loss'
+    )
+    plt.legend(loc = "upper right")
     plt.xlabel('#Epoch')
     plt.ylabel('Loss')
-    plt.savefig(fig_path, dpi=300)
+    plt.savefig(fig_path, dpi = 300)
     plt.show()
 
 
@@ -36,25 +44,36 @@ def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
                            np.arange(x2_min, x2_max, resolution))
     Z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
     Z = Z.reshape(xx1.shape)
-    plt.contourf(xx1, xx2, Z, alpha=0.4, cmap=cmap)
+    plt.contourf(xx1, xx2, Z, alpha = 0.4, cmap = cmap)
     plt.xlim(xx1.min(), xx1.max())
     plt.ylim(xx2.min(), xx2.max())
 
     # plot class samples
     for idx, cl in enumerate(np.unique(y)):
-        plt.scatter(x=X[y == cl, 0], y=X[y == cl, 1],
-                    alpha=0.8, c=cmap(idx), linewidths=1,
-                    marker=markers[idx], label=cl, edgecolors='k')
+        plt.scatter(
+            x = X[y == cl, 0],
+            y = X[y == cl, 1],
+            alpha = 0.8,
+            c = [cmap(idx)],  # Prevents warning
+            linewidths = 1,
+            marker = markers[idx],
+            label = cl,
+            edgecolors = 'k'
+        )
 
     # highlight test samples
     if test_idx:
         # plot all samples
         X_test, y_test = X[test_idx, :], y[test_idx]
 
-        plt.scatter(X_test[:, 0],
-                    X_test[:, 1],
-                    c='',
-                    alpha=1.0,
-                    linewidths=1,
-                    marker='o',
-                    s=55, label='test set', edgecolors='k')
+        plt.scatter(
+            X_test[:, 0],
+            X_test[:, 1],
+            c = '',
+            alpha = 1.0,
+            linewidths = 1,
+            marker = 'o',
+            s = 55,
+            label = 'test set', 
+            edgecolors = 'k'
+        )
