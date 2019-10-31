@@ -15046,7 +15046,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this lab, we introduce two datasets, <strong>mnist</strong> and <strong>cifar</strong>, then we will talk about how to implement CNN models for these two datasets using tensorflow. The major difference between mnist and cifar is their size. Due to the limit of memory size and time issue, we offer a guide to illustrate typical <strong>input pipeline</strong> of tensorflow. Let's dive into tensorflow!</p>
+<p>In this lab, we introduce two datasets, <strong>MNIST</strong> and <strong>CIFAR</strong>, then we will talk about how to implement CNN models for these two datasets using tensorflow. The major difference between mnist and cifar is their size. Due to the limit of memory size and time issue, we offer a guide to illustrate typical <strong>input pipeline</strong> of tensorflow. Let's dive into tensorflow!</p>
 
 </div>
 </div>
@@ -16159,7 +16159,7 @@ Accuracy: 0.51
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>By above, SVM is slightly better than KNN, but still poor. Next, we'll design a CNN model using tensorflow.</p>
+<h3 id="CNN-on-CIFAR-10">CNN on CIFAR-10<a class="anchor-link" href="#CNN-on-CIFAR-10">&#182;</a></h3><p>By above, SVM is slightly better than KNN, but still poor. Next, we'll design a CNN model using tensorflow.</p>
 
 </div>
 </div>
@@ -16566,7 +16566,7 @@ End of epoch: 2, Batch size of this epoch: 7
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <strong>Dataset</strong> object is a Python iterable. This makes it possible to consume its elements using a for loop:</p>
+<h4 id="Consume-elements">Consume elements<a class="anchor-link" href="#Consume-elements">&#182;</a></h4><p>The <strong>Dataset</strong> object is a Python iterable. This makes it possible to consume its elements using a for loop:</p>
 
 </div>
 </div>
@@ -17869,21 +17869,22 @@ Deprecated in favor of operator or tf.math.divide.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Assignment"><center>Assignment</center><a class="anchor-link" href="#Assignment">&#182;</a></h1><p>In this assignment, you have to implement the input pipeline of the CNN model and try to write/read tfrecord with the <strong>Oregon Wildlife</strong> dataset.</p>
-<p>We provide you with the complete code for the image classification task of the CNN model, but remove the part of the input pipeline. What you need to do is completing this part and train the model for at least 5 epochs.</p>
+<p>We provide you with the complete code for the image classification task of the CNN model, but remove the part of the input pipeline. What you need to do is completing this part and training the model for at least 5 epochs.</p>
 <h3 id="Description-of-Dataset:">Description of Dataset:<a class="anchor-link" href="#Description-of-Dataset:">&#182;</a></h3><ol>
 <li>The raw data is from <a href="https://www.kaggle.com/virtualdvid/oregon-wildlife">kaggle</a>, which consists of 20 class images of wildlife.</li>
 <li>We have filtered the raw data. You need to download the filtered images from <a href="https://drive.google.com/open?id=1HIm8pgiVZKztnMcwmSi3RciFKUBEv2ek">here</a> and use them to complete the image classification task.</li>
 <li>In the dataset we prepared for you, there are nearly 7,200 images, which contain 10 kinds of wildlife.</li>
 </ol>
 <p>The sample image is shown below:</p>
-<center><img style='width: 50%, height=50%' height="350" width="350" src='./imgsrc/red_fox.png' /></center><h3 id="Requirement:">Requirement:<a class="anchor-link" href="#Requirement:">&#182;</a></h3><ul>
-<li>write the training/testing datasets to tfrecord files.</li>
-<li>read data from tfrecord files and preprocess them.</li>
-<li>After finishing the input pipeline part mentioned above, you have to train the model for at least 5 epochs.</li>
+<center><img style='width: 50%, height=50%' height="350" width="350" src='./imgsrc/red_fox.png' /></center>
+<center> red_fox </center><h3 id="Requirement:">Requirement:<a class="anchor-link" href="#Requirement:">&#182;</a></h3><ul>
+<li>Write the training/testing datasets to tfrecord files.</li>
+<li>Read data from tfrecord files and preprocess them.</li>
+<li>After finishing the input pipeline mentioned above, you have to train the model for at least 5 epochs.</li>
 </ul>
 <h3 id="Notification:">Notification:<a class="anchor-link" href="#Notification:">&#182;</a></h3><ul>
 <li>Submit to iLMS with your ipynb (Lab12-1_{student_id}.ipynb)</li>
-<li>The deadline will be <strong>2019/11/07(Thur) 23:59</strong></li>
+<li>Deadline: 2019-11-07(Thur) 23:59</li>
 </ul>
 
 </div>
@@ -18114,7 +18115,7 @@ height=200
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get the mapping dic</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get the mapping dict</span>
 <span class="n">label_to_index</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">label_names</span><span class="p">))</span>
 <span class="n">index_to_label</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span><span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">label_names</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">label_to_index</span><span class="p">)</span>
