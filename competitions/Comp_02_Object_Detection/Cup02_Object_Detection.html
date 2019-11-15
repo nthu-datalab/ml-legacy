@@ -16348,7 +16348,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Competition-Info">Competition Info<a class="anchor-link" href="#Competition-Info">&#182;</a></h1><p>In this competition, you have to train a model that recognizes objects in an image. Your goal is to output bounding boxes for objects.</p>
-<h2 id="Problem-description">Problem description<a class="anchor-link" href="#Problem-description">&#182;</a></h2><p>Given an image(shape = [undefined, undefined, 3]), you need to output bounding box ($x_{min}$, $y_{min}$, $x_{max}$, $y_{max}$, class_label, confidence_score) for objects showed in image and its class.(<a href="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/object_localization_and_detection.html">picture source</a>)
+<h2 id="Platform:-Kaggle">Platform: <a href="https://www.kaggle.com/t/29cbd1fdda1048729cef92c4b3a4dcf9">Kaggle</a><a class="anchor-link" href="#Platform:-Kaggle">&#182;</a></h2><h2 id="Problem-description">Problem description<a class="anchor-link" href="#Problem-description">&#182;</a></h2><p>Given an image(shape = [undefined, undefined, 3]), you need to output bounding box ($x_{min}$, $y_{min}$, $x_{max}$, $y_{max}$, class_label, confidence_score) for objects showed in image and its class.(<a href="https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/object_localization_and_detection.html">picture source</a>)
 <img src = 'https://leonardoaraujosantos.gitbooks.io/artificial-inteligence/content/more_images/LocalizationDetection.png'></p>
 
 </div>
@@ -16357,7 +16357,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Data-provided">Data provided<a class="anchor-link" href="#Data-provided">&#182;</a></h2><h3 id="Dataset:-PASCAL-VOC2007">Dataset: <a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/">PASCAL VOC2007</a><a class="anchor-link" href="#Dataset:-PASCAL-VOC2007">&#182;</a></h3><p>The dataset contains 20 classes. The train/val data has 5012  images containing 12608 annotated objects. We have preprocessed training dataset(5012 images) and testing dataset(4953 images) for you. You can download them on kaggle.</p>
+<h2 id="Data-provided">Data provided<a class="anchor-link" href="#Data-provided">&#182;</a></h2><h3 id="Dataset:-PASCAL-VOC2007">Dataset: <a href="http://host.robots.ox.ac.uk/pascal/VOC/voc2007/">PASCAL VOC2007</a><a class="anchor-link" href="#Dataset:-PASCAL-VOC2007">&#182;</a></h3><p>The dataset contains 20 classes. The train/val data has 5012  images containing 12608 annotated objects. We have preprocessed training dataset(5012 images) and testing dataset(4953 images) for you. You can download them on Kaggle.</p>
 
 </div>
 </div>
@@ -17531,7 +17531,7 @@ Saved checkpoint for epoch 3: ./ckpts/YOLO/yolo-3
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Run-Evaluation-Metric">Run Evaluation Metric<a class="anchor-link" href="#Run-Evaluation-Metric">&#182;</a></h3><p>Finally, you can use following example code to run the evaluation program we provide and output the csv file. Please submit the csv file onto <a href="https://www.kaggle.com/t/858d2036161f4be8a18ee010bc7f7aab">Kaggle</a></p>
+<h3 id="Run-Evaluation-Metric">Run Evaluation Metric<a class="anchor-link" href="#Run-Evaluation-Metric">&#182;</a></h3><p>Finally, you can use following example code to run the evaluation program we provide and output the csv file. Please submit the csv file onto Kaggle.</p>
 <p>The evaluation program calculates <a href="https://github.com/Cartucho/mAP">mean Average Precision(mAP)</a> of your output boxes. It will first sort your prediction by your confidence score, and get the Precision/Recall curve:
 <img src="https://user-images.githubusercontent.com/15831541/43008995-64dd53ce-8c34-11e8-8a2c-4567b1311910.png" > (img source:<a href="https://github.com/Cartucho/mAP">github</a>)</p>
 <p>Then the area under this curve is the mAP of this class.</p>
@@ -17651,8 +17651,8 @@ Saved checkpoint for epoch 3: ./ckpts/YOLO/yolo-3
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can see, the result of current model needs some improvements. After training, your model shall have at least the capability to output prediction like this:</p>
-<p><img src="./img_src/demo_train.png" align="left"></p>
+<p>As you can see, the result of current model needs some improvements. After training, your model shall have at least the capability to output prediction like this:
+<img src="./img_src/demo_train.png" align="left"></p>
 
 </div>
 </div>
@@ -17707,7 +17707,7 @@ Faster-RCNN consists of two modules.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Precautions">Precautions<a class="anchor-link" href="#Precautions">&#182;</a></h1><h2 id="Scoring-and-Report">Scoring and Report<a class="anchor-link" href="#Scoring-and-Report">&#182;</a></h2><p>Your score will be part of the final private result on kaggle and part of your report.</p>
+<h1 id="Precautions">Precautions<a class="anchor-link" href="#Precautions">&#182;</a></h1><h2 id="Scoring-and-Report">Scoring and Report<a class="anchor-link" href="#Scoring-and-Report">&#182;</a></h2><p>Your score will be part of the final private result on Kaggle and part of your report.</p>
 <p>Your report(.ipynb file) should have:</p>
 <ul>
 <li>Your code</li>
@@ -17719,7 +17719,7 @@ Faster-RCNN consists of two modules.</p>
 <li>Load pretrained object detection model weights directly from other sources.</li>
 <li>Clone other's project from github(You should implement by yourself).</li>
 <li>Plagiarize other team's code.(You'll both get 0 point if we find it)</li>
-<li>Pretrain your network on other version of <b>pascal voc</b> dataset(you can only use the pascal data we provided on kaggle).</li>
+<li>Pretrain your network on other version of <b>pascal voc</b> dataset(you can only use the pascal data we provided on Kaggle).</li>
 <li>Use the testing groundtruth to generate your output.</li>
 </ul>
 <h2 id="What-you-can-do">What you can do<a class="anchor-link" href="#What-you-can-do">&#182;</a></h2><ul>
