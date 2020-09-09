@@ -1,0 +1,24 @@
+digraph Tree {
+node [shape=box] ;
+0 [label="Flavanoids <= 1.575\nentropy = 1.571\nsamples = 124\nvalue = [40, 49, 35]"] ;
+1 [label="Color intensity <= 3.825\nentropy = 0.731\nsamples = 44\nvalue = [0, 9, 35]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="entropy = 0.0\nsamples = 9\nvalue = [0, 9, 0]"] ;
+1 -> 2 ;
+3 [label="entropy = 0.0\nsamples = 35\nvalue = [0, 0, 35]"] ;
+1 -> 3 ;
+4 [label="Proline <= 755.0\nentropy = 1.0\nsamples = 80\nvalue = [40, 40, 0]"] ;
+0 -> 4 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+5 [label="Malic acid <= 3.925\nentropy = 0.172\nsamples = 39\nvalue = [1, 38, 0]"] ;
+4 -> 5 ;
+6 [label="entropy = 0.0\nsamples = 36\nvalue = [0, 36, 0]"] ;
+5 -> 6 ;
+7 [label="entropy = 0.918\nsamples = 3\nvalue = [1, 2, 0]"] ;
+5 -> 7 ;
+8 [label="Color intensity <= 3.465\nentropy = 0.281\nsamples = 41\nvalue = [39, 2, 0]"] ;
+4 -> 8 ;
+9 [label="entropy = 0.0\nsamples = 2\nvalue = [0, 2, 0]"] ;
+8 -> 9 ;
+10 [label="entropy = 0.0\nsamples = 39\nvalue = [39, 0, 0]"] ;
+8 -> 10 ;
+}
